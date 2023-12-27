@@ -8,9 +8,11 @@ export default {
     extend: {
       colors: {
         "white": "#FFFFFF",
+        "salat-5": "#cada97",
         "salat-10": "#BFD087",
         "salat-30": "#7DA00C",
         "salat-50": "#688800",
+        "red-100": "#880019",
 
         "italian-10": "#8BDFB4",
         "italian-50": "#009246",
@@ -29,9 +31,11 @@ export default {
 
         amaticSC: ["Amatic SC", "sans-serif"],
         roboto: ["Roboto", "sans-serif"],
+        messiri: [" El Messiri", "sans-serif"]
       },
       content: {
-        evolvetext: "url('.assets/react.svg')",
+        herbs: "url('.assets/herbs@1x.png')",
+        olives: "url('.assets/olives@1x.png')",
       }
     },
     screens:  {
