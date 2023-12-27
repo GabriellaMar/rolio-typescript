@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react";
-import { Bars4Icon, XMarkIcon } from "@heroicons/react/24/solid";
+// import { useState, useEffect } from "react";
+// import { Bars4Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import Logo from "@/assets/logo.png";
 
-type Props = {
+// type Props = {
 
-}
+// }
 
-export const NavBar = (props: Props) => {
+export const NavBar = () => {
     const flexBetween = "flex items-center justify-between"
     return (
         <nav>
