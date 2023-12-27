@@ -6,7 +6,7 @@ function App() {
 
   return (
     <div className='app bg-salat-10'>
-     APP
+   gjgjgjgjgjgjgjgjgjgjgjgj
       <NavBar /> 
     </div>
   )
