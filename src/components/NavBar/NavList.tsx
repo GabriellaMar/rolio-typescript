@@ -14,7 +14,7 @@ export const NavList = ({ selectedPage, setSelectedPage }: Props) => {
 
   return (
     // <ul className={`${flexBetween} gap-8 text-sm  mx-20 font-messiri inline-block text-salat-50 `}>
-         <ul className={isAboveMediumScreens ? `${flexBetween} gap-8 text-sm mx-20 font-messiri text-salat-50` : 'flex flex-col gap-4 text-sm font-messiri text-salat-50'}>
+         <ul className={isAboveMediumScreens ? `${flexBetween} gap-8 text-sm mx-20 font-messiri text-salat-50` : 'flex flex-col items-center gap-4 text-sm font-messiri text-salat-50'}>
     <li>
         <Link page='Масло'
             selectedPage={selectedPage}

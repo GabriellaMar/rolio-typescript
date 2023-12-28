@@ -11,6 +11,7 @@ export default {
         "salat-5": "#cada97",
         "salat-10": "#BFD087",
         "salat-30": "#7DA00C",
+        "salat-40": "##546B06",
         "salat-50": "#688800",
         "red-100": "#880019",
 
@@ -45,5 +46,6 @@ export default {
     }
   },
   plugins: [],
+ 
 }
 

@@ -6,4 +6,11 @@ export enum SelectedPage {
     Contacts = 'контакти'
   
   }
+
+  // export enum SelectedProduct {
+  //   ForSalat = 'длясалату',
+  //   Italian = 'італійське',
+  //   ForMeat = 'длямяса',
+  //   Eastern = 'східне',
+  // }
   
