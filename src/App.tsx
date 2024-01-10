@@ -8,8 +8,9 @@ import productsData from '@/products.json'
 
 type Product = {
   id: string,
-  title: string;
-  description: string;
+  title: string,
+  img: string,
+  description: string,
   details: string;
   price: number;
 };

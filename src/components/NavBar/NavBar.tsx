@@ -40,7 +40,7 @@ export const NavBar = ({  selectedPage, setSelectedPage }: Props) => {
               
             {/* Mobile MENU */}
             {!isAboveMediumScreens && isMenuToggled && (
-                <div className="fixed right-0 bottom-0 z-40 h-full w-[300px] bg-salat-5 drop-shadow-xl px-[15px] py-16 pl-8">
+                <div className="fixed right-0 bottom-0 z-100 h-full w-[300px] bg-salat-5 drop-shadow-xl px-[15px] py-16 pl-8">
                     <button
                         className="absolute top-5 right-5"
                         onClick={() => setIsMenuToggled(!isMenuToggled)}>

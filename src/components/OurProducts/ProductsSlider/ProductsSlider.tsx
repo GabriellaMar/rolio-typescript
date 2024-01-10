@@ -24,20 +24,20 @@ type Props = {
 export const ProductsSlider = ({ products }: Props) => {
     const [current, setCurrent] = useState<number>(0);
 
-    const handlePreviousSlide =(): void=>{
-        setCurrent((prevIndex) => 
-        prevIndex > 0 ? prevIndex - 1 : products.length - 1
-    );
+    const handlePreviousSlide = (): void => {
+        setCurrent((prevIndex) =>
+            prevIndex > 0 ? prevIndex - 1 : products.length - 1
+        );
         // if(current === 0) {
         // setCurrent(products.length-1)
         // } else {
         // setCurrent(current -1)
         // }
     }
-    const handleNextSlide = ()=>{
-        setCurrent((prevIndex) => 
-        prevIndex < products.length - 1 ? prevIndex + 1 : 0
-    );
+    const handleNextSlide = () => {
+        setCurrent((prevIndex) =>
+            prevIndex < products.length - 1 ? prevIndex + 1 : 0
+        );
         // if(current === products.length-1) {
         //     setCurrent(0)
         //     } else {
@@ -45,15 +45,15 @@ export const ProductsSlider = ({ products }: Props) => {
         //     }
     }
     return (
-        <div className="overflow-hidden relative border border-red-100">
-            <ul className={`flex transition ease-out duration-400 `}
-            style={{
-                transform: `translateX(-${current *100}%)`,
-            }}>
+        <div className=" relative border border-red-100">
+            <ul className={`flex transition ease-out duration-400 w-full`}
+                style={{
+                    transform: `translateX(-${current * 100}%)`,
+                }}>
                 {products.map((product) => (
-                    <li key={product.id} className=" border border-orange-50">
-                        <div className="flex gap-4 ">
-                            <img alt="oil image" src={product.img} className="w-[423px]" />
+                    <li key={product.id} className=" border border-orange-50  ">
+                        <div className="flex gap-16">
+                            <img alt="oil image" src={product.img} className="w-[393px]" />
                             <div>
                                 <h2>Масло {product.title}</h2>
                                 <p>{product.description}</p>
