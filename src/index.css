@@ -14,7 +14,7 @@ body,
 }
 
 .common-product-style {
-  @apply text-salat-10 border px-4 py-2 min-w-[143px] text-center font-normal text-lg;
+  @apply text-salat-10 border px-4 py-2 min-w-[143px] text-center font-normal text-lg ;
 
   /* &:hover {
     @apply bg-salat-10 text-salat-50 ;
@@ -23,6 +23,12 @@ body,
 link {
   text-decoration: none;
   background-color: #cada97;
+}
+
+.hover-gradient:hover {
+  background: linear-gradient(to right,  #97C20B, #536614);
+  border: none;
+  color: white;
 }
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;

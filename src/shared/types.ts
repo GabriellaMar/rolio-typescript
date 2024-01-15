@@ -7,10 +7,10 @@ export enum SelectedPage {
   
   }
 
-  // export enum SelectedProduct {
-  //   ForSalat = 'длясалату',
-  //   Italian = 'італійське',
-  //   ForMeat = 'длямяса',
-  //   Eastern = 'східне',
-  // }
+  export enum ProductCategory {
+    ForSalat = 'длясалату',
+    Italian = 'італійське',
+    ForMeat = 'длямяса',
+    Eastern = 'східне',
+  }
   

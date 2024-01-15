@@ -1,18 +1,20 @@
 
 // import { NavBar } from "@/components/NavBar/NavBar.tsx"
 import { useEffect, useState } from "react"
-import { SelectedPage } from "@/shared/types"
+import {  SelectedPage } from "@/shared/types"
 import { Header } from "./components/Header/Header"
-import { OurProducts } from "./components/OurProducts/OurProducts"
+import { Offers } from "./components/Offers/Offers"
 import productsData from '@/products.json'
+import { Products } from "./components/Products"
 
 type Product = {
   id: string,
   title: string,
   img: string,
   description: string,
-  details: string;
-  price: number;
+  details: string,
+  price?: number,
+  // category: ProductCategory,
 };
 
 
@@ -41,7 +43,8 @@ function App() {
         setSelectedPage={setSelectedPage}
         isTopOfPage={isTopOfPage}
       />
-      <OurProducts products={products} />
+      <Offers products={products} />
+      <Products products={products} />
     </div>
   )
 }
