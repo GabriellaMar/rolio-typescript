@@ -13,6 +13,8 @@ export default {
         "salat-30": "#7DA00C",
         "salat-40": "##546B06",
         "salat-50": "#688800",
+        "salat-100": "#97C20B",
+        "salat-200": "#536614",
         "red-100": "#880019",
         "grey-10": "#949494",
 
@@ -20,10 +22,18 @@ export default {
         "italian-50": "#009246",
         "meet-10": "#E8847E",
         "meet-50": "#D73A31",
+        "meet-100": "#E84239",
+        "meet-200": "#99160E",
         "orange-10": "#F4B979",
         "orange-50": "#E67F10",
+        "orange-100": "#FF9D34",
+        "orange-200": "#BA6400",
         "text-color": "#4A4A4A",
-        "gradient-yellowred": "linear-gradient(90deg, #FF616A 0%, #FFC837 100%)",
+        "green-700": "#8bdfb450",
+        "green-800": "#0092470f",
+        "italian-100": "#00DB69",
+        "italian-200": "#076534",
+      
       },
    
 
@@ -44,6 +54,9 @@ export default {
         }],
         'xxs': ['10px', {
           lineHeight: '11px',
+        }],
+        's': ['14px', {
+          lineHeight: '32px',
         }],
 
       },

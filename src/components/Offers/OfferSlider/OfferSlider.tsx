@@ -4,7 +4,8 @@ import { ProductCounter } from "@/components/ProductCounter/ProductCounter";
 import { useState } from "react";
 import { SlArrowRight } from "react-icons/sl";
 import { SlArrowLeft } from "react-icons/sl";
-import { getBorderColor } from "@/services/services"
+// import { getBorderColor } from "@/services/services"
+import { Buttons } from "@/components/Buttons";
 // import { PlusIcon, MinusIcon } from "@heroicons/react/16/solid";
 
 // import { ProductCategory } from "@/shared/types";
@@ -93,10 +94,12 @@ export const OfferSlider = ({ products }: Props) => {
                                 <h2 className="font-amaticSC font-normal text-4xl sm:text-5xl md:text-[64px] text-text-color ">Масло "{product.title}"</h2>
                                 <p className="font-roboto font-light text-base sm:text-lg  text-text-color ">{product.description}</p>
                                 {delails &&  <p className="font-roboto font-light text-base sm:text-lg  text-text-color ">{product.details}</p>}
-                                <ProductCounter title={product.title}/>
+                                <ProductCounter title={product.title} marginTop={8} position=''/>
                                 <div className="flex flex-col  gap-4 sm:gap-10 sm:flex-row mt-8">
-                                    <button type="button" className={` border border-${getBorderColor(product.title)}  rounded-[50px]  px-12 py-2  min-w-full sm:min-w-[200px] text-${getBorderColor(product.title)} uppercase hover-gradient`} onClick={showDetails}>Детальніше</button>
-                                    <button type="button" className={` border border-${getBorderColor(product.title)}  rounded-[50px]  px-12 py-2  min-w-full sm:min-w-[200px] text-${getBorderColor(product.title)} uppercase hover-gradient`}>В кошик</button>
+                                <Buttons title={product.title} text="Детальніше" size={200}  onClick={showDetails}/>
+                                <Buttons title={product.title} text="В корзину" size={200}  padding={2}/>
+                                    {/* <button type="button" className={` border border-${getBorderColor(product.title)}  rounded-[50px]  px-12 py-2  min-w-full sm:min-w-[200px] text-${getBorderColor(product.title)} uppercase hover-gradient`} onClick={showDetails}>Детальніше</button>
+                                    <button type="button" className={` border border-${getBorderColor(product.title)}  rounded-[50px]  px-12 py-2  min-w-full sm:min-w-[200px] text-${getBorderColor(product.title)} uppercase hover-gradient`}>В кошик</button> */}
                                 </div>
                             </div>
                         </div>

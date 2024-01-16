@@ -4,10 +4,12 @@ import { getBorderColor } from '@/services/services';
 
 type CounterProps = {
     title: string,
+    marginTop: number,
+    position: string,
 };
 
 
-export const ProductCounter = ({title}: CounterProps) => {
+export const ProductCounter = ({title, marginTop, position}: CounterProps) => {
     const [increment, setIncrement] = useState<number>(0);
 
     const addProduct = (): void => {
@@ -21,7 +23,7 @@ export const ProductCounter = ({title}: CounterProps) => {
     };
 
     return (
-        <div className="flex gap-[25px] items-center mt-8">
+        <div className={`flex gap-[25px] items-center mt-${marginTop} ${position || ''}`}>
             <button className="border p-2 sm:p-3 rounded-lg border-grey-10 cursor-pointer" onClick={subtractProduct}>
                 <MinusIcon className="w-4 text-text-color" />
             </button>
