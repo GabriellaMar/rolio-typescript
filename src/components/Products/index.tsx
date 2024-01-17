@@ -1,5 +1,5 @@
 import { Product } from "./Product";
-// import { ProductTitle } from "@/shared/types";
+
 
 
 type Product = {
@@ -19,7 +19,7 @@ type Props = {
 
 export const Products = ({ products }: Props) => {
   return (
-    <section className="pt-20">
+    <section id='масло' className="pt-20 pb-6 px-5 sm:px-10 md:px-[50px]">
            <h2 className=" font-amaticSC font-normal text-4xl text-text-color md:font-bold text-center">Масло</h2> 
            <ul className="sm:flex  items-center gap-[30px] text-center xs:mt-4 sm:mt-6 md:mt-8">
            {products.map((product)=>

@@ -2,10 +2,11 @@
 // import { NavBar } from "@/components/NavBar/NavBar.tsx"
 import { useEffect, useState } from "react"
 import {  SelectedPage } from "@/shared/types"
-import { Header } from "./components/Header/Header"
-import { Offers } from "./components/Offers/Offers"
+import { Header } from "@/components/Header/Header"
+import { Offers } from "@/components/Offers/Offers"
 import productsData from '@/products.json'
-import { Products } from "./components/Products"
+import { Products } from "@/components/Products/index"
+import { AboutUs } from "@/components/AboutUs/index"
 
 type Product = {
   id: string,
@@ -45,6 +46,8 @@ function App() {
       />
       <Offers products={products} />
       <Products products={products} />
+      <AboutUs selectedPage={selectedPage}
+        setSelectedPage={setSelectedPage}/>
     </div>
   )
 }

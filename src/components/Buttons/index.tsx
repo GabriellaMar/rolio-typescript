@@ -1,5 +1,5 @@
-import { getBorderColor } from '@/services/services'
-import { ProductColor } from '@/shared/types';
+import { getBorderColor, getTextColor } from '@/services/services'
+import { ProductColor} from '@/shared/types';
 
 
 type Props = {
@@ -8,8 +8,8 @@ type Props = {
     size: number,
     padding?: number,
     onClick?: () => void,
-    onMouseLeave: () => void,
-    onMouseEnter: () => void,
+    onMouseLeave?: () => void,
+    onMouseEnter?: () => void,
 
 
 }
@@ -18,16 +18,15 @@ type Props = {
 
 export const Buttons = ({ text, size, title, padding, onClick, onMouseEnter, onMouseLeave}: Props) => {
 
-    const productColor = ProductColor[title] || 'gray';
+    const productColor = ProductColor[title as keyof typeof ProductColor] || 'gray';
     return (
         <>
             <button
                 type="button"
-                className={` border border-${getBorderColor(title)}  rounded-[50px]  px-12  py-${padding} min-w-full sm:min-w-[${size}px] text-${getBorderColor(title)} uppercase hover-gradient hover:bg-gradient-to-r ${productColor} `}
+                className={` border ${getBorderColor(title)}  rounded-[50px]  px-12  py-${padding} min-w-full sm:min-w-[${size}px] ${getTextColor(title)} uppercase hover-gradient hover:bg-gradient-to-r ${productColor} `}
                 onClick={onClick}
                 onMouseEnter={onMouseEnter}
                 onMouseLeave={onMouseLeave}
-
             >
                 {text}
 

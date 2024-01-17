@@ -15,6 +15,7 @@ export default {
         "salat-50": "#688800",
         "salat-100": "#97C20B",
         "salat-200": "#536614",
+        "salat-500": "#5366148e",
         "red-100": "#880019",
         "grey-10": "#949494",
 
@@ -24,15 +25,18 @@ export default {
         "meet-50": "#D73A31",
         "meet-100": "#E84239",
         "meet-200": "#99160E",
+        "meet-500": "#99150e8e",
         "orange-10": "#F4B979",
         "orange-50": "#E67F10",
         "orange-100": "#FF9D34",
         "orange-200": "#BA6400",
+        "orange-500": "#ff9d349b",
         "text-color": "#4A4A4A",
         "green-700": "#8bdfb450",
         "green-800": "#0092470f",
         "italian-100": "#00DB69",
         "italian-200": "#076534",
+        "italian-500": "#07653488",
       
       },
    
@@ -55,10 +59,15 @@ export default {
         'xxs': ['10px', {
           lineHeight: '11px',
         }],
+        'xs': ['12px', {
+          lineHeight: '20px',
+        }],
         's': ['14px', {
           lineHeight: '32px',
         }],
-
+        '2xm': ['16px', {
+          lineHeight: '32px',
+        }],
       },
       content: {
         herbs: "url('.assets/herbs@1x.png')",

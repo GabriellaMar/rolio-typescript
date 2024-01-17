@@ -50,7 +50,8 @@ export const NavBar = ({  selectedPage, setSelectedPage }: Props) => {
 
                     <NavList
                         selectedPage={selectedPage}
-                        setSelectedPage={setSelectedPage} />
+                        setSelectedPage={setSelectedPage}
+                        />
                 </div>
             )}
           </nav>

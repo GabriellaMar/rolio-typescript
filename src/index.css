@@ -28,7 +28,9 @@ link {
 
 .hover-gradient:hover {
   background: linear-gradient(to right,  #97C20B, #536614);
-  /* background: linear-gradient(to right,  #8bdfb450, #0092470f); */
+  /* background: linear-gradient(to right,  #8bdfb450, #0092470f); 
+  */
+ 
   border: none;
   color: white;
   transition: transform 0.3s ease;
