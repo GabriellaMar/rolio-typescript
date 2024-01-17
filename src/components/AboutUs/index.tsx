@@ -6,13 +6,13 @@ import useMediaQuery from '@/hooks/useMediaQuery';
 // import { motion } from "framer-motion";
 
 
-type Props = {
-    selectedPage: SelectedPage,
-    setSelectedPage: (value: SelectedPage) => void;
+// type Props = {
+//     // selectedPage: SelectedPage,
+//     // setSelectedPage: (value: SelectedPage) => void;
 
-}
+// }
 
-export const AboutUs = ({ selectedPage, setSelectedPage }: Props) => {
+export const AboutUs = () => {
     const isAboveSmallScreens = useMediaQuery("(min-width: 768px)");
     const flexCenter = 'justify-center items-center'
 
