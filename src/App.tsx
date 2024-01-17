@@ -46,8 +46,10 @@ function App() {
       />
       <Offers products={products} />
       <Products products={products} />
-      <AboutUs selectedPage={selectedPage}
-        setSelectedPage={setSelectedPage}/>
+      <AboutUs 
+      // selectedPage={selectedPage}
+      //   setSelectedPage={setSelectedPage}
+        />
     </div>
   )
 }
