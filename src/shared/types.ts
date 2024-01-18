@@ -2,7 +2,7 @@ export enum SelectedPage {
     Oil = 'масло',
     AboutUs = 'пронас',
     Reviews = 'відгуки',
-    Delivery = 'Доставкатаоплата',
+    Delivery = 'доставкатаоплата',
     Contacts = 'контакти'
   
   }

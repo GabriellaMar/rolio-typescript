@@ -18,7 +18,7 @@ type Props = {
 
 export const Buttons = ({ text, size, title, padding, onClick, onMouseEnter, onMouseLeave}: Props) => {
 
-    const productColor = ProductColor[title as keyof typeof ProductColor] || 'gray';
+    const productColor = ProductColor[title as keyof typeof ProductColor] || '';
     return (
         <>
             <button

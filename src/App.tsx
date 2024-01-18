@@ -9,6 +9,7 @@ import { Products } from "@/components/Products/index"
 import { AboutUs } from "@/components/AboutUs/index"
 import { Reviews } from "./components/Reviews"
 import { Delivery } from "./components/Delivery"
+import { Contacts } from "./components/Contacts"
 
 type Product = {
   id: string,
@@ -54,6 +55,7 @@ function App() {
         />
         <Reviews />
         < Delivery />
+        <Contacts />
     </div>
   )
 }

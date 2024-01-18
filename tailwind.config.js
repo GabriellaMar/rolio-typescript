@@ -13,6 +13,7 @@ export default {
         "salat-30": "#7DA00C",
         "salat-40": "##546B06",
         "salat-50": "#688800",
+        "salat-60": "#EDF4D2",
         "salat-100": "#97C20B",
         "salat-200": "#536614",
         "salat-500": "#5366148e",
@@ -56,11 +57,20 @@ export default {
         '1xl': ['22px', {
           lineHeight: '27px',
         }],
+        '4xl':  ['32px', {
+          lineHeight: '40px',
+        }],
+        '5xl':  ['40px', {
+          lineHeight: '50px',
+        }],
         'xxs': ['10px', {
           lineHeight: '11px',
         }],
         'xs': ['12px', {
           lineHeight: '20px',
+        }],
+        '2xs': ['12px', {
+          lineHeight: '14px',
         }],
         's': ['14px', {
           lineHeight: '32px',
@@ -68,11 +78,16 @@ export default {
         '2xm': ['16px', {
           lineHeight: '32px',
         }],
+        '2m': ['16px', {
+          lineHeight: '18px',
+        }],
       },
       content: {
-        herbs: "url('.assets/herbs@1x.png')",
-        olives: "url('.assets/olives@1x.png')",
-      }
+        herbs: "url('./assets/herbs.png')",
+        olives: "url('./assets/olives.png')",
+        bigOlives: "url('./assets/olivesBig.png')",
+        bigHerbs: "url('./assets/bigHerbs.png')"
+      },
     },
     screens:  {
       xs: '320px',
