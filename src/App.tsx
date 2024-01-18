@@ -7,6 +7,8 @@ import { Offers } from "@/components/Offers/Offers"
 import productsData from '@/products.json'
 import { Products } from "@/components/Products/index"
 import { AboutUs } from "@/components/AboutUs/index"
+import { Reviews } from "./components/Reviews"
+import { Delivery } from "./components/Delivery"
 
 type Product = {
   id: string,
@@ -50,6 +52,8 @@ function App() {
       // selectedPage={selectedPage}
       //   setSelectedPage={setSelectedPage}
         />
+        <Reviews />
+        < Delivery />
     </div>
   )
 }

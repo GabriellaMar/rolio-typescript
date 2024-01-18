@@ -35,7 +35,7 @@ export const Product = ({ id, details, title, description, img, price }: Props) 
   // const backgroundColor = gradientColor[title as ProductTitle] || 'gray';
 
   return (
-    <li key={id} className=" px-4 pb-6 w-[244px] m-auto">
+    <li key={id} className=" m-auto xs:w-[280px] sm:w-[329px]  md:w-[250px] text-center border">
       <div className="relative w-[174px] h-[174px] m-auto">
         {isHovered ? (
 
@@ -59,7 +59,7 @@ export const Product = ({ id, details, title, description, img, price }: Props) 
         btnSize={6} fontSize="2xm"
       />
       <p className="font-light text-s text-text-color mt-4 ">250мл <span className={`inline-block font-medium text-2xl ${getTextColor(title)} ml-6`}>{`${price} грн`}</span></p>
-      <div className="flex flex-col gap-4 mt-8 text-s">
+      <div className="flex flex-col gap-4 mt-6 text-s">
         <Buttons title={title} text="В корзину" size={248} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} />
         <Buttons title={title} text="Замовити в ТГ" size={248} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} />
       </div>

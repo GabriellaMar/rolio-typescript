@@ -1,7 +1,9 @@
-import { SelectedPage } from '@/shared/types';
+// import { SelectedPage } from '@/shared/types';
 import aboutAsMobile from "@/assets/aboutAs-mobile.png";
 import aboutAsTablet from "@/assets/aboutUs-tablet@1x.jpg";
-import vegies from "@/assets/vegies@1x.jpg";
+import vegiesMobile from "@/assets/vegies@1x.jpg";
+import vegiesTablet from "@/assets/vegies-tablet@1x.jpg";
+
 import useMediaQuery from '@/hooks/useMediaQuery';
 // import { motion } from "framer-motion";
 
@@ -25,10 +27,10 @@ export const AboutUs = () => {
             <h2 className=" font-amaticSC font-normal text-4xl text-text-color md:font-bold text-center">Про нас</h2>
             <ul className={isAboveSmallScreens ? `flex flex-col mt-[93px] ${flexCenter}`: `text-center mt-[56px] `}>
                 <li className={` relative`}>
-                    <div className={isAboveSmallScreens ? ` max-w-[209px] h-[357px] bg-salat-10  `: `m-auto max-w-[320px] h-[209px]`}></div>
+                    <div className={isAboveSmallScreens ? ` max-w-[209px] h-[357px] bg-salat-10  `: ` max-w-[320px] h-[209px]`}></div>
                     <img src={isAboveSmallScreens ? aboutAsTablet :aboutAsMobile} alt='Owner image' className={isAboveSmallScreens ? `absolute -top-12 left-24`:` absolute -top-5 left-5  `} />
-                    <div className={isAboveSmallScreens  ? ` relative border-2 p-6  -top-24 left-12 bg-white w-[624px] `: 'static mt-2'}>
-                        <h3 className=" font-amaticSC font-normal text-2xl text-text-color md:font-bold text-center ">Хто ми</h3>
+                    <div className={isAboveSmallScreens  ? ` relative  p-6 pr-0 -top-24 left-12 bg-white w-[624px] `: 'static mt-2'}>
+                        <h3 className=" font-amaticSC font-normal text-2xl text-text-color md:font-bold sx:text-center ">Хто ми</h3>
                         <p className={`  font-roboto font-light text-xs sm:text-base  text-text-color `}> Ми пара: Таня та Рома та ми творці пряної оливкової олії R.olio.
                              Передісторія:
                             Так склалося в нашій парі, що готує у нас Рома, він дуже захоплений кулінарією і щоразу вигадує щось новеньке.
@@ -38,11 +40,11 @@ export const AboutUs = () => {
                     </div>
                 </li>
                 <li className='relative'>
-                    <div className=' max-w-[320px] h-[209px] bg-salat-10 m-auto mt-8'></div>
-                    <img src={vegies} alt='Owner image' className='m-auto absolute -top-5 left-5  ' />
-                    <div>
-                        <h3 className=" font-amaticSC font-normal text-2xl text-text-color md:font-bold text-center mt-4">Що ми робимо</h3>
-                        <p className="font-roboto font-light text-xs sm:text-base  text-text-color mt-2 max-w-[320px]">І ми вирішили зробити таку олію, як додавання до подарунка. Треба сказати, що наші близькі оцінили презент та просили знову і знову зробити їм таку олію.
+                <div className={isAboveSmallScreens ? ` ml-auto max-w-[209px] h-[357px] bg-salat-10  `: ` max-w-[320px] h-[209px]`}></div>
+                <img src={isAboveSmallScreens ? vegiesTablet : vegiesMobile} alt='Vegetables' className={isAboveSmallScreens ? `absolute -top-12 left-20`:` absolute -top-5 left-5  `} />
+                <div className={isAboveSmallScreens  ? ` relative  p-6 pr-0 -top-28 right-12 bg-white w-[624px] `: 'static mt-2'}>
+                <h3 className=" font-amaticSC font-normal text-2xl text-text-color md:font-bold sx:text-center ">Що ми робимо</h3>
+                <p className={`   font-roboto font-light text-xs sm:text-base  text-text-color `}>І ми вирішили зробити таку олію, як додавання до подарунка. Треба сказати, що наші близькі оцінили презент та просили знову і знову зробити їм таку олію.
                             І з'явилася ідея: чому б не спробувати запустити таку олію у продаж?
                             Рома довго вивіряв рецепти, я розробляла дизайн етикеток та шукала постачальників.
                             І ось ми готові уявити його вам!
