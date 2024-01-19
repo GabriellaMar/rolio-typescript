@@ -1,7 +1,8 @@
 // import { useState, useEffect } from "react";
 import { Bars4Icon, XMarkIcon } from "@heroicons/react/24/solid";
  
-import Logo from "@/assets/logo.png";
+import smallLogo from "@/assets/smallLogo.png";
+import bigLogo from "@/assets/bigLogo.png";
 // import { Link } from "./Link";
 import { SelectedPage } from "@/shared/types";
 import useMediaQuery from "@/hooks/useMediaQuery";
@@ -12,18 +13,21 @@ import basket from '@/assets/basket.png'
 type Props = {
     selectedPage: SelectedPage,
     setSelectedPage: (value: SelectedPage) => void;
+    isTopOfPage: boolean,
+
 }
 
-export const NavBar = ({  selectedPage, setSelectedPage }: Props) => {
+export const NavBar = ({  isTopOfPage, selectedPage, setSelectedPage }: Props) => {
     const flexBetween = "flex items-center justify-between"
     const isAboveMediumScreens = useMediaQuery("(min-width: 1366px)");
+    const isAboveSmallScreens = useMediaQuery("(min-width: 768px)");
     const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
 
 
     return (
-                <nav className={isAboveMediumScreens ? `${flexBetween}  top-0 z-20  border border-indigo-600` : `flex items-center`}>
-                <div className="bg-salat-30 rounded-full  p-8 -mt-8  w-[128px] sm:w-[180px]">
-                    <img alt="logo image" src={Logo}  className=" w-[134px] mx-auto"/>
+                <nav className={isAboveMediumScreens ? `${flexBetween}  top-0 z-20 ` : `flex items-center`}>
+                <div className={!isTopOfPage? `bg-salat-30 rounded-full  p-8 -mt-8  w-[90px] h-[90px] sm:w-[100px] sm:h-[100px]`:`bg-salat-30 rounded-full  p-8 -mt-8   w-[130px] h-[130px] sm:w-[145px] sm:h-[145px]`} >
+                    <img alt="logo image" src={ isAboveSmallScreens ? bigLogo: smallLogo}  className="  mx-auto"/>
                 </div>
                 {isAboveMediumScreens ? (
                     <NavList
