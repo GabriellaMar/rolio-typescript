@@ -21,6 +21,13 @@ export enum SelectedPage {
     'Для м\'яса' = 'from-meet-100 to-meet-200',
   }
 
+  export enum BackgroundColor {
+    'Східне' = 'bg-orange-500',
+    'Для салата' = 'bg-salat-500',
+    'Італійське' = 'bg-italian-500',
+    'Для м\'яса' = 'bg-meet-500',
+  }
+
   // export enum gradientColor {
   //   'Східне' = 'orange-500',
   //   'Для салата' = 'salat-500',

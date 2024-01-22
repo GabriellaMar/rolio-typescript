@@ -14,6 +14,7 @@ type Props = {
     selectedPage: SelectedPage,
     setSelectedPage: (value: SelectedPage) => void;
     isTopOfPage: boolean,
+    color?: string,
 
 }
 
@@ -32,7 +33,9 @@ export const NavBar = ({  isTopOfPage, selectedPage, setSelectedPage }: Props) =
                 {isAboveMediumScreens ? (
                     <NavList
                         selectedPage={selectedPage}
-                        setSelectedPage={setSelectedPage} />
+                        setSelectedPage={setSelectedPage}
+                        />
+                        
                 ) : (<button type="button"
                     className="bg-transparent ml-auto  mr-6 sm:mr-8 mt-1"
                     onClick={() => setIsMenuToggled(!isMenuToggled)}>
@@ -45,7 +48,7 @@ export const NavBar = ({  isTopOfPage, selectedPage, setSelectedPage }: Props) =
               
             {/* Mobile MENU */}
             {!isAboveMediumScreens && isMenuToggled && (
-                <div className="fixed right-0 bottom-0 z-100 h-full w-[300px] bg-salat-60 drop-shadow-xl px-[15px] py-16 pl-8">
+               <div className="fixed right-0 bottom-0 z-100 h-screen w-[300px] bg-salat-60a drop-shadow-xl px-[15px] py-16 pl-8" >
                     <button
                         className="absolute top-5 right-5"
                         onClick={() => setIsMenuToggled(!isMenuToggled)}>

@@ -2,7 +2,7 @@ import { getTextColor } from "@/services/services";
 import { ProductCounter } from "../ProductCounter/ProductCounter";
 import { Buttons } from "@/components/Buttons/index";
 import { useState } from "react";
-import { ProductColor } from "@/shared/types";
+import { BackgroundColor, ProductColor } from "@/shared/types";
 //  import { ProductTitle } from "@/shared/types";
 
 
@@ -32,22 +32,20 @@ export const Product = ({ id, details, title, description, img, price }: Props) 
 
 
   const productColor = ProductColor[title as keyof typeof ProductColor] || 'gray';
-  // const backgroundColor = gradientColor[title as ProductTitle] || 'gray';
+   const backgroundColor = BackgroundColor[title as keyof typeof BackgroundColor] || 'gray';
 
   return (
     <li key={id} className=" m-auto xs:w-[280px] sm:w-[329px]  md:w-[250px] text-center">
       <div className="relative w-[174px] h-[174px] m-auto">
-        {isHovered ? (
 
-          <div className={`relative m-auto w-[173px] h-[173px] rounded-full bg-salat   transition duration-300 `}>
-            <div className={` absolute top-2 left-2 m-auto w-[154px] h-[154px] rounded-full bg-gradient-to-r ${productColor}`} >
-              <img src={img} alt="bottle of Oil" className={`  inline-block m-auto  ${isHovered ? ' absolute top-0 left-0 transition-transform  origin-center duration-300  rotate-12 scale-125' : ''}`} />
+          <div className={`relative m-auto w-[173px] h-[173px] rounded-full    `}>
+            <div className={ ` absolute   top-0 left-0 m-auto w-[174px] h-[174px] rounded-full ${isHovered ? `${backgroundColor} hovered`:  `not-hovered`}  `}>
+            <div className={ ` absolute  top-[10px] left-[10px] m-auto w-[154px] h-[154px] rounded-full ${isHovered ? `bg-gradient-to-r ${productColor} hovered`:  `not-hovered`}  `} ></div>
             </div>
+           
+            <img src={img} alt="bottle of Oil" className={`  inline-block m-auto  ${isHovered ? ' absolute -top-1 left-0  origin-center  rotate ' : 'not-rotate'}`} />
           </div>
 
-        ) :
-          (<img src={img} alt="bottle of Oil" className={` inline-block m-auto  ${isHovered ? 'w-[287px] absolute top-0 left-4 transition-transform  origin-center rotate-12 ' : ''}`} 
-          />)}
       </div>
       <h2 className={`font-amaticSC font-bold text-1xl ${getTextColor(title)} mt-6`}>Масло "{title}"</h2>
       <p className="font-roboto font-light text-xxs sm:text-xs text-text-color mt-4">{description}</p>

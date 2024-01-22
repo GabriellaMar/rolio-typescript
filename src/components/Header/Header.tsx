@@ -9,7 +9,7 @@ type Props = {
 
 
 export const Header =({isTopOfPage,  selectedPage, setSelectedPage }: Props) => {
-    const headerBackground = isTopOfPage ? "" : "bg-salat-5a drop-shadow";
+    const headerBackground = isTopOfPage ? "" : "bg-salat-5a";
     return (
         <header className={` ${headerBackground} fixed z-20  w-full px-5 pb-2 sm:px-10 md:px-[50px]`}>
              <NavBar 
@@ -17,6 +17,7 @@ export const Header =({isTopOfPage,  selectedPage, setSelectedPage }: Props) => 
              setSelectedPage={setSelectedPage}
               isTopOfPage = {isTopOfPage}
              />
+             
         </header>
     )
 }

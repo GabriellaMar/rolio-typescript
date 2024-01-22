@@ -23,18 +23,34 @@ body,
 link {
   text-decoration: none;
   background-color: #cada97;
-  background-color: #e4ecc7;
+  background-color: #e2f1a6b2
   
 }
 
 .hover-gradient:hover {
-  background: linear-gradient(to right,  #97C20B, #536614);
-  /* background: linear-gradient(to right,  #8bdfb450, #0092470f); 
-  */
- 
   border: none;
   color: white;
-  transition: transform 0.3s ease;
+  /* opacity: 1; */
+  transition: 250ms ease-in-out; 
+
+ 
+}
+
+.not-hovered{
+  opacity: 0;
+   transition: 300ms ease; 
+}
+.hovered{
+  opacity: 1;
+  transition: 300ms ease-in-out; 
+}
+.rotate {
+  transform: rotate(12deg) scale(1.1);
+  transition: 300ms ease-in-out; 
+}
+.not-rotate {
+  transform: rotate(0deg)  scale(1);;
+
 }
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
