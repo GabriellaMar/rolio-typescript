@@ -35,7 +35,7 @@ export const Product = ({ id, details, title, description, img, price }: Props) 
   // const backgroundColor = gradientColor[title as ProductTitle] || 'gray';
 
   return (
-    <li key={id} className=" m-auto xs:w-[280px] sm:w-[329px]  md:w-[250px] text-center border">
+    <li key={id} className=" m-auto xs:w-[280px] sm:w-[329px]  md:w-[250px] text-center">
       <div className="relative w-[174px] h-[174px] m-auto">
         {isHovered ? (
 

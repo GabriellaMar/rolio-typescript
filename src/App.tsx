@@ -10,6 +10,7 @@ import { AboutUs } from "@/components/AboutUs/index"
 import { Reviews } from "./components/Reviews"
 import { Delivery } from "./components/Delivery"
 import { Contacts } from "./components/Contacts"
+import { Footer } from "./components/Footer/Footer"
 
 type Product = {
   id: string,
@@ -56,6 +57,10 @@ function App() {
         <Reviews />
         < Delivery />
         <Contacts />
+        <Footer 
+        selectedPage={selectedPage}
+        setSelectedPage={setSelectedPage}
+        />
     </div>
   )
 }

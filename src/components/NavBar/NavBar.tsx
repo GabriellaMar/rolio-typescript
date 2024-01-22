@@ -26,8 +26,8 @@ export const NavBar = ({  isTopOfPage, selectedPage, setSelectedPage }: Props) =
 
     return (
                 <nav className={isAboveMediumScreens ? `${flexBetween}  top-0 z-20 ` : `flex items-center`}>
-                <div className={!isTopOfPage? `bg-salat-30 rounded-full  p-8 -mt-8  w-[90px] h-[90px] sm:w-[100px] sm:h-[100px]`:`bg-salat-30 rounded-full  p-8 -mt-8   w-[130px] h-[130px] sm:w-[145px] sm:h-[145px]`} >
-                    <img alt="logo image" src={ isAboveSmallScreens ? bigLogo: smallLogo}  className="  mx-auto"/>
+                <div className={!isTopOfPage ? `bg-salat-30 rounded-full  p-[38px] -mt-8  w-[100px] h-[100px] `:`bg-salat-30 rounded-full  p-8 -mt-8   w-[130px] h-[130px] sm:w-[145px] sm:h-[145px]`} >
+                    <img alt="logo image" src={ isAboveSmallScreens ? bigLogo: smallLogo}  className=" mx-auto my-auto"/>
                 </div>
                 {isAboveMediumScreens ? (
                     <NavList
@@ -45,7 +45,7 @@ export const NavBar = ({  isTopOfPage, selectedPage, setSelectedPage }: Props) =
               
             {/* Mobile MENU */}
             {!isAboveMediumScreens && isMenuToggled && (
-                <div className="fixed right-0 bottom-0 z-100 h-full w-[300px] bg-salat-5 drop-shadow-xl px-[15px] py-16 pl-8">
+                <div className="fixed right-0 bottom-0 z-100 h-full w-[300px] bg-salat-60 drop-shadow-xl px-[15px] py-16 pl-8">
                     <button
                         className="absolute top-5 right-5"
                         onClick={() => setIsMenuToggled(!isMenuToggled)}>
