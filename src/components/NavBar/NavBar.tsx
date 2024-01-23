@@ -14,11 +14,10 @@ type Props = {
     selectedPage: SelectedPage,
     setSelectedPage: (value: SelectedPage) => void;
     isTopOfPage: boolean,
-    color?: string,
 
 }
 
-export const NavBar = ({  isTopOfPage, selectedPage, setSelectedPage }: Props) => {
+export const NavBar = ({  isTopOfPage, selectedPage, setSelectedPage}: Props) => {
     const flexBetween = "flex items-center justify-between"
     const isAboveMediumScreens = useMediaQuery("(min-width: 1366px)");
     const isAboveSmallScreens = useMediaQuery("(min-width: 768px)");
@@ -27,11 +26,11 @@ export const NavBar = ({  isTopOfPage, selectedPage, setSelectedPage }: Props) =
 
     return (
                 <nav className={isAboveMediumScreens ? `${flexBetween}  top-0 z-20 ` : `flex items-center`}>
-                <div className={!isTopOfPage ? `bg-salat-30 rounded-full  p-[38px] -mt-8  w-[100px] h-[100px] `:`bg-salat-30 rounded-full  p-8 -mt-8   w-[130px] h-[130px] sm:w-[145px] sm:h-[145px]`} >
-                    <img alt="logo image" src={ isAboveSmallScreens ? bigLogo: smallLogo}  className=" mx-auto my-auto"/>
+                <div className={`bg-salat-30 ${!isTopOfPage ? ` rounded-full  p-9 -mt-7  w-[100px] h-[100px] `:` rounded-full  p-8 -mt-8   w-[130px] h-[130px] sm:w-[145px] sm:h-[145px]`}`} >
+                    <img alt="logo image" src={ isAboveSmallScreens ? bigLogo: smallLogo}  className={ isTopOfPage ?`m-auto pt-1`: `-mt-1`}/>
                 </div>
                 {isAboveMediumScreens ? (
-                    <NavList
+               <NavList
                         selectedPage={selectedPage}
                         setSelectedPage={setSelectedPage}
                         />
@@ -43,7 +42,7 @@ export const NavBar = ({  isTopOfPage, selectedPage, setSelectedPage }: Props) =
                 </button >)}
                
                 <div>
-                    <img className="bg-transparent mr" src={basket} alt="" width={40} />
+                    <img className="bg-transparent " src={basket} alt="" width={40} />
                 </div>
               
             {/* Mobile MENU */}

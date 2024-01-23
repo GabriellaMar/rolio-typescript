@@ -23,13 +23,13 @@ body,
 link {
   text-decoration: none;
   background-color: #cada97;
-  background-color: #e2f1a6b2
+  background-color: #781d18
   
 }
 
 .hover-gradient:hover {
   border: none;
-  color: white;
+  color: #ffffff;
   /* opacity: 1; */
   transition: 250ms ease-in-out; 
 
@@ -38,15 +38,15 @@ link {
 
 .not-hovered{
   opacity: 0;
-   transition: 300ms ease; 
+   transition: 250ms ease; 
 }
 .hovered{
   opacity: 1;
-  transition: 300ms ease-in-out; 
+  transition: 250ms ease-in-out; 
 }
 .rotate {
   transform: rotate(12deg) scale(1.1);
-  transition: 300ms ease-in-out; 
+  transition: 250ms ease-in-out; 
 }
 .not-rotate {
   transform: rotate(0deg)  scale(1);;

@@ -3,6 +3,7 @@ import { ProductCounter } from "../ProductCounter/ProductCounter";
 import { Buttons } from "@/components/Buttons/index";
 import { useState } from "react";
 import { BackgroundColor, ProductColor } from "@/shared/types";
+import useMediaQuery from "@/hooks/useMediaQuery";
 //  import { ProductTitle } from "@/shared/types";
 
 
@@ -21,6 +22,7 @@ type Props = {
 export const Product = ({ id, details, title, description, img, price }: Props) => {
   // const lowerCaseTitle = title.toLocaleLowerCase().replace(/ /g, "") as ProductTitle
   const [isHovered, setIsHovered] = useState<boolean>(false);
+  const isAboveMediumScreens = useMediaQuery("(min-width: 1366px)");
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -35,10 +37,10 @@ export const Product = ({ id, details, title, description, img, price }: Props) 
    const backgroundColor = BackgroundColor[title as keyof typeof BackgroundColor] || 'gray';
 
   return (
-    <li key={id} className=" m-auto xs:w-[280px] sm:w-[329px]  md:w-[250px] text-center">
+    <li key={id} className="  xs:w-[280px] sm:w-[329px]  md:min-w-[360px]  text-center m-auto">
       <div className="relative w-[174px] h-[174px] m-auto">
 
-          <div className={`relative m-auto w-[173px] h-[173px] rounded-full    `}>
+          <div className={`relative m-auto     `}>
             <div className={ ` absolute   top-0 left-0 m-auto w-[174px] h-[174px] rounded-full ${isHovered ? `${backgroundColor} hovered`:  `not-hovered`}  `}>
             <div className={ ` absolute  top-[10px] left-[10px] m-auto w-[154px] h-[154px] rounded-full ${isHovered ? `bg-gradient-to-r ${productColor} hovered`:  `not-hovered`}  `} ></div>
             </div>
@@ -57,9 +59,9 @@ export const Product = ({ id, details, title, description, img, price }: Props) 
         btnSize={6} fontSize="2xm"
       />
       <p className="font-light text-s text-text-color mt-4 ">250мл <span className={`inline-block font-medium text-2xl ${getTextColor(title)} ml-6`}>{`${price} грн`}</span></p>
-      <div className="flex flex-col gap-4 mt-6 text-s">
-        <Buttons title={title} text="В корзину" size={248} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} />
-        <Buttons title={title} text="Замовити в ТГ" size={248} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} />
+      <div className="flex flex-col gap-4 mt-6 text-s md:flex-row md:gap-2">
+        <Buttons title={title} text="В корзину" size={isAboveMediumScreens? 148: 248} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} />
+        <Buttons title={title} text="Замовити в ТГ" size={isAboveMediumScreens? 148: 248} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} />
       </div>
     </li>
   );

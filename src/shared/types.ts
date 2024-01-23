@@ -22,10 +22,10 @@ export enum SelectedPage {
   }
 
   export enum BackgroundColor {
-    'Східне' = 'bg-orange-500',
-    'Для салата' = 'bg-salat-500',
-    'Італійське' = 'bg-italian-500',
-    'Для м\'яса' = 'bg-meet-500',
+    'Східне' = 'bg-orange-50/[.15]',
+    'Для салата' = 'bg-salat-50/[.15]',
+    'Італійське' = 'bg-italian-50/[.15]',
+    'Для м\'яса' = 'bg-meet-50/[.15]',
   }
 
   // export enum gradientColor {
