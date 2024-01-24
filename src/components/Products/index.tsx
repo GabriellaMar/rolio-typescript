@@ -12,12 +12,12 @@ type Product = {
     // category: ProductCategory,
 };
 
-type Props = {
+type ProductsProps = {
     products: Product[],
     
 };
 
-export const Products = ({ products }: Props) => {
+export const Products: React.FC <ProductsProps> = ({ products }) => {
   // const flexCenter = "flex items-center justify-center "
   return (
     <section id='масло' className="pt-20 pb-6 px-5 sm:px-10 md:px-[50px]   ">

@@ -21,6 +21,7 @@ export default {
         "salat-200": "#536614",
         "red-100": "#781d18",
         "grey-10": "#949494",
+        "light-grey-50": "#E4EBCE",
         "black-10": "#000000",
 
         "italian-10": "#8BDFB4",

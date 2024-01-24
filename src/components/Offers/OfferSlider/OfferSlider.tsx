@@ -75,7 +75,7 @@ export const OfferSlider = ({ products }: Props) => {
 
 
     return (
-        <div className=" flex w-full m-auto border relative border-red-100 overflow-hidden  overflow-y-hidden">
+        <div className=" flex w-full m-auto border relative border-red-100 overflow-hidden  overflow-y-hidden ">
         {/* // <div
         // // className="overflow-hidden relative border border-red-100"
         // > */}

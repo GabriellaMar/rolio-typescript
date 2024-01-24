@@ -8,13 +8,13 @@ import facebook from '@/assets/facebook-icon.png';
 import instagram from '@/assets/instagram-icon.png';
 import telegram from '@/assets/telegram-icon.png'; 
 
-type Props = {
+type FooterProps = {
     selectedPage: SelectedPage,
     setSelectedPage: (value: SelectedPage) => void;
 
 }
 
-export const Footer = ({ selectedPage, setSelectedPage }: Props) => {
+export const Footer: React.FC <FooterProps> = ({ selectedPage, setSelectedPage }) => {
     const isAboveSmallScreens = useMediaQuery("(min-width: 768px)");
     const flexCenter = 'flex justify-center items-center'
     return (

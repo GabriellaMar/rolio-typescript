@@ -2,7 +2,7 @@ import { SelectedPage } from "@/shared/types";
 import { Link } from "./Link";
 import useMediaQuery from "@/hooks/useMediaQuery";
 
-type Props = {
+type NavListProps = {
     // page: string,
     selectedPage: SelectedPage,
     setSelectedPage: (value: SelectedPage) => void;
@@ -10,7 +10,7 @@ type Props = {
 
 }
 
-export const NavList = ({ selectedPage, setSelectedPage }: Props) => {
+export const NavList: React.FC <NavListProps> = ({ selectedPage, setSelectedPage }) => {
     const isAboveMediumScreens = useMediaQuery("(min-width: 1366px)");
     const flexBetween = "flex items-center justify-between"
     return (

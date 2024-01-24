@@ -1,14 +1,14 @@
 import { SelectedPage } from "@/shared/types";
-import { NavBar } from "../NavBar/NavBar"
+import { NavBar } from "../NavBar"
 
-type Props = {
+type HeaderProps = {
     isTopOfPage: boolean,
     selectedPage: SelectedPage,
     setSelectedPage: (value: SelectedPage) => void;
 }
 
 
-export const Header =({isTopOfPage,  selectedPage, setSelectedPage }: Props) => {
+export const Header: React.FC <HeaderProps> =({isTopOfPage,  selectedPage, setSelectedPage }) => {
     const headerBackground = isTopOfPage ? "" : "bg-salat-5a";
     return (
         <header className={` ${headerBackground} fixed z-20  w-full px-5 pb-2 sm:px-10 md:px-[50px]`}>

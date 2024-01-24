@@ -10,11 +10,11 @@ type Product = {
   // category: ProductCategory,
 };
 
-type Props = {
+type OffersProps = {
   products: Product[];
 };
 
- export const OfferCategories = ({products}: Props) => {
+ export const OfferCategories: React.FC <OffersProps> = ({products}) => {
   // const getTextColor = (category: ProductCategory): string => {
   //   switch (category) {
   //     case ProductCategory.ForSalat:

@@ -12,7 +12,7 @@ type CounterProps = {
 };
 
 
-export const ProductCounter = ({title, marginTop, btnSize,  fontSize, position}: CounterProps) => {
+export const ProductCounter: React.FC <CounterProps> = ({title, marginTop, btnSize,  fontSize, position}) => {
     const flexCenter = "flex items-center justify-center"
     const [increment, setIncrement] = useState<number>(0);
 

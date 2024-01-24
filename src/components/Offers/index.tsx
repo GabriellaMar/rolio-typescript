@@ -18,12 +18,12 @@ type Product = {
     // category: ProductCategory,
 };
 
-type Props = {
+type OffersProps = {
     products: Product[],
     
 };
 
-export const Offers = ({ products }: Props) => {
+export const Offers: React.FC <OffersProps> = ({ products }) => {
    
     // console.log(products)
     // const [activeProductId, setActiveProductId] = useState<string | null>(null);

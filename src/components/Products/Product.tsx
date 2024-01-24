@@ -7,7 +7,7 @@ import useMediaQuery from "@/hooks/useMediaQuery";
 //  import { ProductTitle } from "@/shared/types";
 
 
-type Props = {
+type ProductProps = {
   id: string,
   title: string,
   img: string,
@@ -19,7 +19,7 @@ type Props = {
 
 
 
-export const Product = ({ id, details, title, description, img, price }: Props) => {
+export const Product: React.FC <ProductProps> = ({ id, details, title, description, img, price }) => {
   // const lowerCaseTitle = title.toLocaleLowerCase().replace(/ /g, "") as ProductTitle
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const isAboveMediumScreens = useMediaQuery("(min-width: 1366px)");

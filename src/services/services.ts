@@ -1,4 +1,4 @@
-export const getBorderColor = (title: string) => {
+export const getBorderColor = (title: string) : string => {
     switch (title) {
         case "Для салата":
             return 'border-salat-50';
@@ -17,7 +17,7 @@ export const getBorderColor = (title: string) => {
     }
 }
 
-export const getTextColor = (title: string) => {
+export const getTextColor = (title: string) : string => {
     switch (title) {
         case "Для салата":
             return 'text-salat-50';
