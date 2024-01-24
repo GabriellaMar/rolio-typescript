@@ -31,6 +31,7 @@ const BasketPage: React.FC<BasketProps> = ({products}) => {
             <ul className="flex flex-col gap-2">
                 {products.map((product) => <Card  
                 id={product.id}
+              key={product.id}
                 title={product.title}
                 img={product.img}
                 price={product.price}

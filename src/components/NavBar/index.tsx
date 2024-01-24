@@ -42,10 +42,10 @@ export const NavBar: React.FC<NavBarProps> = ({ isTopOfPage, selectedPage, setSe
                 className="bg-transparent ml-auto  mr-6 sm:mr-8 mt-1"
                 onClick={() => setIsMenuToggled(!isMenuToggled)}>
                 <Bars4Icon className="h-10 w-10 text-salat-50" />
-            </button >)}
-
+            </button >)
+            }
             <NavLink to="/basket">
-                <img className="bg-transparent " src={basket} alt="" width={40} />
+                <img className="bg-transparent " src={basket} alt="Basket icon" width={40} />
             </NavLink>
 
             {/* Mobile MENU */}

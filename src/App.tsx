@@ -68,7 +68,9 @@ function App() {
            setSelectedPage={setSelectedPage}
            products={products}
           />} />
+          
            </Route>
+           
            <Route path="/basket" element={<BasketPage   products={products}/>} />
           {/* <Route path="*" element={<ErrorPage />} /> */}
        
