@@ -71,7 +71,7 @@ const App: React.FC = () => {
 
       </Route>
 
-      <Route path="/basket" element={<BasketPage products={products} />} />
+      <Route path="basket" element={<BasketPage products={products} />} />
       {/* <Route path="*" element={<ErrorPage />} /> */}
 
     </Routes>
