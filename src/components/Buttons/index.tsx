@@ -1,24 +1,28 @@
 import { getBorderColor, getTextColor } from '@/services/services'
 import { ProductColor} from '@/shared/types';
 
-
-type Props = {
-    title: string,
-    text: string,
-    size: number,
-    padding?: number,
-    onClick?: () => void,
-    onMouseLeave?: () => void,
-    onMouseEnter?: () => void,
+type ProductTitle = keyof typeof ProductColor;
 
 
-}
+type ButtonProps = Partial<{
+    text: string;
+    title: ProductTitle;
+    size: number;
+    padding: number;
+    onClick: () => void;
+    onMouseLeave: () => void;
+    onMouseEnter: () => void;
+}>;
 
 
 
-export const Buttons = ({ text, size, title, padding, onClick, onMouseEnter, onMouseLeave}: Props) => {
 
-    const productColor = ProductColor[title as keyof typeof ProductColor] || '';
+
+
+export const Buttons: React.FC<ButtonProps> = ({ text, size, title="Для салата", padding, onClick, onMouseEnter, onMouseLeave}) => {
+
+    // const productColor = ProductColor[title as keyof typeof ProductColor] || '';
+    const productColor = ProductColor[title] || '';
     return (
         <>
             <button

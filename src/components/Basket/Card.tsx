@@ -1,13 +1,14 @@
+import { ProductTitle } from "@/shared/types";
 import { ProductCounter } from "../ProductCounter/ProductCounter"
 import { XCircleIcon } from "@heroicons/react/24/outline";
 
 type Product = {
     id: string,
     img: string,
-    title: string,
+    title: ProductTitle,
     description?: string,
     details?: string,
-    price?: number,
+    price: number,
     // category: ProductCategory,
 };
 

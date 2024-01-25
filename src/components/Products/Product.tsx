@@ -2,21 +2,22 @@ import { getTextColor } from "@/services/services";
 import { ProductCounter } from "../ProductCounter/ProductCounter";
 import { Buttons } from "@/components/Buttons/index";
 import { useState } from "react";
-import { BackgroundColor, ProductColor } from "@/shared/types";
+import { BackgroundColor, ProductColor, ProductTitle } from "@/shared/types";
 import useMediaQuery from "@/hooks/useMediaQuery";
-//  import { ProductTitle } from "@/shared/types";
+
 
 
 type ProductProps = {
   id: string,
-  title: string,
+  title: ProductTitle,
   img: string,
   description: string,
   details?: string,
-  price?: number,
-  // category: ProductCategory,
+  price: number,
+
 };
 
+  
 
 
 export const Product: React.FC <ProductProps> = ({ id, details, title, description, img, price }) => {
@@ -33,8 +34,9 @@ export const Product: React.FC <ProductProps> = ({ id, details, title, descripti
   };
 
 
-  const productColor = ProductColor[title as keyof typeof ProductColor] || 'gray';
-   const backgroundColor = BackgroundColor[title as keyof typeof BackgroundColor] || 'gray';
+  // const productColor = ProductColor[title as keyof typeof ProductColor] || 'gray';
+  const productColor = ProductColor[title] || '';
+   const backgroundColor = BackgroundColor[title] || 'gray';
 
   return (
     <li key={id} className="  xs:w-[280px] sm:w-[329px]  md:min-w-[360px]  text-center m-auto">
@@ -60,8 +62,8 @@ export const Product: React.FC <ProductProps> = ({ id, details, title, descripti
       />
       <p className="font-light text-s text-text-color mt-4 ">250мл <span className={`inline-block font-medium text-2xl ${getTextColor(title)} ml-6`}>{`${price} грн`}</span></p>
       <div className="flex flex-col gap-4 mt-6 text-s md:flex-row md:gap-2">
-        <Buttons title={title} text="В корзину" size={isAboveMediumScreens? 148: 248} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} />
-        <Buttons title={title} text="Замовити в ТГ" size={isAboveMediumScreens? 148: 248} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} />
+        <Buttons  title = {title} text="В корзину" size={isAboveMediumScreens? 148: 248} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} />
+        <Buttons title = {title} text="Замовити в ТГ" size={isAboveMediumScreens? 148: 248} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} />
       </div>
     </li>
   );

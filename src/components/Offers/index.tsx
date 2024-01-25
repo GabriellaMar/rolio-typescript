@@ -1,20 +1,19 @@
 // import { ProductsList } from "./ProductsList"
 
 // import { ProductCategory } from "@/shared/types";
+import { ProductTitle } from "@/shared/types";
 import { OfferCategories } from "./OfferCategories";
 import { OfferSlider } from "./OfferSlider/OfferSlider";
 
 
-// import { useState } from "react";
-
 
 type Product = {
     id: string,
-    title: string,
+    title: ProductTitle,
     img: string,
     description: string,
     details: string,
-    price?: number,
+    price: number,
     // category: ProductCategory,
 };
 

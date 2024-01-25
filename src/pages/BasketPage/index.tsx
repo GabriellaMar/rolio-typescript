@@ -1,14 +1,15 @@
 import { Card } from "@/components/Basket/Card";
+import { ProductTitle } from "@/shared/types";
 import { XCircleIcon } from "@heroicons/react/24/outline";
 import { NavLink } from "react-router-dom";
 
 type Product = {
     id: string,
     img: string,
-    title: string,
+    title: ProductTitle
     // description?: string,
     // details?: string,
-    price?: number,
+    price: number,
     // category: ProductCategory,
 };
 

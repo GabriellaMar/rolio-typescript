@@ -14,7 +14,7 @@ import { lazy, useEffect, useState } from "react"
 import { Route, Routes } from "react-router-dom"
 import Layout from "./components/Layout"
 
-import { SelectedPage } from "./shared/types"
+import { ProductTitle, SelectedPage } from "./shared/types"
 
 
 
@@ -27,11 +27,11 @@ const BasketPage = lazy(() => import('@/pages/BasketPage'));
 
 type Product = {
   id: string,
-  title: string,
+  title: ProductTitle
   img: string,
   description: string,
   details: string,
-  price?: number,
+  price: number,
   // category: ProductCategory,
 };
 
@@ -53,7 +53,7 @@ function App() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-   const products: Product[] = productsData;
+   const products: Product[] = productsData as Product[];
 
   return (
     <Routes>

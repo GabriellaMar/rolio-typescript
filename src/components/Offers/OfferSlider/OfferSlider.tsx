@@ -6,29 +6,52 @@ import { SlArrowRight } from "react-icons/sl";
 import { SlArrowLeft } from "react-icons/sl";
 // import { getBorderColor } from "@/services/services"
 import { Buttons } from "@/components/Buttons";
+import {  ProductTitle } from "@/shared/types";
 // import { PlusIcon, MinusIcon } from "@heroicons/react/16/solid";
 
 // import { ProductCategory } from "@/shared/types";
 // import { ProductItem } from "../Product/Product";
 
+
 type Product = {
     id: string,
     img: string,
-    title: string,
+    title: ProductTitle,
     description: string,
     details: string,
-    price?: number,
+    price: number,
     // category: ProductCategory,
 };
 
-type Props = {
+// type ButtonProps = {
+//     text: string
+//     // title: string,
+//     size: number,
+//     padding: number,
+//     onClick?: () => void,
+//     onMouseLeave: () => void,
+//     onMouseEnter: () => void,
+// } 
+
+type ProductsProps = {
     products: Product[],
+    
 };
 
+// type ButtonWithoutElement = Omit<ButtonProps, 'price'>;
 
 
 
-export const OfferSlider = ({ products }: Props) => {
+
+
+// type SliderProps = {
+//     products: Pick< Product, 'id' | 'img'| 'title'|'description'| 'details'>[],
+// };
+
+
+
+
+export const OfferSlider: React.FC<ProductsProps > = ({ products }) => {
      const [current, setCurrent] = useState<number>(0);
 
     const [delails, setDetails] = useState<boolean>(false);
@@ -54,20 +77,6 @@ export const OfferSlider = ({ products }: Props) => {
             }
     }
 
-    // export const getBorderColor = (title: string): string => {
-    //     switch (title) {
-    //         case "Для салата":
-    //             return 'salat-50';
-    //         case "Італійське":
-    //             return 'italian-50';
-    //         case "Для м'яса":
-    //             return 'meet-50';
-    //         case "Східне":
-    //             return 'orange-50';
-    //         default:
-    //             return 'border-red-100';
-    //     }
-    // }
 
     const showDetails = () =>{
         setDetails(true)
@@ -96,8 +105,8 @@ export const OfferSlider = ({ products }: Props) => {
                                 {delails &&  <p className="font-roboto font-light text-base sm:text-lg  text-text-color ">{product.details}</p>}
                                 <ProductCounter title={product.title} marginTop={8} position='' btnSize={8} fontSize="2xl"/>
                                 <div className="flex flex-col  gap-4 sm:gap-10 sm:flex-row mt-8">
-                                <Buttons title={product.title} text="Детальніше" size={200}  onClick={showDetails}/>
-                                <Buttons title={product.title} text="В корзину" size={200}  padding={2}/>
+                                <Buttons title = {product.title} text="Детальніше" size={200}  onClick={showDetails}/>
+                                <Buttons  title = {product.title} text="В корзину" size={200}  padding={2}/>
                                     {/* <button type="button" className={` border border-${getBorderColor(product.title)}  rounded-[50px]  px-12 py-2  min-w-full sm:min-w-[200px] text-${getBorderColor(product.title)} uppercase hover-gradient`} onClick={showDetails}>Детальніше</button>
                                     <button type="button" className={` border border-${getBorderColor(product.title)}  rounded-[50px]  px-12 py-2  min-w-full sm:min-w-[200px] text-${getBorderColor(product.title)} uppercase hover-gradient`}>В кошик</button> */}
                                 </div>

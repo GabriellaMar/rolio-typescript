@@ -1,5 +1,9 @@
-export const getBorderColor = (title: string) : string => {
-    switch (title) {
+import {  ProductTitle } from "@/shared/types";
+
+
+
+export const getBorderColor = ( title: ProductTitle) : string => {
+    switch (title ) {
         case "Для салата":
             return 'border-salat-50';
             break;
@@ -17,7 +21,7 @@ export const getBorderColor = (title: string) : string => {
     }
 }
 
-export const getTextColor = (title: string) : string => {
+export const getTextColor = (title: ProductTitle) : string => {
     switch (title) {
         case "Для салата":
             return 'text-salat-50';

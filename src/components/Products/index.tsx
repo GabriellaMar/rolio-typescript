@@ -1,15 +1,15 @@
+import {  ProductTitle } from "@/shared/types";
 import { Product } from "./Product";
 
 
 
 type Product = {
     id: string,
-    title: string,
+    title: ProductTitle,
     img: string,
     description: string,
     details: string,
-    price?: number,
-    // category: ProductCategory,
+    price: number,
 };
 
 type ProductsProps = {

@@ -1,10 +1,11 @@
 import  { useState } from 'react'
 import { PlusIcon, MinusIcon } from "@heroicons/react/16/solid";
 import {  getTextColor } from '@/services/services';
+import { ProductTitle } from '@/shared/types';
 
 
 type CounterProps = {
-    title: string,
+    title: ProductTitle,
     marginTop: number,
     btnSize: number,
     fontSize: string,

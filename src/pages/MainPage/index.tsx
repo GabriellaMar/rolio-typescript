@@ -3,7 +3,7 @@ import { Products } from "@/components/Products/index"
 import { AboutUs } from "@/components/AboutUs/index"
 import { Reviews } from "@/components/Reviews"
 // import { useEffect, useState } from "react"
-import { SelectedPage } from "@/shared/types"
+import { ProductTitle, SelectedPage } from "@/shared/types"
 import { Delivery } from "@/components/Delivery"
 import { Footer } from "@/components/Footer"
 import { Contacts } from "@/components/Contacts"
@@ -12,11 +12,11 @@ import { Offers } from "@/components/Offers"
 
 type Product = {
   id: string,
-  title: string,
+  title: ProductTitle
   img: string,
   description: string,
   details: string,
-  price?: number,
+  price: number,
   // category: ProductCategory,
 };
 
