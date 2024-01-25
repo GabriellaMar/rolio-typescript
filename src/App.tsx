@@ -4,7 +4,7 @@ import { lazy, useEffect, useState } from "react"
 // import {  SelectedPage } from "@/shared/types"
 // import { Header } from "@/components/Header"
 // import { Offers } from "@/components/Offers"
- import productsData from '@/products.json'
+import productsData from '@/products.json'
 // import { Products } from "@/components/Products/index"
 // import { AboutUs } from "@/components/AboutUs/index"
 // import { Reviews } from "./components/Reviews"
@@ -36,9 +36,9 @@ type Product = {
 };
 
 
-function App() {
-   const [selectedPage, setSelectedPage] = useState<SelectedPage>(SelectedPage.Oil)
-   const [isTopOfPage, setIsTopOfPage] = useState<boolean>(true);
+const App: React.FC = () => {
+  const [selectedPage, setSelectedPage] = useState<SelectedPage>(SelectedPage.Oil)
+  const [isTopOfPage, setIsTopOfPage] = useState<boolean>(true);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -53,30 +53,30 @@ function App() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-   const products: Product[] = productsData as Product[];
+  const products: Product[] = productsData as Product[];
 
   return (
     <Routes>
-          <Route path="/" element={<Layout 
-           selectedPage={selectedPage}
-           setSelectedPage={setSelectedPage}
-            isTopOfPage = {isTopOfPage}
-          />}>
+      <Route path="/" element={<Layout
+        selectedPage={selectedPage}
+        setSelectedPage={setSelectedPage}
+        isTopOfPage={isTopOfPage}
+      />}>
 
-          <Route index element={<MainPage  
-           selectedPage={selectedPage}
-           setSelectedPage={setSelectedPage}
-           products={products}
-          />} />
-          
-           </Route>
-           
-           <Route path="/basket" element={<BasketPage   products={products}/>} />
-          {/* <Route path="*" element={<ErrorPage />} /> */}
-       
-      </Routes>
+        <Route index element={<MainPage
+          selectedPage={selectedPage}
+          setSelectedPage={setSelectedPage}
+          products={products}
+        />} />
+
+      </Route>
+
+      <Route path="/basket" element={<BasketPage products={products} />} />
+      {/* <Route path="*" element={<ErrorPage />} /> */}
+
+    </Routes>
   )
-    {/* <div className='app'>
+  {/* <div className='app'>
       <Header selectedPage={selectedPage}
         setSelectedPage={setSelectedPage}
         isTopOfPage={isTopOfPage}
@@ -95,8 +95,8 @@ function App() {
         setSelectedPage={setSelectedPage}
         />
     </div> */}
-  
-  
+
+
 }
 
 export default App

@@ -9,7 +9,8 @@ import useMediaQuery from "@/hooks/useMediaQuery";
 import { useState } from "react";
 import { NavList } from "./NavList";
 import basket from '@/assets/basket.png'
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 type NavBarProps = {
     selectedPage: SelectedPage,
@@ -27,11 +28,11 @@ export const NavBar: React.FC<NavBarProps> = ({ isTopOfPage, selectedPage, setSe
 
     return (
         <nav className={isAboveMediumScreens ? `${flexBetween}  top-0 z-20 ` : `flex items-center`}>
-            <NavLink to='/'>
+            <Link to='/'>
                 <div className={`bg-salat-30 ${!isTopOfPage ? ` rounded-full  p-9 -mt-7  w-[100px] h-[100px] ` : ` rounded-full  p-8 -mt-8   w-[130px] h-[130px] sm:w-[145px] sm:h-[145px]`}`} >
                     <img alt="logo image" src={isAboveSmallScreens ? bigLogo : smallLogo} className={isTopOfPage ? `m-auto pt-1` : `-mt-1`} />
                 </div>
-            </NavLink>
+            </Link>
             {isAboveMediumScreens ? (
                 <NavList
                     selectedPage={selectedPage}
@@ -44,9 +45,9 @@ export const NavBar: React.FC<NavBarProps> = ({ isTopOfPage, selectedPage, setSe
                 <Bars4Icon className="h-10 w-10 text-salat-50" />
             </button >)
             }
-            <NavLink to="/basket">
+            <Link to="/basket">
                 <img className="bg-transparent " src={basket} alt="Basket icon" width={40} />
-            </NavLink>
+            </Link>
 
             {/* Mobile MENU */}
             {!isAboveMediumScreens && isMenuToggled && (
