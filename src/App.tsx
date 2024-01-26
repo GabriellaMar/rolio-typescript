@@ -12,7 +12,7 @@ import productsData from '@/products.json'
 // import { Contacts } from "./components/Contacts"
 // import { Footer } from "./components/Footer"
 import { Route, Routes } from "react-router-dom"
-import Layout from "./components/Layout"
+// import Layout from "./components/Layout"
 
 import { ProductTitle, SelectedPage } from "./shared/types"
 
@@ -57,44 +57,27 @@ const App: React.FC = () => {
 
   return (
     <Routes>
-      <Route path="/" element={<Layout
+      {/* <Route path="/" element={<Layout
         selectedPage={selectedPage}
         setSelectedPage={setSelectedPage}
         isTopOfPage={isTopOfPage}
-      />}>
-
+      />}> */}
+ {/* </Route> */}
+ 
         <Route path="/" element={<MainPage
+         isTopOfPage={isTopOfPage}
           selectedPage={selectedPage}
           setSelectedPage={setSelectedPage}
           products={products}
         />} />
-   <Route path="/basket" element={<BasketPage products={products} />} />
-      </Route>
+        <Route path="/basket" element={<BasketPage products={products} />} />
+     
 
    
       {/* <Route path="*" element={<ErrorPage />} /> */}
 
     </Routes>
   )
-  {/* <div className='app'>
-      <Header selectedPage={selectedPage}
-        setSelectedPage={setSelectedPage}
-        isTopOfPage={isTopOfPage}
-      />
-      <Offers products={products} />
-      <Products products={products} />
-      <AboutUs 
-      // selectedPage={selectedPage}
-      //   setSelectedPage={setSelectedPage}
-        />
-        <Reviews />
-        < Delivery />
-        <Contacts />
-        <Footer 
-        selectedPage={selectedPage}
-        setSelectedPage={setSelectedPage}
-        />
-    </div> */}
 
 
 }
