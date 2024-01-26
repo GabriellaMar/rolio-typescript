@@ -32,7 +32,6 @@ type Product = {
   description: string,
   details: string,
   price: number,
-  // category: ProductCategory,
 };
 
 
