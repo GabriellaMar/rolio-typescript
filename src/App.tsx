@@ -63,15 +63,15 @@ const App: React.FC = () => {
         isTopOfPage={isTopOfPage}
       />}>
 
-        <Route index element={<MainPage
+        <Route path="/" element={<MainPage
           selectedPage={selectedPage}
           setSelectedPage={setSelectedPage}
           products={products}
         />} />
-
+   <Route path="/basket" element={<BasketPage products={products} />} />
       </Route>
 
-      <Route path="basket" element={<BasketPage products={products} />} />
+   
       {/* <Route path="*" element={<ErrorPage />} /> */}
 
     </Routes>

@@ -1,7 +1,8 @@
 import { Card } from "@/components/Basket/Card";
 import { ProductTitle } from "@/shared/types";
 import { XCircleIcon } from "@heroicons/react/24/outline";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 
 type Product = {
     id: string,
@@ -23,11 +24,11 @@ const BasketPage: React.FC<BasketProps> = ({products}) => {
         <section className="py-[56px]">
             <div className={`${flexBetween} px-[56px]`}>
                 <h1 className="font-amaticSC font-normal text-4xl text-text-color">Корзина</h1>
-                <NavLink to='/'>
+                <Link to='/'>
                     <button>
                         <XCircleIcon className="h-8 w-8 text-salat-50" />
                     </button>
-                </NavLink >
+                </Link >
             </div>
             <ul className="flex flex-col gap-2">
                 {products.map((product) => <Card  
