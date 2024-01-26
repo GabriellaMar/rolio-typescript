@@ -1,6 +1,6 @@
 // // import oilImage from "@/assets/image.png";
 // import { ProductCategories } from "../ProductCategories";
-import { ProductCounter } from "@/components/ProductCounter/ProductCounter";
+import { ProductCounter } from "@/components/ProductCounter";
 import { useState } from "react";
 import { SlArrowRight } from "react-icons/sl";
 import { SlArrowLeft } from "react-icons/sl";
@@ -35,6 +35,9 @@ type Product = {
 
 type ProductsProps = {
     products: Product[],
+    add?: () => void;
+    remove?: ()=> void;
+    addProduct: number,
     
 };
 
@@ -51,7 +54,7 @@ type ProductsProps = {
 
 
 
-export const OfferSlider: React.FC<ProductsProps > = ({ products }) => {
+export const OfferSlider: React.FC<ProductsProps > = ({ products, add, remove, addProduct }) => {
      const [current, setCurrent] = useState<number>(0);
 
     const [delails, setDetails] = useState<boolean>(false);
@@ -103,7 +106,7 @@ export const OfferSlider: React.FC<ProductsProps > = ({ products }) => {
                                 <h2 className="font-amaticSC font-normal text-4xl sm:text-5xl md:text-[64px] text-text-color ">Масло "{product.title}"</h2>
                                 <p className="font-roboto font-light text-base sm:text-lg  text-text-color ">{product.description}</p>
                                 {delails &&  <p className="font-roboto font-light text-base sm:text-lg  text-text-color ">{product.details}</p>}
-                                <ProductCounter title={product.title} marginTop={8} position='' btnSize={8} fontSize="2xl"/>
+                                <ProductCounter title={product.title} marginTop={8} position='' btnSize={8} fontSize="2xl" add={add} remove={remove} addProduct={addProduct}/>
                                 <div className="flex flex-col  gap-4 sm:gap-10 sm:flex-row mt-8">
                                 <Buttons title = {product.title} text="Детальніше" size={200}  onClick={showDetails}/>
                                 <Buttons  title = {product.title} text="В корзину" size={200}  padding={2}/>

@@ -19,10 +19,13 @@ type Product = {
 
 type OffersProps = {
     products: Product[],
+    add?: () => void;
+    remove?: ()=> void;
+    addProduct: number,
     
 };
 
-export const Offers: React.FC <OffersProps> = ({ products }) => {
+export const Offers: React.FC <OffersProps> = ({ products, add, remove, addProduct}) => {
    
     // console.log(products)
     // const [activeProductId, setActiveProductId] = useState<string | null>(null);
@@ -31,7 +34,7 @@ export const Offers: React.FC <OffersProps> = ({ products }) => {
         <section className="px-5 sm:px-10 pt-40 ">
          <h2 className="xs:mb-4 sm:mb-6 md:mb-8 font-amaticSC font-normal text-4xl text-salat-50 md:font-bold text-center">Наші продукти</h2> 
          <OfferCategories products={products} />
-         < OfferSlider products={products} />
+         < OfferSlider products={products} add={add} remove={remove} addProduct={addProduct}/>
             {/* <div className=" flex w-full m-auto border relative border-red-100 overflow-hidden  overflow-y-hidden">
            
             < ProductsSlider products={products} />

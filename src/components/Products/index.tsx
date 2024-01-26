@@ -10,14 +10,18 @@ type Product = {
     description: string,
     details: string,
     price: number,
+   
 };
 
 type ProductsProps = {
     products: Product[],
+    add?: () => void;
+    remove?: ()=> void;
+    addProduct: number,
     
 };
 
-export const Products: React.FC <ProductsProps> = ({ products }) => {
+export const Products: React.FC <ProductsProps> = ({ products, add, remove, addProduct }) => {
   // const flexCenter = "flex items-center justify-center "
   return (
     <section id='масло' className="pt-20 pb-6 px-5 sm:px-10 md:px-[50px]   ">
@@ -31,6 +35,9 @@ export const Products: React.FC <ProductsProps> = ({ products }) => {
            description = {product.description}
            details={product.details}
            price={product.price}
+           add={add}
+           remove={remove}
+           addProduct={addProduct}
            />
            )}
            </ul>

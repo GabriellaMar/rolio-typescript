@@ -16,10 +16,11 @@ type NavBarProps = {
     selectedPage: SelectedPage,
     setSelectedPage: (value: SelectedPage) => void;
     isTopOfPage: boolean,
+    addProduct: number,
 
 }
 
-export const NavBar: React.FC<NavBarProps> = ({ isTopOfPage, selectedPage, setSelectedPage }) => {
+export const NavBar: React.FC<NavBarProps> = ({ isTopOfPage, selectedPage, addProduct, setSelectedPage }) => {
     const flexBetween = "flex items-center justify-between"
     const isAboveMediumScreens = useMediaQuery("(min-width: 1366px)");
     const isAboveSmallScreens = useMediaQuery("(min-width: 768px)");
@@ -45,9 +46,17 @@ export const NavBar: React.FC<NavBarProps> = ({ isTopOfPage, selectedPage, setSe
                 <Bars4Icon className="h-10 w-10 text-salat-50" />
             </button >)
             }
-            <Link to="/basket">
-                <img className="bg-transparent " src={basket} alt="Basket icon" width={40} />
-            </Link>
+            <div className="relative">
+                <Link to="/basket">
+                    {addProduct > 0 && (
+                    <div className=" absolute -top-3 left-7 w-6 h-6 bg-red-700 rounded-full">
+                        <p className="  font-roboto font-normal text-white text-center">{addProduct}</p>
+                    </div>
+                    )}
+                    <img className="bg-transparent " src={basket} alt="Basket icon" width={40} />
+                </Link>
+
+            </div>
 
             {/* Mobile MENU */}
             {!isAboveMediumScreens && isMenuToggled && (

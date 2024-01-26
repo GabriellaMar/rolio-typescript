@@ -10,6 +10,7 @@ import { Contacts } from "@/components/Contacts"
 import { Offers } from "@/components/Offers"
 // import { useEffect, useState } from "react"
 import { Header } from "@/components/Header"
+import { useState } from "react"
 // import { useState } from 'react'
 
 type Product = {
@@ -32,24 +33,17 @@ type MainPageProps = {
 };
 
 const MainPage: React.FC<MainPageProps> = ({ selectedPage, setSelectedPage, isTopOfPage,  products }) => {
-  // const [selectedPage, setSelectedPage] = useState<SelectedPage>(SelectedPage.Oil)
-  //  const [isTopOfPage, setIsTopOfPage] = useState<boolean>(true);
+  const [addProduct, setAddProduct] =useState<number>(0);
 
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     if (window.scrollY === 0) {
-  //       setIsTopOfPage(true);
-  //       setSelectedPage(SelectedPage.Oil)
-  //     }
-  //     if (window.scrollY !== 0)
-  //       setIsTopOfPage(false);
-  //   }
-  //   window.addEventListener('scroll', handleScroll);
-  //   return () => window.removeEventListener('scroll', handleScroll)
-  // }, [setSelectedPage])
+  
 
-  // const products: Product[] = productsData;
+  const add = ()=>{
+    setAddProduct((prevState)=>prevState + 1)
+  }
 
+  const remove =() => {
+    setAddProduct((prevState) => prevState- 1)
+  }
 
   return (
     <>
@@ -57,10 +51,21 @@ const MainPage: React.FC<MainPageProps> = ({ selectedPage, setSelectedPage, isTo
         selectedPage={selectedPage}
         setSelectedPage={setSelectedPage}
          isTopOfPage = {isTopOfPage}
+         addProduct={addProduct}
       />
       <main>
-      <Offers products={products} />
-      <Products products={products} />
+      <Offers 
+      products={products} 
+      add={add} 
+      remove={remove}
+      addProduct={addProduct}
+      />
+      <Products 
+      products={products}
+      add={add}
+      remove={remove}
+      addProduct={addProduct}
+       />
       <AboutUs
       // selectedPage={selectedPage}
       //   setSelectedPage={setSelectedPage}
