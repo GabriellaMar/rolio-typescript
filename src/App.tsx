@@ -18,8 +18,8 @@ import { ProductTitle, SelectedPage } from "./shared/types"
 
 
 
-const MainPage = lazy(() => import('@/pages/MainPage'));
-const BasketPage = lazy(() => import('@/pages/BasketPage'));
+const MainPage = lazy(() => import('./pages/MainPage/index'));
+const BasketPage = lazy(() => import('./pages/BasketPage/index'));
 // const ErrorPage = lazy(() => import('@/pages/ErrorPage'));
 
 

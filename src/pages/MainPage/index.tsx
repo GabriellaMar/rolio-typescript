@@ -58,6 +58,7 @@ const MainPage: React.FC<MainPageProps> = ({ selectedPage, setSelectedPage, isTo
         setSelectedPage={setSelectedPage}
          isTopOfPage = {isTopOfPage}
       />
+      <main>
       <Offers products={products} />
       <Products products={products} />
       <AboutUs
@@ -71,6 +72,7 @@ const MainPage: React.FC<MainPageProps> = ({ selectedPage, setSelectedPage, isTo
         selectedPage={selectedPage}
         setSelectedPage={setSelectedPage}
       />
+      </main>
     </>
   )
 }
