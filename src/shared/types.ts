@@ -7,12 +7,7 @@ export enum SelectedPage {
   
   }
 
-  // export enum ProductTitle {
-  //   ForSalat = 'Для салата',
-  //   Italian = 'Італійське',
-  //   ForMeat = "Для м'яса",
-  //   Eastern = 'Східне',
-  // }
+
   
  
 
@@ -23,7 +18,7 @@ export enum SelectedPage {
     'Для м\'яса' = 'from-meet-100 to-meet-200',
   }
 
-   export type ProductTitle = keyof typeof ProductColor;
+  //  export type ProductTitle = keyof typeof ProductColor;
 
   export enum BackgroundColor {
     'Східне' = 'bg-orange-50/[.15]',
@@ -32,9 +27,3 @@ export enum SelectedPage {
     'Для м\'яса' = 'bg-meet-50/[.15]',
   }
 
-  // export enum gradientColor {
-  //   'Східне' = 'orange-500',
-  //   'Для салата' = 'salat-500',
-  //   'Італійське' = 'italian-500',
-  //   'Для м\'яса' = 'meet-500',
-  // }

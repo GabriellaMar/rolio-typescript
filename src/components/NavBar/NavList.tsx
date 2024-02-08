@@ -3,7 +3,6 @@ import { Link } from "./Link";
 import useMediaQuery from "@/hooks/useMediaQuery";
 
 type NavListProps = {
-    // page: string,
     selectedPage: SelectedPage,
     setSelectedPage: (value: SelectedPage) => void;
 

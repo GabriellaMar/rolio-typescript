@@ -1,24 +1,14 @@
 import { Card } from "@/components/Basket/Card";
-import { ProductTitle } from "@/shared/types";
+import { Product } from "@/redux/product/types";
 import { XCircleIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 
-
-type Product = {
-    id: string,
-    img: string,
-    title: ProductTitle
-    // description?: string,
-    // details?: string,
-    price: number,
-    // category: ProductCategory,
-};
 
 type BasketProps = {
     products: Product[],
 };
 
-const BasketPage: React.FC<BasketProps> = ({products}) => {
+const BasketPage: React.FC<BasketProps> = ({ products }) => {
     const flexBetween = 'flex items-center justify-between'
     return (
         <section className="py-[56px]">
@@ -31,17 +21,17 @@ const BasketPage: React.FC<BasketProps> = ({products}) => {
                 </Link >
             </div>
             <ul className="flex flex-col gap-2">
-                {products.map((product) => <Card  
-                id={product.id}
-              key={product.id}
-                title={product.title}
-                img={product.img}
-                price={product.price}
-                
+                {products.map((product) => <Card
+                    id={product._id}
+                    key={product._id}
+                    title={product.title}
+                    img={product.img}
+                    price={product.price}
+
                 />)}
-            
+
             </ul>
-          
+
         </section>
     )
 }

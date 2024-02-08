@@ -4,7 +4,7 @@ import { lazy, useEffect, useState } from "react"
 // import {  SelectedPage } from "@/shared/types"
 // import { Header } from "@/components/Header"
 // import { Offers } from "@/components/Offers"
-import productsData from '@/products.json'
+// import productsData from '@/products.json'
 // import { Products } from "@/components/Products/index"
 // import { AboutUs } from "@/components/AboutUs/index"
 // import { Reviews } from "./components/Reviews"
@@ -14,7 +14,17 @@ import productsData from '@/products.json'
 import { Route, Routes } from "react-router-dom"
 // import Layout from "./components/Layout"
 
-import { ProductTitle, SelectedPage } from "./shared/types"
+import {  SelectedPage } from "./shared/types"
+import { useSelector } from "react-redux";
+ import { fetchProductsThunk } from "./redux/operations";
+
+
+import { selectProductData } from "./redux/product/selectors";
+import { useAppDispatch } from "./hooks/useAppDispatch";
+
+
+
+
 
 
 
@@ -25,19 +35,23 @@ const BasketPage = lazy(() => import('./pages/BasketPage/index'));
 
 
 
-type Product = {
-  id: string,
-  title: ProductTitle
-  img: string,
-  description: string,
-  details: string,
-  price: number,
-};
+// type Product = {
+//   id: string,
+//   title: ProductTitle
+//   img: string,
+//   description: string,
+//   details: string,
+//   price: number,
+// };
 
 
 const App: React.FC = () => {
   const [selectedPage, setSelectedPage] = useState<SelectedPage>(SelectedPage.Oil)
   const [isTopOfPage, setIsTopOfPage] = useState<boolean>(true);
+  const dispatch = useAppDispatch();
+const { items } = useSelector(selectProductData);
+console.log(items)
+  // const loading = useSelector((state) => state.products.loading);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -52,7 +66,13 @@ const App: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const products: Product[] = productsData as Product[];
+
+
+  useEffect(() => {
+    dispatch(fetchProductsThunk());
+}, [dispatch]);
+
+  // const products: Product[] = productsData as Product[];
 
   return (
     <Routes>
@@ -67,9 +87,11 @@ const App: React.FC = () => {
          isTopOfPage={isTopOfPage}
           selectedPage={selectedPage}
           setSelectedPage={setSelectedPage}
-          products={products}
+          products={items}
         />} />
-        <Route path="/basket" element={<BasketPage products={products} />} />
+        <Route path="/basket" element={<BasketPage 
+        products={items} 
+        />} />
      
 
    

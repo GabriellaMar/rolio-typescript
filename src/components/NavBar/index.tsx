@@ -1,32 +1,30 @@
-// import { useState, useEffect } from "react";
+
 import { Bars4Icon, XMarkIcon } from "@heroicons/react/24/solid";
 
 import smallLogo from "@/assets/smallLogo.png";
 import bigLogo from "@/assets/bigLogo.png";
-// import { Link } from "./Link";
 import { SelectedPage } from "@/shared/types";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import { useState } from "react";
 import { NavList } from "./NavList";
 import basket from '@/assets/basket.png'
-// import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
+
 
 type NavBarProps = {
     selectedPage: SelectedPage,
     setSelectedPage: (value: SelectedPage) => void;
     isTopOfPage: boolean,
-    addProduct: number,
 
 }
 
-export const NavBar: React.FC<NavBarProps> = ({ isTopOfPage, selectedPage, addProduct, setSelectedPage }) => {
+export const NavBar: React.FC<NavBarProps> = ({ isTopOfPage, selectedPage,  setSelectedPage }) => {
     const flexBetween = "flex items-center justify-between"
     const isAboveMediumScreens = useMediaQuery("(min-width: 1366px)");
     const isAboveSmallScreens = useMediaQuery("(min-width: 768px)");
     const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
-
-
+   
+  
     return (
         <nav className={isAboveMediumScreens ? `${flexBetween}  top-0 z-20 ` : `flex items-center`}>
             <Link to='/'>
@@ -48,9 +46,9 @@ export const NavBar: React.FC<NavBarProps> = ({ isTopOfPage, selectedPage, addPr
             }
             <div className="relative">
                 <Link to="/basket">
-                    {addProduct > 0 && (
+                    { (
                     <div className=" absolute -top-3 left-7 w-6 h-6 bg-red-700 rounded-full">
-                        <p className="  font-roboto font-normal text-white text-center">{addProduct}</p>
+                        <p className="  font-roboto font-normal text-white text-center">0</p>
                     </div>
                     )}
                     <img className="bg-transparent " src={basket} alt="Basket icon" width={40} />

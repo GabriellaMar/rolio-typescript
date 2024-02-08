@@ -1,8 +1,10 @@
-import {  ProductTitle } from "@/shared/types";
+// import {  ProductTitle } from "@/shared/types";
+
+import { BasketItem } from "@/redux/basket/types";
 
 
 
-export const getBorderColor = ( title: ProductTitle) : string => {
+export const getBorderColor = ( title: string) : string => {
     switch (title ) {
         case "Для салата":
             return 'border-salat-50';
@@ -21,7 +23,7 @@ export const getBorderColor = ( title: ProductTitle) : string => {
     }
 }
 
-export const getTextColor = (title: ProductTitle) : string => {
+export const getTextColor = (title: string) : string => {
     switch (title) {
         case "Для салата":
             return 'text-salat-50';
@@ -39,3 +41,9 @@ export const getTextColor = (title: ProductTitle) : string => {
             return 'text-red-100';
     }
 }
+
+
+
+export const getTotalPrice = (items: BasketItem[]) => {
+    return items.reduce((sum, item) => item.price * item.quantity + sum, 0);
+  };

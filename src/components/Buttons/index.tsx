@@ -1,12 +1,12 @@
 import { getBorderColor, getTextColor } from '@/services/services'
 import { ProductColor} from '@/shared/types';
 
-type ProductTitle = keyof typeof ProductColor;
+// type ProductTitle = keyof typeof ProductColor;
 
 
 type ButtonProps = Partial<{
     text: string;
-    title: ProductTitle;
+    title: string;
     size: number;
     padding: number;
     onClick: () => void;
@@ -21,8 +21,8 @@ type ButtonProps = Partial<{
 
 export const Buttons: React.FC<ButtonProps> = ({ text, size, title="Для салата", padding, onClick, onMouseEnter, onMouseLeave}) => {
 
-    // const productColor = ProductColor[title as keyof typeof ProductColor] || '';
-    const productColor = ProductColor[title] || '';
+     const productColor = ProductColor[title as keyof typeof ProductColor] || '';
+    // const productColor = ProductColor[title] || '';
     return (
         <>
             <button

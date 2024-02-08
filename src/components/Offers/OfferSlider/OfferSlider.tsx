@@ -1,60 +1,26 @@
 // // import oilImage from "@/assets/image.png";
 // import { ProductCategories } from "../ProductCategories";
-import { ProductCounter } from "@/components/ProductCounter";
+// import { ProductCounter } from "@/components/ProductCounter";
 import { useState } from "react";
 import { SlArrowRight } from "react-icons/sl";
 import { SlArrowLeft } from "react-icons/sl";
-// import { getBorderColor } from "@/services/services"
 import { Buttons } from "@/components/Buttons";
-import {  ProductTitle } from "@/shared/types";
-// import { PlusIcon, MinusIcon } from "@heroicons/react/16/solid";
-
-// import { ProductCategory } from "@/shared/types";
-// import { ProductItem } from "../Product/Product";
+import { Product } from "@/redux/product/types";
 
 
-type Product = {
-    id: string,
-    img: string,
-    title: ProductTitle,
-    description: string,
-    details: string,
-    price: number,
-    // category: ProductCategory,
-};
-
-// type ButtonProps = {
-//     text: string
-//     // title: string,
-//     size: number,
-//     padding: number,
-//     onClick?: () => void,
-//     onMouseLeave: () => void,
-//     onMouseEnter: () => void,
-// } 
+ 
 
 type ProductsProps = {
     products: Product[],
-    add?: () => void;
-    remove?: ()=> void;
-    addProduct: number,
+    // add?: () => void;
+    // remove?: ()=> void;
+    // addProduct: number,
     
 };
 
-// type ButtonWithoutElement = Omit<ButtonProps, 'price'>;
 
 
-
-
-
-// type SliderProps = {
-//     products: Pick< Product, 'id' | 'img'| 'title'|'description'| 'details'>[],
-// };
-
-
-
-
-export const OfferSlider: React.FC<ProductsProps > = ({ products, add, remove, addProduct }) => {
+export const OfferSlider: React.FC<ProductsProps > = ({ products}) => {
      const [current, setCurrent] = useState<number>(0);
 
     const [delails, setDetails] = useState<boolean>(false);
@@ -69,10 +35,7 @@ export const OfferSlider: React.FC<ProductsProps > = ({ products, add, remove, a
         setCurrent(current -1)
         }
     }
-    const handleNextSlide = () => {
-        // setCurrent((prevIndex) =>
-        //     prevIndex < products.length - 1 ? prevIndex + 1 : 0
-        // );
+    const handleNextSlide = () => {      
         if(current === products.length-1) {
             setCurrent(0)
             } else {
@@ -88,9 +51,7 @@ export const OfferSlider: React.FC<ProductsProps > = ({ products, add, remove, a
 
     return (
         <div className=" flex w-full m-auto border relative border-red-100 overflow-hidden  overflow-y-hidden ">
-        {/* // <div
-        // // className="overflow-hidden relative border border-red-100"
-        // > */}
+     
             <ul
                 className=" flex"
             // className={`flex transition ease-out duration-400 w-full`}
@@ -99,14 +60,14 @@ export const OfferSlider: React.FC<ProductsProps > = ({ products, add, remove, a
             //     }}
             >
                 {products.map((product) => (
-                    <li key={product.id} className=" border border-orange-50 xs:px-5 w-[100vw]">
+                    <li key={product._id} className=" border border-orange-50 xs:px-5 w-[100vw]">
                         <div className="flex gap-16">
                             <img alt="oil image" src={product.img} className="w-[393px]" />
                             <div>
                                 <h2 className="font-amaticSC font-normal text-4xl sm:text-5xl md:text-[64px] text-text-color ">Масло "{product.title}"</h2>
                                 <p className="font-roboto font-light text-base sm:text-lg  text-text-color ">{product.description}</p>
                                 {delails &&  <p className="font-roboto font-light text-base sm:text-lg  text-text-color ">{product.details}</p>}
-                                <ProductCounter title={product.title} marginTop={8} position='' btnSize={8} fontSize="2xl" add={add} remove={remove} addProduct={addProduct}/>
+                                {/* <ProductCounter title={product.title} marginTop={8} position='' btnSize={8} fontSize="2xl" /> */}
                                 <div className="flex flex-col  gap-4 sm:gap-10 sm:flex-row mt-8">
                                 <Buttons title = {product.title} text="Детальніше" size={200}  onClick={showDetails}/>
                                 <Buttons  title = {product.title} text="В корзину" size={200}  padding={2}/>
