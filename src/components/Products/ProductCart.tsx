@@ -60,7 +60,7 @@ export const ProductCart: React.FC<ProductProps> = ({ id, details, title, descri
             <div className={` absolute  top-[10px] left-[10px] m-auto w-[154px] h-[154px] rounded-full ${isHovered ? `bg-gradient-to-r ${productColor} hovered` : `not-hovered`}  `} ></div>
           </div>
 
-          <img src={`http://localhost:8000/${img}`} alt="bottle of Oil" className={`  inline-block m-auto  ${isHovered ? ' absolute -top-1 left-0  origin-center  rotate ' : 'not-rotate'}`} />
+          <img src={`https://rolio-backend-api.onrender.com/${img}`} alt="bottle of Oil" className={`  inline-block m-auto  ${isHovered ? ' absolute -top-1 left-0  origin-center  rotate ' : 'not-rotate'}`} />
         </div>
 
       </div>

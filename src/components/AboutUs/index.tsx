@@ -1,4 +1,4 @@
-// import { SelectedPage } from '@/shared/types';
+
 import aboutAsMobile from "@/assets/aboutAs-mobile.png";
 import aboutAsTablet from "@/assets/aboutUs-tablet@1x.jpg";
 import vegiesMobile from "@/assets/vegies@1x.jpg";
@@ -8,11 +8,6 @@ import useMediaQuery from '@/hooks/useMediaQuery';
 // import { motion } from "framer-motion";
 
 
-// type Props = {
-//     // selectedPage: SelectedPage,
-//     // setSelectedPage: (value: SelectedPage) => void;
-
-// }
 
 export const AboutUs = () => {
     const isAboveSmallScreens = useMediaQuery("(min-width: 768px)");

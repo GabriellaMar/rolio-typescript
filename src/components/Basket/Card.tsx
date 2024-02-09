@@ -1,5 +1,5 @@
 // import { ProductTitle } from "@/shared/types";
-import { ProductCounter } from "../ProductCounter"
+// import { ProductCounter } from "../ProductCounter"
 import { XCircleIcon } from "@heroicons/react/24/outline";
 
 type Product = {
@@ -31,7 +31,7 @@ export const Card: React.FC<Product> = ({ id, title, img, price}) => {
                 <div className="border rounded border-salat-50 w-[168px] h-[90px] ">
                     <img src={img} className="object-cover " />
                 </div>
-                <ProductCounter title={title} marginTop={0} position='' btnSize={8} fontSize="2xl" id={id} />
+                {/* <ProductCounter title={title} marginTop={0} position='' btnSize={8} fontSize="2xl" id={id} /> */}
                 <div className='flex gap-8 '>
                     <p>{price} грн</p>
                     <button>
