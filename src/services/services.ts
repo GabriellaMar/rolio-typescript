@@ -1,5 +1,7 @@
 // import {  ProductTitle } from "@/shared/types";
 
+import { BasketItem} from "@/redux/basket/types";
+
 
 
 export const getBorderColor = ( title: string) : string => {
@@ -40,5 +42,8 @@ export const getTextColor = (title: string) : string => {
     }
 }
 
+export const calculateProductItems = (basketItems: BasketItem[]): number => {
+    return basketItems.reduce((total: number, item: BasketItem) => total + item.quantity, 0);
+};
 
 

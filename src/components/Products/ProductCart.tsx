@@ -8,28 +8,36 @@ import { addBasketItemThunk } from "@/redux/operations";
 import { useAppDispatch } from "@/hooks/useAppDispatch";
 import { useSelector } from "react-redux";
 import { selectBasketItemById } from "@/redux/basket/selectors";
+import { Product } from "@/redux/product/types";
+// import { selectBasketItemById } from "@/redux/basket/selectors";
 
 
 
-type ProductProps = {
-  id: string,
-  title: string,
-  img: string,
-  description: string,
-  details?: string,
-  price: number,
-};
+// type ProductProps = {
+//   id: string,
+//   title: string,
+//   img: string,
+//   description: string,
+//   details?: string,
+//   price: number,
+// };
 
 
-export const ProductCart: React.FC<ProductProps> = ({ id, details, title, description, img, price, }) => {
-// console.log(id)
+export const ProductCart: React.FC<Product> = ({  _id, details, title, description, img, price, }) => {
+  // const productId = _id;
+
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const isAboveMediumScreens = useMediaQuery("(min-width: 1366px)");
   const dispatch = useAppDispatch();
-  const basketItem = useSelector(selectBasketItemById(id));
+  const basketItem = useSelector(selectBasketItemById(_id));
+
   
  
   const addedQuantity = basketItem ? basketItem.quantity : 0;
+
+//   useEffect(() => {
+//     dispatch(fetchBasketItemsThunk());
+// }, [dispatch]);
 
 
   const handleMouseEnter = () => {
@@ -41,10 +49,9 @@ export const ProductCart: React.FC<ProductProps> = ({ id, details, title, descri
   };
 
   const handleAddToBasket = () => {
-    const item = { productId: id, quantity: 1 };
-    dispatch(addBasketItemThunk(item));
-
-  };
+    const product = { productId: _id, quantity: 1 }; 
+    dispatch(addBasketItemThunk(product));
+ };
 
 
   const productColor = ProductColor[title as keyof typeof ProductColor] || 'gray';
@@ -52,7 +59,7 @@ export const ProductCart: React.FC<ProductProps> = ({ id, details, title, descri
   const backgroundColor = BackgroundColor[title as keyof typeof ProductColor] || 'gray';
 
   return (
-    <li key={id} className="  xs:w-[280px] sm:w-[329px]  md:min-w-[360px]  text-center m-auto">
+    <li  className="  xs:w-[280px] sm:w-[329px]  md:min-w-[360px]  text-center m-auto">
       <div className="relative w-[174px] h-[174px] m-auto">
 
         <div className={`relative m-auto     `}>
@@ -60,7 +67,8 @@ export const ProductCart: React.FC<ProductProps> = ({ id, details, title, descri
             <div className={` absolute  top-[10px] left-[10px] m-auto w-[154px] h-[154px] rounded-full ${isHovered ? `bg-gradient-to-r ${productColor} hovered` : `not-hovered`}  `} ></div>
           </div>
 
-          <img src={`https://rolio-backend-api.onrender.com/${img}`} alt="bottle of Oil" className={`  inline-block m-auto  ${isHovered ? ' absolute -top-1 left-0  origin-center  rotate ' : 'not-rotate'}`} />
+          <img src={`http://localhost:8000/${img}`} alt="bottle of Oil" className={`  inline-block m-auto  ${isHovered ? ' absolute -top-1 left-0  origin-center  rotate ' : 'not-rotate'}`} />
+          {/* <img src={`https://rolio-backend-api.onrender.com/${img}`} alt="bottle of Oil" className={`  inline-block m-auto  ${isHovered ? ' absolute -top-1 left-0  origin-center  rotate ' : 'not-rotate'}`} /> */}
         </div>
 
       </div>
@@ -77,7 +85,7 @@ export const ProductCart: React.FC<ProductProps> = ({ id, details, title, descri
       />
       <p className="font-light text-s text-text-color mt-4 ">250мл <span className={`inline-block font-medium text-2xl ${getTextColor(title)} ml-6`}>{`${price} грн`}</span></p>
       <div className="flex flex-col gap-4 mt-6 text-s md:flex-row md:gap-2">
-        <Buttons title={title} text="В корзину" size={isAboveMediumScreens ? 148 : 248} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onClick={handleAddToBasket} />
+        <Buttons title={title} text="В корзину" size={isAboveMediumScreens ? 148 : 248} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onClick={ handleAddToBasket} />
         <Buttons title={title} text="Замовити в ТГ" size={isAboveMediumScreens ? 148 : 248} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
         />
       </div>

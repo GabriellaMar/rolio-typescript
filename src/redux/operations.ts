@@ -7,7 +7,8 @@ import { Product } from './product/types';
 import { BasketItem} from './basket/types';
 
 const instance = axios.create({
-    baseURL: 'http://localhost:8000',
+     baseURL: 'http://localhost:8000',
+    // baseURL: 'https://rolio-backend-api.onrender.com'
 });
 
 
@@ -38,7 +39,7 @@ export const fetchProductsThunk = createAsyncThunk<Product[], void, { rejectValu
     async (_, thunkApi) => {
         try {
             const { data } = await instance.get<Product[]>('/products');
-            console.log(data);
+             console.log(data);
             return data;
         } catch (error) {
             const errorMessage: string = (error as Error).message ;
@@ -50,10 +51,13 @@ export const fetchProductsThunk = createAsyncThunk<Product[], void, { rejectValu
 // ----------Basket Thunks---------------------------
 
 
-export const fetchBasketItemsThunk = createAsyncThunk<BasketItem[], void, { rejectValue: ErrorPayload }>('basket/fetchBasketItems',
+export const fetchBasketItemsThunk = createAsyncThunk<BasketItem[], void, { rejectValue: ErrorPayload }>(
+    'basket/fetchBasketItems',
     async (_, thunkApi) => {
         try {
+    
             const { data } = await instance.get<BasketItem[]>('/basket');
+          
             console.log("Basket data:", data)
             return data
         } catch (error) {
@@ -66,38 +70,26 @@ export const fetchBasketItemsThunk = createAsyncThunk<BasketItem[], void, { reje
 
 
 
-// export const addBasketItemThunk = createAsyncThunk<BasketItem, void, { rejectValue: ErrorPayload }>('basket/addBasketItem',
-//     async (item, thunkApi) => {
-//         try {
-//             const { data } = await instance.post<BasketItem>('/basket', item);
-//             console.log(data)
-//             return data;
-
-//         } catch (error) {
-//             const errorMessage: string = (error as Error).message ;
-//             return thunkApi.rejectWithValue({ message: errorMessage });
-//         }
-//     })
-
-// export const addBasketItemThunk = createAsyncThunk<BasketItem, string, { rejectValue: ErrorPayload }>(
-//     'basket/addBasketItem',
-//     async (item, thunkApi) => {
-//         try {
-//             const { data } = await instance.post<BasketItem>('/basket',  item );
-//             console.log(data);
-//             return data;
-//         } catch (error) {
-//             const errorMessage: string = (error as Error).message;
-//             return thunkApi.rejectWithValue({ message: errorMessage });
-//         }
-//     }
-// );
 
 export const addBasketItemThunk = createAsyncThunk<BasketItem, { productId: string, quantity: number }, { rejectValue: ErrorPayload }>(
     'basket/addBasketItem',
-    async (item, thunkApi) => { 
+    async (product, thunkApi) => { 
         try {
-            const { data } = await instance.post<BasketItem>('/basket', item); 
+            const { data } = await instance.post<BasketItem>('/basket', product); 
+            console.log(data);
+            return data;
+        } catch (error) {
+            const errorMessage: string = (error as Error).message;
+            return thunkApi.rejectWithValue({ message: errorMessage });
+        }
+    }
+);
+
+export const removeBasketItemThunk = createAsyncThunk<BasketItem, { productId: string, quantity: number }, { rejectValue: ErrorPayload }>(
+    'basket/removeBasketItem',
+    async (productId, thunkApi) => { 
+        try {
+            const { data } = await instance.delete<BasketItem>(`/basket/${productId}`);
             console.log(data);
             return data;
         } catch (error) {

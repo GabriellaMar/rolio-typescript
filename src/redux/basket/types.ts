@@ -1,19 +1,18 @@
-import { Status } from "../product/types";
+import {  Status } from "../product/types";
 
 export type BasketItem = {
-    productId: string;
-    // title: string;
-    // price: number;
-    // img: string;
-    // description?: string,
-    // details?: string,
-    quantity: number;
-     totalPrice: number;
+     productId: string;
+     quantity: number;
+   //   totalPrice: number;
   };
+// export type BasketItem = {
 
+//    product: Product; 
+//     quantity: number;
+// };
 
   export  interface IBasketSliceState {
-    items: BasketItem[];
-    // totalPrice: number;
+   basketItems: BasketItem[];
+    totalItems: number,
      status: Status;
   }

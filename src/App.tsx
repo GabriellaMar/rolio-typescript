@@ -16,11 +16,12 @@ import { Route, Routes } from "react-router-dom"
 
 import {  SelectedPage } from "./shared/types"
 import { useSelector } from "react-redux";
- import { fetchProductsThunk } from "./redux/operations";
+ import {  fetchProductsThunk } from "./redux/operations";
 
 
 import { selectProductData } from "./redux/product/selectors";
 import { useAppDispatch } from "./hooks/useAppDispatch";
+// import { selectBasketItem, selectBasketItemById } from "./redux/basket/selectors";
 
 
 
@@ -50,7 +51,7 @@ const App: React.FC = () => {
   const [isTopOfPage, setIsTopOfPage] = useState<boolean>(true);
   const dispatch = useAppDispatch();
 const { items } = useSelector(selectProductData);
-console.log(items)
+ console.log(items)
   // const loading = useSelector((state) => state.products.loading);
 
   useEffect(() => {
@@ -67,12 +68,13 @@ console.log(items)
   }, [])
 
 
-
-  useEffect(() => {
+useEffect(() => {
+ 
     dispatch(fetchProductsThunk());
 }, [dispatch]);
 
-  // const products: Product[] = productsData as Product[];
+
+ 
 
   return (
     <Routes>
@@ -90,7 +92,7 @@ console.log(items)
           products={items}
         />} />
         <Route path="/basket" element={<BasketPage 
-        products={items} 
+       
         />} />
      
 

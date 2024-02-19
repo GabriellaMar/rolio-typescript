@@ -1,15 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {  IBasketSliceState } from '../basket/types';
 import { Status } from '../product/types';
-import { addBasketItemThunk, fetchBasketItemsThunk } from '../operations';
+import { addBasketItemThunk, fetchBasketItemsThunk, removeBasketItemThunk } from '../operations';
+// import { calculateProductItems } from '@/services/services';
 // import { getTotalPrice } from '@/services/services';
 
 
 
 const initialState: IBasketSliceState  = {
-   items: [],
-//    totalPrice: 0,
-   status: Status.LOADING,
+   basketItems: [],
+   totalItems: 0,
+   status: Status.IDLE,
 
 };
 
@@ -17,20 +18,7 @@ const basketSlice = createSlice({
     name: 'basket',
     initialState,
     reducers: {
-    //     addItem(state, action: PayloadAction<BasketItem>) {
-    //         const findItem = state.items.find((obj) => obj.id === action.payload.id);
-      
-    //         if (findItem) {
-    //           findItem.quantity++;
-    //         } else {
-    //           state.items.push({
-    //             ...action.payload,
-    //             quantity: 1,
-    //           });
-    //         }
-      
-    //         state.totalPrice = getTotalPrice(state.items);
-    // }
+   
 },
     extraReducers: (builder) => {
         builder
@@ -38,7 +26,8 @@ const basketSlice = createSlice({
                 state.status = Status.LOADING;
             })
             .addCase(fetchBasketItemsThunk.fulfilled, (state, action) => {
-                state.items = action.payload;
+                state.basketItems = action.payload;
+                // state.totalItems = calculateProductItems(action.payload);
                 state.status = Status.SUCCESS;
             })
             .addCase(fetchBasketItemsThunk.rejected, (state) => {
@@ -49,17 +38,27 @@ const basketSlice = createSlice({
             })
             .addCase(addBasketItemThunk.fulfilled, (state, action) => {
 
-                const findItem = state.items.find(item => item.productId === action.payload.productId);
+                const findItem = state.basketItems.find(item => item.productId === action.payload.productId);
                 if (findItem) {
                     findItem.quantity += 1; 
                 } else {
-                    state.items.push({...action.payload, quantity: 1});
+                    state.basketItems.push({...action.payload, quantity: 1});
                 }
                 state.status = Status.SUCCESS;
             })
             .addCase(addBasketItemThunk.rejected, (state) => {
                 state.status = Status.ERROR;
-            });
+            })
+            .addCase(removeBasketItemThunk.pending, (state)=>{
+                state.status = Status.LOADING;
+            })
+            .addCase(removeBasketItemThunk.fulfilled, (state, action) => {
+                state.basketItems = state.basketItems.filter(item=>item.productId !== action.payload.productId);
+                
+            })
+            .addCase(removeBasketItemThunk.rejected, (state) => {
+                state.status = Status.ERROR;
+            })
     },
 });
 

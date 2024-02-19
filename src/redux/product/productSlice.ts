@@ -18,14 +18,14 @@ import { IProductSliceState, Status } from './types';
 
 const initialState: IProductSliceState = {
     items: [],
-    status: Status.LOADING,
+    status: Status.IDLE,
 };
 
 const productsSlice = createSlice({
     name: 'products',
     initialState,
     reducers: {
-        // Додайте сюди будь-які інші логічні дії
+      
     },
     extraReducers: (builder) => {
         builder
