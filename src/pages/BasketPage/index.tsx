@@ -1,32 +1,21 @@
 import { Card } from "@/components/Basket/Card";
 import { useAppDispatch } from "@/hooks/useAppDispatch";
 import { selectBasketItem } from "@/redux/basket/selectors";
-import { BasketItem } from "@/redux/basket/types";
-
+// import { BasketItem } from "@/redux/basket/types";
 import { clearBasketThunk, fetchBasketItemsThunk, removeBasketItemThunk } from "@/redux/operations";
-
 import { XCircleIcon } from "@heroicons/react/24/outline";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 
-type BasketProps = {
-    basketItems: BasketItem[],
-    onDelete: (productId: string) => void;
-};
 
-
-
-
-const BasketPage: React.FC<BasketProps> = () => {
+const BasketPage: React.FC = () => {
     const flexBetween = 'flex items-center justify-between'
     const { basketItems } = useSelector(selectBasketItem);
     // console.log("basketItems ITEMS:", basketItems)
 
-
     const dispatch = useAppDispatch();
-
 
     useEffect(() => {
         dispatch(fetchBasketItemsThunk());
@@ -41,7 +30,6 @@ const BasketPage: React.FC<BasketProps> = () => {
     };
 
     // console.log("ITEMS:", basketItems)
-
 
     return (
         <section className="py-[56px]">
@@ -71,7 +59,6 @@ const BasketPage: React.FC<BasketProps> = () => {
             </ul>
             <p className="mt-20">Total price:</p>
             {basketItems.length > 0 && <button type="button" className="bg-salat-10 px-6 py-2" onClick={handleClearBasket}> Очистити корзину </button>}
-
         </section>
     )
 }

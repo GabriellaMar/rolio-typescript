@@ -29,7 +29,8 @@ export const Card: React.FC<CardProps> = ( { title, img, price, quantity, produc
             </div>
             <div className={`${flexBetween} `}>
                 <div className="border rounded border-salat-50 w-[168px] h-[90px] ">
-                    <img src={`http://localhost:8000/${img}`} className="object-cover " />
+                    {/* <img src={`http://localhost:8000/${img}`} className="object-cover " /> */}
+                    <img  src={`https://rolio-backend-api.onrender.com/${img}`} className="object-cover " />
                 </div>
                  <ProductCounter title={title} marginTop={0} position='' btnSize={8} fontSize="2xl"  addedQuantity={ quantity }/> 
                 <div className='flex gap-8 '>
