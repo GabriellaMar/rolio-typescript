@@ -51,7 +51,7 @@ const App: React.FC = () => {
   const [isTopOfPage, setIsTopOfPage] = useState<boolean>(true);
   const dispatch = useAppDispatch();
 const { items } = useSelector(selectProductData);
- console.log(items)
+//  console.log(items)
   // const loading = useSelector((state) => state.products.loading);
 
   useEffect(() => {

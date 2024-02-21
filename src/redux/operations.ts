@@ -59,6 +59,8 @@ export const fetchBasketItemsThunk = createAsyncThunk<BasketItem[], void, { reje
             const { data } = await instance.get<BasketItem[]>('/basket');
           
             console.log("Basket data:", data)
+            // const result = data.map((item)=> { return item.product} )
+            // console.log("Basket product:", result)
             return data
         } catch (error) {
             const errorMessage: string = (error as Error).message ;
@@ -76,6 +78,21 @@ export const addBasketItemThunk = createAsyncThunk<BasketItem, { productId: stri
     async (product, thunkApi) => { 
         try {
             const { data } = await instance.post<BasketItem>('/basket', product); 
+            console.log("DATA!!!!!!:", data);
+            return data;
+        } catch (error) {
+            const errorMessage: string = (error as Error).message;
+            return thunkApi.rejectWithValue({ message: errorMessage });
+        }
+    }
+);
+
+export const removeBasketItemThunk = createAsyncThunk<BasketItem, string, { rejectValue: ErrorPayload }>(
+    'basket/removeBasketItem',
+    async (productId, thunkApi) => { 
+        try {
+            const { data } = await instance.delete(`/basket/${productId}`);
+            console.log("DAT:", data)
             console.log(data);
             return data;
         } catch (error) {
@@ -85,16 +102,25 @@ export const addBasketItemThunk = createAsyncThunk<BasketItem, { productId: stri
     }
 );
 
-export const removeBasketItemThunk = createAsyncThunk<BasketItem, { productId: string, quantity: number }, { rejectValue: ErrorPayload }>(
-    'basket/removeBasketItem',
-    async (productId, thunkApi) => { 
-        try {
-            const { data } = await instance.delete<BasketItem>(`/basket/${productId}`);
-            console.log(data);
-            return data;
-        } catch (error) {
-            const errorMessage: string = (error as Error).message;
+ export const updateBasketItemThunk =createAsyncThunk<BasketItem, string, { rejectValue: ErrorPayload }>('basket/updateBasketItem',async (productId, thunkApi) => {
+    try {
+        const { data } = await instance.patch(`/basket/update/${productId}`);
+        return data;
+
+    } catch (error) {
+        const errorMessage: string = (error as Error).message;
             return thunkApi.rejectWithValue({ message: errorMessage });
-        }
     }
-);
+ })
+
+ export const clearBasketThunk = createAsyncThunk<void, void, { rejectValue: ErrorPayload }>(
+    'basket/clearBasket',
+    async (_, thunkApi) => {
+      try {
+        await instance.delete(`/basket`); 
+      } catch (error) {
+        const errorMessage: string = (error as Error).message;
+        return thunkApi.rejectWithValue({ message: errorMessage });
+      }
+    }
+  );

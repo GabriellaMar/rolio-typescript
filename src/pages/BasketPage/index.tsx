@@ -2,45 +2,46 @@ import { Card } from "@/components/Basket/Card";
 import { useAppDispatch } from "@/hooks/useAppDispatch";
 import { selectBasketItem } from "@/redux/basket/selectors";
 import { BasketItem } from "@/redux/basket/types";
-import { fetchBasketItemsThunk} from "@/redux/operations";
-import { Product } from "@/redux/product/types";
-// import { selectProductData } from "@/redux/product/selectors";
-// import { Product } from "@/redux/product/types";
+
+import { clearBasketThunk, fetchBasketItemsThunk, removeBasketItemThunk } from "@/redux/operations";
+
 import { XCircleIcon } from "@heroicons/react/24/outline";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 
-// type BasketProps = {
-//     productId: BasketItem,
-//     title: Product[];
-//     img: Product[];
-//     price: Product[];
-//     quantity: BasketItem
-
-// };
+type BasketProps = {
+    basketItems: BasketItem[],
+    onDelete: (productId: string) => void;
+};
 
 
 
 
-const BasketPage: React.FC= () => {
+const BasketPage: React.FC<BasketProps> = () => {
     const flexBetween = 'flex items-center justify-between'
-    const {basketItems} = useSelector(selectBasketItem);
-    console.log("basketItems ITEMS:", basketItems)
-    // const {items}  = useSelector( selectProductData);
-    // console.log("SElect ITEMS:", items)
+    const { basketItems } = useSelector(selectBasketItem);
+    // console.log("basketItems ITEMS:", basketItems)
+
+
     const dispatch = useAppDispatch();
+
+
     useEffect(() => {
         dispatch(fetchBasketItemsThunk());
     }, [dispatch]);
-    
-    // const handleRemoveBasketItem =(productId)=>{
-    //     dispatch(removeBasketItemThunk(productId))
-    // }
-    
-    console.log("ITEMS:", basketItems)
-  
+
+    const handleRemoveBasketItem = (productId: string) => {
+        dispatch(removeBasketItemThunk(productId))
+    }
+
+    const handleClearBasket = () => {
+        dispatch(clearBasketThunk());
+    };
+
+    // console.log("ITEMS:", basketItems)
+
 
     return (
         <section className="py-[56px]">
@@ -53,30 +54,23 @@ const BasketPage: React.FC= () => {
                 </Link >
             </div>
             <ul className="flex flex-col gap-2">
-                {/* {items.map((product) => <Card
-                    key={product.productId} // Ключ повинен бути productId, а не _id
-                    id={product.productId} // Передавайте productId, а не _id
-                    title={product.product.title} // Використовуйте product.title, оскільки product тепер містить повну інформацію про товар
-                    img={product.product.img}
-                    price={product.product.price}
-                    quantity={product.quantity}
+                {basketItems.map((item) => {
 
-                />)} */}
-                 {basketItems.map((item) => {
-                  
                     return (
                         <Card
-                        key={item.productId}
-                         productId={item.productId}
-                        quantity={item.quantity}
-                        title={item.product.title}
-                        img={item.product.img}
-                        price={item.product.price}
+                            key={item.productId}
+                            productId={item.productId}
+                            quantity={item.quantity}
+                            title={item.title}
+                            img={item.img}
+                            price={item.price}
+                            onDelete={handleRemoveBasketItem}
                         />
                     );
                 })}
-
             </ul>
+            <p className="mt-20">Total price:</p>
+            {basketItems.length > 0 && <button type="button" className="bg-salat-10 px-6 py-2" onClick={handleClearBasket}> Очистити корзину </button>}
 
         </section>
     )
