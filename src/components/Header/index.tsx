@@ -1,10 +1,12 @@
 import { SelectedPage } from "@/shared/types";
 import { NavBar } from "../NavBar"
 
+
 type HeaderProps = {
     isTopOfPage: boolean,
     selectedPage: SelectedPage,
     setSelectedPage: (value: SelectedPage) => void;
+
    
 }
 

@@ -73,9 +73,6 @@ useEffect(() => {
     dispatch(fetchProductsThunk());
 }, [dispatch]);
 
-
- 
-
   return (
     <Routes>
       {/* <Route path="/" element={<Layout

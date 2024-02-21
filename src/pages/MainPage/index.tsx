@@ -12,6 +12,7 @@ import { Header } from "@/components/Header"
 import { Product } from "@/redux/product/types"
 
 
+
 type MainPageProps = {
   products: Product[],
   isTopOfPage: boolean,
@@ -22,8 +23,7 @@ type MainPageProps = {
 };
 
 const MainPage: React.FC<MainPageProps> = ({ selectedPage, setSelectedPage, isTopOfPage,  products }) => {
- console.log(products)
-
+ 
   return (
     <>
      <Header 

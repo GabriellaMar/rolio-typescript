@@ -9,7 +9,7 @@ type ProductsProps = {
 };
 
 export const Products: React.FC <ProductsProps> = ({ products }) => {
-console.log(products)
+// console.log(products)
 
   return (
     <section id='масло' className="pt-20 pb-6 px-5 sm:px-10 md:px-[50px]   ">

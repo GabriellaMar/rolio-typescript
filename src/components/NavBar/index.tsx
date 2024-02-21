@@ -9,6 +9,10 @@ import { useState } from "react";
 import { NavList } from "./NavList";
 import basket from '@/assets/basket.png'
 import { Link } from "react-router-dom";
+import { selectBasketItem } from "@/redux/basket/selectors";
+import { useSelector } from "react-redux";
+import { calculateProductItems } from "@/services/services";
+
 
 
 type NavBarProps = {
@@ -16,15 +20,18 @@ type NavBarProps = {
     setSelectedPage: (value: SelectedPage) => void;
     isTopOfPage: boolean,
 
+
 }
 
-export const NavBar: React.FC<NavBarProps> = ({ isTopOfPage, selectedPage,  setSelectedPage }) => {
+export const NavBar: React.FC<NavBarProps> = ({ isTopOfPage, selectedPage, setSelectedPage }) => {
     const flexBetween = "flex items-center justify-between"
     const isAboveMediumScreens = useMediaQuery("(min-width: 1366px)");
     const isAboveSmallScreens = useMediaQuery("(min-width: 768px)");
     const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
-   
-  
+    const { basketItems } = useSelector(selectBasketItem);
+
+    // console.log("BASKET ITEM IN NAV BAR ", basketItems)
+    const totalItems: number = calculateProductItems(basketItems);
     return (
         <nav className={isAboveMediumScreens ? `${flexBetween}  top-0 z-20 ` : `flex items-center`}>
             <Link to='/'>
@@ -46,10 +53,10 @@ export const NavBar: React.FC<NavBarProps> = ({ isTopOfPage, selectedPage,  setS
             }
             <div className="relative">
                 <Link to="/basket">
-                    { (
-                    <div className=" absolute -top-3 left-7 w-6 h-6 bg-red-700 rounded-full">
-                        <p className="  font-roboto font-normal text-white text-center">0</p>
-                    </div>
+                    {basketItems.length > 0 && (
+                        <div className="absolute -top-3 left-7 w-6 h-6 bg-red-700 rounded-full">
+                            <p className="font-roboto font-normal text-white text-center">{totalItems}</p>
+                        </div>
                     )}
                     <img className="bg-transparent " src={basket} alt="Basket icon" width={40} />
                 </Link>
