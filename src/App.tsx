@@ -16,7 +16,7 @@ import { Route, Routes } from "react-router-dom"
 
 import {  SelectedPage } from "./shared/types"
 import { useSelector } from "react-redux";
- import {  fetchProductsThunk } from "./redux/operations";
+ import {  fetchBasketItemsThunk, fetchProductsThunk } from "./redux/operations";
 
 
 import { selectProductData } from "./redux/product/selectors";
@@ -69,9 +69,10 @@ const { items } = useSelector(selectProductData);
 
 
 useEffect(() => {
- 
     dispatch(fetchProductsThunk());
+    dispatch(fetchBasketItemsThunk());
 }, [dispatch]);
+
 
   return (
     <Routes>

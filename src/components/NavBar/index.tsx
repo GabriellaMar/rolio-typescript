@@ -30,13 +30,14 @@ export const NavBar: React.FC<NavBarProps> = ({ isTopOfPage, selectedPage, setSe
     const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
     const { basketItems } = useSelector(selectBasketItem);
 
-    // console.log("BASKET ITEM IN NAV BAR ", basketItems)
+
     const totalItems: number = calculateProductItems(basketItems);
+
     return (
         <nav className={isAboveMediumScreens ? `${flexBetween}  top-0 z-20 ` : `flex items-center`}>
             <Link to='/'>
-                <div className={`bg-salat-30 ${!isTopOfPage ? ` rounded-full  p-9 -mt-7  w-[100px] h-[100px] ` : ` rounded-full  p-8 -mt-8   w-[130px] h-[130px] sm:w-[145px] sm:h-[145px]`}`} >
-                    <img alt="logo image" src={isAboveSmallScreens ? bigLogo : smallLogo} className={isTopOfPage ? `m-auto pt-1` : `-mt-1`} />
+                <div className={`bg-salat-30 rounded-full  ${!isTopOfPage ? ` not-scaled-logo   p-9 -mt-7  ` : ` scaled-logo  p-8 -mt-8   sm:w-[145px] sm:h-[145px]`}`} >
+                    <img alt="logo image" src={isAboveSmallScreens ? bigLogo : smallLogo} className={` m-auto ${isTopOfPage ? `-mt-0` : `-mt-1`}`} />
                 </div>
             </Link>
             {isAboveMediumScreens ? (
@@ -48,17 +49,17 @@ export const NavBar: React.FC<NavBarProps> = ({ isTopOfPage, selectedPage, setSe
             ) : (<button type="button"
                 className="bg-transparent ml-auto  mr-6 sm:mr-8 mt-1"
                 onClick={() => setIsMenuToggled(!isMenuToggled)}>
-                <Bars4Icon className="h-10 w-10 text-salat-50" />
+                <Bars4Icon className="h-10 w-10 text-salat-50 hover-icon" />
             </button >)
             }
             <div className="relative">
                 <Link to="/basket">
-                    {basketItems.length > 0 && (
-                        <div className="absolute -top-3 left-7 w-6 h-6 bg-red-700 rounded-full">
+                    {totalItems > 0 && (
+                        <div className="absolute -top-5 left-7 w-6 h-6 bg-red-700 rounded-full">
                             <p className="font-roboto font-normal text-white text-center">{totalItems}</p>
                         </div>
                     )}
-                    <img className="bg-transparent " src={basket} alt="Basket icon" width={40} />
+                    <img className="bg-transparent hover-icon -mt-2" src={basket} alt="Basket icon" width={40} />
                 </Link>
 
             </div>

@@ -1,10 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { IBasketSliceState } from '../basket/types';
 import { Status } from '../product/types';
-import { addBasketItemThunk, clearBasketThunk, fetchBasketItemsThunk, removeBasketItemThunk, updateBasketItemThunk } from '../operations';
-// import { calculateProductItems } from '@/services/services';
-// import { getTotalPrice } from '@/services/services';
-
+import { addBasketItemThunk, clearBasketThunk, fetchBasketItemsThunk, removeBasketItemThunk, updateBasketItemThunk, } from '../operations';
 
 
 const initialState: IBasketSliceState = {
@@ -18,7 +15,6 @@ const basketSlice = createSlice({
     name: 'basket',
     initialState,
     reducers: {
-
     },
     extraReducers: (builder) => {
         builder
@@ -27,7 +23,6 @@ const basketSlice = createSlice({
             })
             .addCase(fetchBasketItemsThunk.fulfilled, (state, action) => {
                 state.basketItems = action.payload;
-                // state.totalItems = calculateProductItems(action.payload);
                 state.status = Status.SUCCESS;
             })
             .addCase(fetchBasketItemsThunk.rejected, (state) => {
@@ -38,7 +33,7 @@ const basketSlice = createSlice({
             })
             .addCase(addBasketItemThunk.fulfilled, (state, action) => {
 
-                const findItem = state.basketItems.find(item => item.productId === action.payload.productId);
+                const findItem = state.basketItems.find(item => item._id === action.payload._id);
                 if (findItem) {
                     findItem.quantity += 1;
                 } else {
@@ -53,7 +48,7 @@ const basketSlice = createSlice({
                 state.status = Status.LOADING;
             })
             .addCase(removeBasketItemThunk.fulfilled, (state, action) => {
-                state.basketItems = state.basketItems.filter(item => item.productId !== action.payload.productId);
+                state.basketItems = state.basketItems.filter(item => item._id !== action.payload._id);
                 state.status = Status.SUCCESS;
             })
             .addCase(removeBasketItemThunk.rejected, (state) => {
@@ -63,20 +58,10 @@ const basketSlice = createSlice({
                 state.status = Status.LOADING;
             })
             .addCase(updateBasketItemThunk.fulfilled, (state, action) => {
-                const findItem = state.basketItems.find(item => item.productId === action.payload.productId);
-                // if (findItem) {
-                //     findItem.quantity += 1; 
-                // } else if(findItem && findItem.quantity>1){
-                //     findItem.quantity -= 1; 
-                // }
-
+                const findItem = state.basketItems.find(item => item._id === action.payload._id);
                 if (findItem) {
-                //     if (action === 'decrement') {
-                //         findItem.quantity += 1; // Збільшуємо кількість продукту на одиницю, якщо дія - збільшення
-                //     } else if (findItem.quantity > 1) {
-                //         findItem.quantity -= 1; // Зменшуємо кількість продукту на одиницю, якщо дія - зменшення, за умови, що кількість більше 1
-                //     }
-                 }
+                    findItem.quantity = action.payload.quantity;
+                }
                 state.status = Status.SUCCESS;
             })
             .addCase(updateBasketItemThunk.rejected, (state) => {

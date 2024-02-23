@@ -1,46 +1,62 @@
 
 import { PlusIcon, MinusIcon } from "@heroicons/react/16/solid";
-import {  getTextColor } from '@/services/services';
-
+import { getTextColor } from '@/services/services';
+import { useAppDispatch } from "@/hooks/useAppDispatch";
+import { updateBasketItemThunk } from "@/redux/operations";
+import { useContext } from "react";
+import { IsHoveredContext } from "../Products/ProductCart";
 
 
 
 type CounterProps = {
-    // id: string,
+    _id: string,
     title: string,
     marginTop: number,
     btnSize: number,
     fontSize: string,
     position: string,
     addedQuantity: number,
+    handleMouseEnter?: () => void;
+    handleMouseLeave?: () => void;
 };
 
 
-export const ProductCounter: React.FC <CounterProps> = ({ addedQuantity, title, marginTop, btnSize,  fontSize, position, 
-    //  addProduct, add, remove
-    }) => {
-    const flexCenter = "flex items-center justify-center"
-
-    // const basketItem = useSelector(selectBasketItemById(id));
+export const ProductCounter: React.FC<CounterProps> = ({
+    _id,
+    addedQuantity,
+    title,
+    marginTop,
+    btnSize,
+    fontSize,
+    position,
+    handleMouseEnter,
+    handleMouseLeave
+}) => {
   
- 
-    // const addedQuantity = basketItem ? basketItem.quantity : 0;
+    const flexCenter = "flex items-center justify-center"
+    const isHovered = useContext(IsHoveredContext);
+    const dispatch = useAppDispatch();
+
+
+    const handleDecrement = () => {
+        dispatch(updateBasketItemThunk({ id: _id, action: 'decrement' }));
+    };
+
+    const handleIncrement = () => {
+        dispatch(updateBasketItemThunk({ id: _id, action: 'increment' }));
+    };
+
 
     return (
-        <div className={`flex gap-[25px] items-center mt-${marginTop} ${position || ''}`}>
-            <button className={` w-${btnSize}  h-${btnSize}  border  rounded-lg border-grey-10  ${flexCenter}`}
-            //  onClick={remove}
-             >
-                <MinusIcon className="w-4 text-text-color" />
+        <div className={`flex  gap-3 sm:gap-[25px] items-center mr-3 mt-${marginTop} ${position || ''}`}>
+            <button className={` w-${btnSize}  h-${btnSize}  border  rounded-lg border-grey-10 clear-hover ${flexCenter} ${isHovered && 'clear-hover'}`}>
+                <MinusIcon className="w-4 text-text-color" onClick={handleDecrement} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} />
             </button>
             <p className={`text-end text-${fontSize} ${getTextColor(title)}`}>
-          
                 {addedQuantity}
-                </p>
-            <button className={`border w-${btnSize}  h-${btnSize}  rounded-lg border-grey-10  ${flexCenter}`} 
-            // onClick={add}
-            >
-                <PlusIcon className={` w-4 text-text-color `} />
+            </p>
+            <button className={`border w-${btnSize}  h-${btnSize}  rounded-lg border-grey-10  clear-hover ${flexCenter}  ${isHovered && 'clear-hover'}`}  >
+                <PlusIcon className={`w-4 text-text-color `} onClick={handleIncrement} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} />
             </button>
         </div>
     );

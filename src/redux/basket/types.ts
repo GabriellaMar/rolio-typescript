@@ -6,11 +6,11 @@ import {  Status } from "../product/types";
 //    //   totalPrice: number;
 //   };
 export type BasketItem = {
-  productId: string;
+      _id: string;
       title: string;
       img: string;
       price: number;
-     quantity: number;
+      quantity: number;
 };
 
   export  interface IBasketSliceState {

@@ -12,10 +12,10 @@ type HeaderProps = {
 
 
 export const Header: React.FC <HeaderProps> =({isTopOfPage,  selectedPage, setSelectedPage }) => {
-    const headerBackground = isTopOfPage ? "" : "bg-salat-5a";
+    const headerBackground = isTopOfPage ? "" : "bg-salat-5a ";
   
     return (
-        <header className={` ${headerBackground} fixed z-20  w-full px-5 pb-2 sm:px-10 md:px-[50px]`}>
+        <header className={` ${headerBackground} fixed z-20  w-full px-5 pb-2 sm:px-10 md:px-[50px] `}>
              <NavBar 
              selectedPage={selectedPage}
              setSelectedPage={setSelectedPage}

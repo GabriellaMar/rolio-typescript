@@ -7,7 +7,7 @@ import { Product } from './product/types';
 import { BasketItem} from './basket/types';
 
 const instance = axios.create({
-    //  baseURL: 'http://localhost:8000',
+    //   baseURL: 'http://localhost:8000',
      baseURL: 'https://rolio-backend-api.onrender.com'
 });
 
@@ -32,6 +32,12 @@ const instance = axios.create({
 // Опис типу для повідомлення про помилку
 interface ErrorPayload {
     message: string;
+}
+
+
+interface UpdateBasketItemData {
+    id: string;
+    action: 'increment' | 'decrement';
 }
 
 export const fetchProductsThunk = createAsyncThunk<Product[], void, { rejectValue: ErrorPayload }>(
@@ -72,13 +78,13 @@ export const fetchBasketItemsThunk = createAsyncThunk<BasketItem[], void, { reje
 
 
 
-export const addBasketItemThunk = createAsyncThunk<BasketItem, { productId: string, quantity: number }, { rejectValue: ErrorPayload }>(
+export const addBasketItemThunk = createAsyncThunk<BasketItem, { _id: string, quantity: number }, { rejectValue: ErrorPayload }>(
     'basket/addBasketItem',
     async (product, thunkApi) => { 
         try {
             const { data } = await instance.post<BasketItem>('/basket', product); 
             // console.log("DATA!!!!!!:", data);
-            return data;
+            return data as BasketItem;
         } catch (error) {
             const errorMessage: string = (error as Error).message;
             return thunkApi.rejectWithValue({ message: errorMessage });
@@ -88,9 +94,9 @@ export const addBasketItemThunk = createAsyncThunk<BasketItem, { productId: stri
 
 export const removeBasketItemThunk = createAsyncThunk<BasketItem, string, { rejectValue: ErrorPayload }>(
     'basket/removeBasketItem',
-    async (productId, thunkApi) => { 
+    async (_id, thunkApi) => { 
         try {
-            const { data } = await instance.delete(`/basket/${productId}`);
+            const { data } = await instance.delete(`/basket/${_id}`);
             // console.log("DAT:", data)
             // console.log(data);
             return data;
@@ -101,16 +107,30 @@ export const removeBasketItemThunk = createAsyncThunk<BasketItem, string, { reje
     }
 );
 
- export const updateBasketItemThunk =createAsyncThunk<BasketItem, string, { rejectValue: ErrorPayload }>('basket/updateBasketItem',async (productId, thunkApi) => {
-    try {
-        const { data } = await instance.patch(`/basket/update/${productId}`);
-        return data;
+//  export const decrementBasketItemThunk =createAsyncThunk<BasketItem, string, { rejectValue: ErrorPayload }>('basket/decrementBasketItem',
+//  async (id, thunkApi) => {
+//     try {
+//         const { data } = await instance.patch(`/basket/decrement/${id}`);
+//         return data;
 
-    } catch (error) {
-        const errorMessage: string = (error as Error).message;
+//     } catch (error) {
+//         const errorMessage: string = (error as Error).message;
+//             return thunkApi.rejectWithValue({ message: errorMessage });
+//     }
+//  })
+
+export const updateBasketItemThunk = createAsyncThunk(
+    'basket/updateBasketItem',
+    async ({ id, action }: UpdateBasketItemData, thunkApi) => {
+        try {
+            const { data } = await instance.patch(`/basket/${action}/${id}`);
+            return data;
+        } catch (error) {
+            const errorMessage = (error as Error).message;
             return thunkApi.rejectWithValue({ message: errorMessage });
+        }
     }
- })
+);
 
  export const clearBasketThunk = createAsyncThunk<void, void, { rejectValue: ErrorPayload }>(
     'basket/clearBasket',

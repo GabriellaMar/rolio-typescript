@@ -1,7 +1,7 @@
-import { getTextColor } from "@/services/services";
+import { getBorderColor, getTextColor } from "@/services/services";
 import { ProductCounter } from "../ProductCounter";
 import { Buttons } from "@/components/Buttons/index";
-import { useState } from "react";
+import { createContext, useState } from "react";
 import { BackgroundColor, ProductColor } from "@/shared/types";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import { addBasketItemThunk } from "@/redux/operations";
@@ -11,33 +11,20 @@ import { selectBasketItemById } from "@/redux/basket/selectors";
 import { Product } from "@/redux/product/types";
 // import { selectBasketItemById } from "@/redux/basket/selectors";
 
+export const IsHoveredContext = createContext<boolean>(false);
 
 
-// type ProductProps = {
-//   id: string,
-//   title: string,
-//   img: string,
-//   description: string,
-//   details?: string,
-//   price: number,
-// };
 
-
-export const ProductCart: React.FC<Product> = ({  _id, details, title, description, img, price, }) => {
-  // const productId = _id;
-
+export const ProductCart: React.FC<Product> = ({ _id, details, title, description, img, price, }) => {
+ 
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const isAboveMediumScreens = useMediaQuery("(min-width: 1366px)");
   const dispatch = useAppDispatch();
   const basketItem = useSelector(selectBasketItemById(_id));
 
-  
  
-  const addedQuantity = basketItem ? basketItem.quantity : 0;
 
-//   useEffect(() => {
-//     dispatch(fetchBasketItemsThunk());
-// }, [dispatch]);
+  const addedQuantity = basketItem ? basketItem.quantity : 0;
 
 
   const handleMouseEnter = () => {
@@ -49,9 +36,10 @@ export const ProductCart: React.FC<Product> = ({  _id, details, title, descripti
   };
 
   const handleAddToBasket = () => {
-    const product = { productId: _id, quantity: 1 }; 
+    const product = { _id: _id, quantity: 1 };
     dispatch(addBasketItemThunk(product));
- };
+  };
+
 
 
   const productColor = ProductColor[title as keyof typeof ProductColor] || 'gray';
@@ -59,7 +47,8 @@ export const ProductCart: React.FC<Product> = ({  _id, details, title, descripti
   const backgroundColor = BackgroundColor[title as keyof typeof ProductColor] || 'gray';
 
   return (
-    <li  className="  xs:w-[280px] sm:w-[329px]  md:min-w-[360px]  text-center m-auto">
+    <IsHoveredContext.Provider value={isHovered}>
+    <li className="  xs:w-[280px] sm:w-[329px]  md:min-w-[360px]  text-center m-auto">
       <div className="relative w-[174px] h-[174px] m-auto">
 
         <div className={`relative m-auto     `}>
@@ -76,19 +65,25 @@ export const ProductCart: React.FC<Product> = ({  _id, details, title, descripti
       <p className="font-roboto font-light text-xxs sm:text-xs text-text-color mt-4">{description}</p>
       <p className="font-roboto font-light text-xxs sm:text-xs text-text-color mt-4">{details}</p>
       <ProductCounter
-        // id={id}
+        _id={_id}
         title={title}
         marginTop={6}
         position="justify-center"
         btnSize={6} fontSize="2xm"
-        addedQuantity={ addedQuantity }
+        addedQuantity={addedQuantity}
+        handleMouseEnter={handleMouseEnter}
+        handleMouseLeave={handleMouseLeave}
       />
       <p className="font-light text-s text-text-color mt-4 ">250мл <span className={`inline-block font-medium text-2xl ${getTextColor(title)} ml-6`}>{`${price} грн`}</span></p>
       <div className="flex flex-col gap-4 mt-6 text-s md:flex-row md:gap-2">
-        <Buttons title={title} text="В корзину" size={isAboveMediumScreens ? 148 : 248} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onClick={ handleAddToBasket} />
-        <Buttons title={title} text="Замовити в ТГ" size={isAboveMediumScreens ? 148 : 248} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
-        />
+        <Buttons title={title} text="В корзину" size={isAboveMediumScreens ? 148 : 248} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onClick={handleAddToBasket} />
+        {/* <Buttons title={title} text="Замовити в ТГ" size={isAboveMediumScreens ? 148 : 248} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}/> */}
+        <a href="https://t.me/GabriellaMar"  className={` border ${getBorderColor(title)}   rounded-[50px]  px-12 md:px-6 ${isAboveMediumScreens ? `w-[148px]`: `w-[248px]`}  xs:w-full   ${getTextColor(title)} uppercase hover-gradient hover:bg-gradient-to-r ${productColor} `}
+        onMouseEnter={handleMouseEnter} 
+        onMouseLeave={handleMouseLeave}
+        >Замовити в ТГ</a>
       </div>
     </li>
+    </IsHoveredContext.Provider>
   );
 };
