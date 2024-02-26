@@ -10,6 +10,7 @@ import { Contacts } from "@/components/Contacts"
 import { Offers } from "@/components/Offers"
 import { Header } from "@/components/Header"
 import { Product } from "@/redux/product/types"
+// import SliderComponent from "@/components/Offers/Slider"
 
 
 
@@ -22,6 +23,16 @@ type MainPageProps = {
 
 };
 
+// // const items = ['@/assets/image1.png', 'dgfrdgdfgfd', 'trhthgrtgrgt']
+// const items = [{
+//   img: saladImage,
+// },
+// {
+//   img: italianImage,
+// }
+// ]
+
+
 const MainPage: React.FC<MainPageProps> = ({ selectedPage, setSelectedPage, isTopOfPage,  products }) => {
  
   return (
@@ -33,11 +44,13 @@ const MainPage: React.FC<MainPageProps> = ({ selectedPage, setSelectedPage, isTo
       />
       <main>
       <Offers 
-      products={products} 
+        // products={products} 
       // add={add} 
       // remove={remove}
       // addProduct={addProduct}
       />
+
+{/* <SliderComponent  sliderProducts={productsData}/> */}
       <Products 
       products={products}
       // add={add}

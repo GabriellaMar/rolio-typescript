@@ -1,32 +1,32 @@
 [
     {
-        "id": "1",
-        "img": "http://localhost:5173/rolio-typescript/src/assets/salat-oil.png",
+        "_id": "1",
+        "img": "gabriellamar.github.io/rolio-typescript/src/assets/salad-oil.png",
         "title": "Для салата",
         "description": "Назва говорить сама за себе. Iдеальний дресинг, який навіть звичайній капусті надасть неповторний смак і аромат.",
         "details": "Склад: оливкова олія холодного віджиму, розмарин, тим'ян, базилік, орегано, часник, суміш з 5 перців.",
         "price": 100
     },
     {
-        "id": "2",
-        "img": "http://localhost:5173/rolio-typescript/src/assets/italian-oil.png",
+        "_id": "2",
+        "img": "gabriellamar.github.io/rolio-typescript/src/assets/slider-italian-oil.png",
         "title": "Італійське",
         "description": "Додасть ноток Італії у будь-яке ваше блюдо. Паста, різотто, піца, салати - його можна використовувати скрізь.",
         "details": "Склад: оливкова олія холодного віджиму, часник, вялені томати, базилік, орегано, майоран, суміш перців.",
         "price": 120
     },
     {
-        "id": "3",
-        "img": "http://localhost:5173/rolio-typescript/src/assets/salat-oil.png",
+        "_id": "3",
+        "img": "gabriellamar.github.io/rolio-typescript/src/assets/slider-meet-oil.png",
         "title": "Для м'яса",
         "description": "Ідеальне рішення для легкого та швидкого маринаду м'яса, можна додати краплю масла і після приготування.",
         "details": "Склад: оливкова олія холодного віджиму, часник, паприка, коріандр, суміш перців, розмарин, тим'ян, перець чилі.",
         "price": 110
     },
     {
-        "id": "4",
+        "_id": "4",
         "title": "Східне",
-        "img": "http://localhost:5173/rolio-typescript/src/assets/salat-oil.png",
+        "img": "gabriellamar.github.io/rolio-typescript/src/assets/slider-easten-oil.png",
         "description": "Підійде для страв середньоазійської кухні: шурпа, плов, лагман. Надає традиційні нотки Середньої Азії.",
         "details": "Склад: оливкова олія холодного віджиму, перець чилі, кмин, куркума, часник, суміш перців.",
         "price": 105
