@@ -25,12 +25,12 @@ export const Card: React.FC<CardProps> = ( { title, img, price, quantity, _id, o
     return (
         <li  className={`bg-light-grey-50 w-full py-4  px-4 sm:px-[56px] `}>
             <div className={` ${flexCenter}  gap-4`}>
-                <h3 className=" font-roboto text-sm text-salat-50 font-normal"> Масло "{title}"</h3>
-                <span className=" font-roboto text-2xs text-text-color font-light">250мл</span>
+                <h3 className=" font-roboto  text-base text-salat-50 font-normal"> Олія "{title}"</h3>
+                <span className=" font-roboto text-s text-text-color font-light">250мл</span>
             </div>
             <div className={`${flexBetween} relative`}>
             {/* <div className='flex xs:flex-col sm:flex-row justify-between'> */}
-                <div className="border rounded border-salat-50  max-w-[164px] mr-3 mt-4">
+                <div className="border rounded border-salat-50  bg-white max-w-[164px] mr-3 mt-4">
                     {/* <img src={`http://localhost:8000/${img}`} className="object-cover " /> */}
                     <img  src={`https://rolio-backend-api.onrender.com/${img}`} className="object-cover " />
                 </div>

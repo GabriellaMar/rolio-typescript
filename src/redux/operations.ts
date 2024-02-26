@@ -12,19 +12,6 @@ const instance = axios.create({
 });
 
 
-// type Product = {
-//     id: string,
-//     title: string,
-//     img: string,
-//     description: string,
-//     details: string,
-//     price: number,
-   
-// };
-
-// type GetProductsResponse = {
-//     data: Product [];
-//   };
 
 
  

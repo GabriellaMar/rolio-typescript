@@ -14,13 +14,14 @@ import { lazy, useEffect, useState } from "react"
 import { Route, Routes } from "react-router-dom"
 // import Layout from "./components/Layout"
 
-import {  SelectedPage } from "./shared/types"
+// import {  SelectedPage } from "./shared/types"
 import { useSelector } from "react-redux";
  import {  fetchBasketItemsThunk, fetchProductsThunk } from "./redux/operations";
 
 
 import { selectProductData } from "./redux/product/selectors";
 import { useAppDispatch } from "./hooks/useAppDispatch";
+import { SelectedPage } from "./shared/types";
 // import { selectBasketItem, selectBasketItemById } from "./redux/basket/selectors";
 
 

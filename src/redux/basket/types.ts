@@ -15,6 +15,5 @@ export type BasketItem = {
 
   export  interface IBasketSliceState {
    basketItems: BasketItem[];
-    totalItems: number,
      status: Status;
   }

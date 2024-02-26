@@ -9,6 +9,7 @@ import { TrashIcon } from "@heroicons/react/24/outline"
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import emptyBasket from "@/assets/empty-cart.png"
 
 
 
@@ -37,7 +38,7 @@ const BasketPage: React.FC = () => {
     const totalPrice: number = calculateTotalPrice(basketItems)
 
     return (
-        <section className="py-[56px]">
+        <section className={`py-[40px] ${basketItems.length !==0 ? `bg-white` : `bg-light-grey-50 `} `}>
             <div className={`${flexBetween} px-4 sm:px-[56px]`}>
                 <h1 className="font-amaticSC font-normal text-4xl text-text-color xs:text-start">Корзина</h1>
                 <Link to='/'>
@@ -46,7 +47,7 @@ const BasketPage: React.FC = () => {
                     </button>
                 </Link >
             </div>
-            {totalItems > 0 &&
+            { basketItems && totalItems > 0 ? (
                 <>
                     <ul className="flex flex-col gap-2 mt-4">
                         {basketItems.map((item) => {
@@ -65,7 +66,7 @@ const BasketPage: React.FC = () => {
                             }
                         })}
                     </ul>
-                    <p className="mt-20 text-right pr-8 font-roboto text-sm font-normal text-text-color">Total price:
+                    <p className="mt-20 text-right pr-8 font-roboto text-sm font-normal text-text-color">Загальна вартість:
                         <span className=" inline-block text-lg  text-salat-50 mx-2">{totalPrice}
                         </span>
                         грн
@@ -73,7 +74,16 @@ const BasketPage: React.FC = () => {
                     <button type="button" className="block  px-6 py-2 mt-4 ml-auto mr-8" onClick={handleClearBasket}>
                         <TrashIcon className="h-8 w-8 text-salat-50 clear-hover " />
                     </button>
-                </>
+                </>) : (
+                    <div className=" border">
+                        <div className="m-auto ">
+                    <p className="text-center font-amaticSC font-bold text-4xl text-salat-50 mt-4">Наразі ваша корзина порожня.</p>
+                    <p className="font-amaticSC text-xl font-normal text-text-color text-center mt-2">Почніть додавати товари, щоб насолоджуватися покупками!</p>
+                    </div>
+                    <img src={emptyBasket} className="m-auto w-1/2"/>
+                    
+                    </div>
+                )
             }
         </section>
     )

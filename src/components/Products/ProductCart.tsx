@@ -21,10 +21,10 @@ export const ProductCart: React.FC<Product> = ({ _id, details, title, descriptio
   const isAboveMediumScreens = useMediaQuery("(min-width: 1366px)");
   const dispatch = useAppDispatch();
   const basketItem = useSelector(selectBasketItemById(_id));
-
+console.log(basketItem)
  
 
-  const addedQuantity = basketItem ? basketItem.quantity : 0;
+   const addedQuantity = basketItem ? basketItem.quantity  : 0;
 
 
   const handleMouseEnter = () => {
@@ -61,7 +61,7 @@ export const ProductCart: React.FC<Product> = ({ _id, details, title, descriptio
         </div>
 
       </div>
-      <h2 className={`font-amaticSC font-bold text-1xl ${getTextColor(title)} mt-6`}>Масло "{title}"</h2>
+      <h2 className={`font-amaticSC font-bold text-1xl ${getTextColor(title)} mt-6`}>Олія "{title}"</h2>
       <p className="font-roboto font-light text-xxs sm:text-xs text-text-color mt-4">{description}</p>
       <p className="font-roboto font-light text-xxs sm:text-xs text-text-color mt-4">{details}</p>
       <ProductCounter

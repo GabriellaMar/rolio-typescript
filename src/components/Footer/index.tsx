@@ -22,7 +22,7 @@ export const Footer: React.FC <FooterProps> = ({ selectedPage, setSelectedPage }
             <img src={bigLogo} alt="Logo image" />
             <ul className={` text-white ${flexCenter} text-sm font-messiri ${isAboveSmallScreens ? ` flex-row gap-8  mx-20  ` : ` flex-col  gap-4`}`}>
                 <li>
-                    <Link page='Масло'
+                    <Link page='Олія'
                         selectedPage={selectedPage}
                         setSelectedPage={setSelectedPage}
                     />

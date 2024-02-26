@@ -64,7 +64,7 @@ export const OfferSlider: React.FC<ProductsProps > = ({ products}) => {
                         <div className="flex gap-16">
                             <img alt="oil image" src={product.img} className="w-[393px]" />
                             <div>
-                                <h2 className="font-amaticSC font-normal text-4xl sm:text-5xl md:text-[64px] text-text-color ">Масло "{product.title}"</h2>
+                                <h2 className="font-amaticSC font-normal text-4xl sm:text-5xl md:text-[64px] text-text-color ">Олія "{product.title}"</h2>
                                 <p className="font-roboto font-light text-base sm:text-lg  text-text-color ">{product.description}</p>
                                 {delails &&  <p className="font-roboto font-light text-base sm:text-lg  text-text-color ">{product.details}</p>}
                                 {/* <ProductCounter title={product.title} marginTop={8} position='' btnSize={8} fontSize="2xl" /> */}

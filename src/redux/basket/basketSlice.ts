@@ -6,7 +6,6 @@ import { addBasketItemThunk, clearBasketThunk, fetchBasketItemsThunk, removeBask
 
 const initialState: IBasketSliceState = {
     basketItems: [],
-    totalItems: 0,
     status: Status.IDLE,
 
 };

@@ -2,7 +2,7 @@
 import { PlusIcon, MinusIcon } from "@heroicons/react/16/solid";
 import { getTextColor } from '@/services/services';
 import { useAppDispatch } from "@/hooks/useAppDispatch";
-import { updateBasketItemThunk } from "@/redux/operations";
+import { addBasketItemThunk, updateBasketItemThunk } from "@/redux/operations";
 import { useContext } from "react";
 import { IsHoveredContext } from "../Products/ProductCart";
 
@@ -15,7 +15,7 @@ type CounterProps = {
     btnSize: number,
     fontSize: string,
     position: string,
-    addedQuantity: number,
+    addedQuantity: number ,
     handleMouseEnter?: () => void;
     handleMouseLeave?: () => void;
 };
@@ -38,15 +38,20 @@ export const ProductCounter: React.FC<CounterProps> = ({
     const dispatch = useAppDispatch();
 
 
+    const handleIncrement = () => {
+        if (addedQuantity === 0) {
+            dispatch(addBasketItemThunk({ _id, quantity: 1 }));
+        } else {
+            dispatch(updateBasketItemThunk({ id: _id, action: 'increment' }));
+        }
+    };
+
+
     const handleDecrement = () => {
         dispatch(updateBasketItemThunk({ id: _id, action: 'decrement' }));
     };
 
-    const handleIncrement = () => {
-        dispatch(updateBasketItemThunk({ id: _id, action: 'increment' }));
-    };
-
-
+  
     return (
         <div className={`flex  gap-3 sm:gap-[25px] items-center mr-3 mt-${marginTop} ${position || ''}`}>
             <button className={` w-${btnSize}  h-${btnSize}  border  rounded-lg border-grey-10 clear-hover ${flexCenter} ${isHovered && 'clear-hover'}`}>

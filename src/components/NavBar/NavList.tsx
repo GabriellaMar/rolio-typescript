@@ -15,7 +15,7 @@ export const NavList: React.FC <NavListProps> = ({ selectedPage, setSelectedPage
     return (
         <ul className={` text-salat-50 ${isAboveMediumScreens ? `${flexBetween} gap-8 text-sm mx-20 font-messiri ` : `flex flex-col items-center gap-4 text-sm font-messiri`}`}>
             <li>
-                <Link page='Масло'
+                <Link page='Олія'
                     selectedPage={selectedPage}
                     setSelectedPage={setSelectedPage}
                 />
