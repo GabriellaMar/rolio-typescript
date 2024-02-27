@@ -44,7 +44,7 @@ const MainPage: React.FC<MainPageProps> = ({ selectedPage, setSelectedPage, isTo
       />
       <main>
       <Offers 
-        // products={products} 
+         products={products} 
       // add={add} 
       // remove={remove}
       // addProduct={addProduct}

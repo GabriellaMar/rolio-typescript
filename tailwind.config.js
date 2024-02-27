@@ -40,8 +40,18 @@ export default {
         "italian-100": "#00DB69",
         "italian-200": "#076534",
       },
-   
-
+      width: {
+'2lg': '548px',
+'lg': '483px',
+'2sm': '393px',
+'sm':'339px',
+   },
+   height: {
+    '2lg': '548px',
+    'lg': '483px',
+    '2sm': '393px',
+    'sm':'339px',
+       },
       borderRadius: {
         'none': '0',
         'full': '50%',
@@ -86,7 +96,11 @@ export default {
         herbs: "url('./assets/herbs.png')",
         olives: "url('./assets/olives.png')",
         bigOlives: "url('./assets/olivesBig.png')",
-        bigHerbs: "url('./assets/bigHerbs.png')"
+        bigHerbs: "url('./assets/bigHerbs.png')",
+        tomatos: "url('./assets/tomatos.png')",
+        rise: "url('./assets/rise.png')",
+        meet:"url('./assets/meet.png')",
+        pasta: "url('./assets/pasta.png')"
       },
     },
     screens:  {

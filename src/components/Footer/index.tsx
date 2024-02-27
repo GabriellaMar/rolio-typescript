@@ -6,7 +6,7 @@ import useMediaQuery from "@/hooks/useMediaQuery";
 import viber from '@/assets/viber-icon.png';
 import facebook from '@/assets/facebook-icon.png';
 import instagram from '@/assets/instagram-icon.png';
-import telegram from '@/assets/telegram-icon.png'; 
+import telegram from '@/assets/telegram-icon.png';
 
 type FooterProps = {
     selectedPage: SelectedPage,
@@ -14,7 +14,7 @@ type FooterProps = {
 
 }
 
-export const Footer: React.FC <FooterProps> = ({ selectedPage, setSelectedPage }) => {
+export const Footer: React.FC<FooterProps> = ({ selectedPage, setSelectedPage }) => {
     const isAboveSmallScreens = useMediaQuery("(min-width: 768px)");
     const flexCenter = 'flex justify-center items-center'
     return (
@@ -52,25 +52,25 @@ export const Footer: React.FC <FooterProps> = ({ selectedPage, setSelectedPage }
                     />
                 </li>
             </ul>
-            <ul className={`${flexCenter} flex-col sm:flex-row gap-[27px] mb-4 text-sm`}>
-           
-            <li className="flex  xs:gap-4 sm:gap-6">
-              <img src={facebook} alt='Facebook icon' />
-              
-            </li>
-            <li className="flex xs:gap-4 sm:gap-6">
-              <img src={instagram} alt='Instagram icon' />
-             
-            </li>
-            <li className="flex xs:gap-4 sm:gap-6 ">
-              <img src={telegram} alt='Telegram icon' />
-             
-            </li>
-            <li className="flex xs:gap-4 sm:gap-6">
-              <img src={viber} alt='Phone icon' />
-             
-            </li>
-          </ul>
+            <ul className={`${flexCenter}  sm:flex-row gap-[27px] mb-4 text-sm`}>
+
+                <li className="flex  xs:gap-4 sm:gap-6">
+                    <img src={facebook} alt='Facebook icon' />
+
+                </li>
+                <li className="flex xs:gap-4 sm:gap-6">
+                    <img src={instagram} alt='Instagram icon' />
+
+                </li>
+                <li className="flex xs:gap-4 sm:gap-6 ">
+                    <img src={telegram} alt='Telegram icon' />
+
+                </li>
+                <li className="flex xs:gap-4 sm:gap-6">
+                    <img src={viber} alt='Phone icon' />
+
+                </li>
+            </ul>
         </footer>
     )
 

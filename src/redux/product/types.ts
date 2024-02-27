@@ -4,7 +4,7 @@
     img: string,
     description?: string,
     details?: string,
-    price: number,
+    price?: number,
 };
 
 

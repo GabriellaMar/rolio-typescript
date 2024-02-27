@@ -53,7 +53,9 @@ console.log(basketItem)
 
         <div className={`relative m-auto     `}>
           <div className={` absolute   top-0 left-0 m-auto w-[174px] h-[174px] rounded-full ${isHovered ? `${backgroundColor} hovered` : `not-hovered`}  `}>
-            <div className={` absolute  top-[10px] left-[10px] m-auto w-[154px] h-[154px] rounded-full ${isHovered ? `bg-gradient-to-r ${productColor} hovered` : `not-hovered`}  `} ></div>
+            <div className={` absolute  top-[10px] left-[10px] m-auto w-[154px] h-[154px] rounded-full ${isHovered ? `bg-gradient-to-r ${productColor} hovered` : `not-hovered`}  `} >
+              
+            </div>
           </div>
 
           {/* <img src={`http://localhost:8000/${img}`} alt="bottle of Oil" className={`  inline-block m-auto  ${isHovered ? ' absolute -top-1 left-0  origin-center  rotate ' : 'not-rotate'}`} /> */}

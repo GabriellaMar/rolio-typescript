@@ -48,6 +48,14 @@ link {
   transform: rotate(12deg) scale(1.1);
   transition: 250ms ease-in-out; 
 }
+
+.slider-img {
+  width: 233px;
+  height: 300px;
+  transform: rotate(12deg) scale(1.55) translate(-40%, -25%);
+  transition: 250ms ease-in-out; 
+  
+}
 .not-rotate {
   transform: rotate(0deg)  scale(1);
   transition: 250ms ease-in-out;
