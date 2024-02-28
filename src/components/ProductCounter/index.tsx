@@ -5,6 +5,7 @@ import { useAppDispatch } from "@/hooks/useAppDispatch";
 import { addBasketItemThunk, updateBasketItemThunk } from "@/redux/operations";
 import { useContext } from "react";
 import { IsHoveredContext } from "../Products/ProductCart";
+import useMediaQuery from "@/hooks/useMediaQuery";
 
 
 
@@ -32,8 +33,9 @@ export const ProductCounter: React.FC<CounterProps> = ({
     handleMouseEnter,
     handleMouseLeave
 }) => {
-  
+    const isAboveMediumScreens = useMediaQuery("(min-width: 1366px)");
     const flexCenter = "flex items-center justify-center"
+    const flexStart = "flex items-center justify-start"
     const isHovered = useContext(IsHoveredContext);
     const dispatch = useAppDispatch();
 
@@ -53,7 +55,7 @@ export const ProductCounter: React.FC<CounterProps> = ({
 
   
     return (
-        <div className={`flex  gap-3 sm:gap-[25px] items-center mr-3 mt-${marginTop} ${position || ''}`}>
+        <div className={`${isAboveMediumScreens ? flexStart : flexCenter}  gap-3 sm:gap-[25px] items-center mr-3 mt-${marginTop} ${position || ''}`}>
             <button className={` w-${btnSize}  h-${btnSize}  border  rounded-lg border-grey-10 clear-hover ${flexCenter} ${isHovered && 'clear-hover'}`}>
                 <MinusIcon className="w-4 text-text-color" onClick={handleDecrement} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} />
             </button>

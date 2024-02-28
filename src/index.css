@@ -22,8 +22,8 @@ body,
 }
 link {
   text-decoration: none;
-  background-color: #cada97;
-  background-color: #97241e
+  background-color: #ebf4cd;
+  background-color: #eff5ec
   
 }
 
@@ -49,13 +49,17 @@ link {
   transition: 250ms ease-in-out; 
 }
 
-.slider-img {
-  width: 233px;
+.scaled-img {
+
+  width: 253px;
   height: 300px;
-  transform: rotate(12deg) scale(1.55) translate(-40%, -25%);
-  transition: 250ms ease-in-out; 
-  
+  transform: rotate(12deg)scale(1.55)translate(-50%, -50%);
+  /* transition: 250ms ease-in-out;  */
 }
+.not-scaled-img{
+  transform: rotate(12deg)scale(1.2)translate(-50%, -30%)
+}
+
 .not-rotate {
   transform: rotate(0deg)  scale(1);
   transition: 250ms ease-in-out;
@@ -85,3 +89,8 @@ link {
   transition: 250ms ease-in-out; 
 }
 
+.carousel-button-group{
+  position: absolute;
+  bottom: 65%;
+  
+}

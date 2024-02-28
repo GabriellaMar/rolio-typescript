@@ -16,7 +16,7 @@ export const IsHoveredContext = createContext<boolean>(false);
 
 
 export const ProductCart: React.FC<Product> = ({ _id, details, title, description, img, price, }) => {
- 
+  const flexCenter = "flex items-center justify-center";
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const isAboveMediumScreens = useMediaQuery("(min-width: 1366px)");
   const dispatch = useAppDispatch();
@@ -77,10 +77,10 @@ console.log(basketItem)
         handleMouseLeave={handleMouseLeave}
       />
       <p className="font-light text-s text-text-color mt-4 ">250мл <span className={`inline-block font-medium text-2xl ${getTextColor(title)} ml-6`}>{`${price} грн`}</span></p>
-      <div className="flex flex-col gap-4 mt-6 text-s md:flex-row md:gap-2">
+      <div className={`${flexCenter} flex-col gap-4 mt-6 text-s md:flex-row md:gap-2`}>
         <Buttons title={title} text="В корзину" size={isAboveMediumScreens ? 148 : 248} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onClick={handleAddToBasket} />
         {/* <Buttons title={title} text="Замовити в ТГ" size={isAboveMediumScreens ? 148 : 248} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}/> */}
-        <a href="https://t.me/GabriellaMar"  className={` border ${getBorderColor(title)}   rounded-[50px]  px-12 md:px-6 ${isAboveMediumScreens ? `w-[148px]`: `w-[248px]`}  xs:w-full   ${getTextColor(title)} uppercase hover-gradient hover:bg-gradient-to-r ${productColor} `}
+        <a href="https://t.me/GabriellaMar" target="_blank" rel="noopener noreferrer nofollow" className={` border ${getBorderColor(title)}   rounded-[50px]  px-12 md:px-6 ${isAboveMediumScreens ? `w-[148px]`: `w-[248px]`} xs:w-[280px]  ${getTextColor(title)} uppercase hover-gradient hover:bg-gradient-to-r ${productColor} `}
         onMouseEnter={handleMouseEnter} 
         onMouseLeave={handleMouseLeave}
         >Замовити в ТГ</a>

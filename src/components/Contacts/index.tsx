@@ -14,7 +14,7 @@ import { Buttons } from "../Buttons";
 export const Contacts = () => {
   const isAboveSmallScreens = useMediaQuery("(min-width: 768px)");
   return (
-    <section id='контакти' className="  pt-20 pb-14  sm:px-10 md:px-[50px] ">
+    <section id='контакти' className="  pt-20 pb-14  sm:px-10 md:px-[46px] ">
 
       <h2 className=" font-amaticSC font-normal text-4xl text-text-color md:font-bold text-center">Контакти</h2>
       <div className="relative mt-[72px]  max-w-[768px] m-auto">

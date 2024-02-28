@@ -23,7 +23,7 @@ export const Card: React.FC<CardProps> = ( { title, img, price, quantity, _id, o
 
     
     return (
-        <li  className={`bg-light-grey-50 w-full py-4  px-4 sm:px-[56px] `}>
+        <li  className={`bg-light-grey-50 w-full py-4  px-4 sm:px-[46px] `}>
             <div className={` ${flexCenter}  gap-4`}>
                 <h3 className=" font-roboto  text-base text-salat-50 font-normal"> Олія "{title}"</h3>
                 <span className=" font-roboto text-s text-text-color font-light">250мл</span>

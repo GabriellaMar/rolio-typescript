@@ -27,7 +27,7 @@ export const Buttons: React.FC<ButtonProps> = ({ text, size, title="Для са�
         <>
             <button
                 type="button"
-                className={` border ${getBorderColor(title)}  rounded-[50px]  px-12 md:px-6  py-${padding} xs:w-full w-[${size}px]  ${getTextColor(title)} uppercase hover-gradient hover:bg-gradient-to-r ${productColor} `}
+                className={` border  ${getBorderColor(title)}  rounded-[50px]  px-12 md:px-6  py-${padding}  xs:w-[280px] sm:w-[${size}px]  ${getTextColor(title)} uppercase hover-gradient hover:bg-gradient-to-r ${productColor} `}
                 onClick={onClick}
                 onMouseEnter={onMouseEnter}
                 onMouseLeave={onMouseLeave}

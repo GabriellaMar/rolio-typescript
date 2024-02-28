@@ -14,14 +14,14 @@ export const AboutUs = () => {
     const flexCenter = 'justify-center items-center'
 
     return (
-        <section id='пронас' className='pt-20 sm:px-10 md:px-[50px] m-auto '>
+        <section id='пронас' className='pt-20 sm:px-10 md:px-[46px] m-auto '>
              {/* <motion.div
         className="mx-auto  items-center justify-center md:flex md:h-5/6"
         onViewportEnter={() => setSelectedPage(SelectedPage.AboutUs)}
       > */}
             <h2 className=" font-amaticSC font-normal text-4xl text-text-color md:font-bold text-center">Про нас</h2>
             <ul className={isAboveSmallScreens ? `flex flex-col  mt-[93px] ${flexCenter}`: ` flex flex-col gap-12 text-center mt-[58px] `}>
-                <li className={` relative`}>
+                <li className='relative'>
                     {/* <div className={isAboveSmallScreens ? ` max-w-[209px] h-[357px] bg-salat-10  `: ` max-w-[320px] h-[209px]`}></div> */}
                     <div className={isAboveSmallScreens ? ` max-w-[209px] h-[357px] bg-salat-10  ` : ` bg-salat-10 w-full h-[280px]`}></div>
                     <img src={isAboveSmallScreens ? aboutAsTablet :aboutAsMobile} alt='Owner image' className={isAboveSmallScreens ? `absolute -top-12 left-24`:` absolute top-16 left-1/2 transform -translate-x-1/2 -translate-y-1/2 `} />
@@ -36,7 +36,7 @@ export const AboutUs = () => {
                     </div>
                 </li>
                 <li className='relative'>
-                <div className={isAboveSmallScreens ? ` max-w-[209px] h-[357px] bg-salat-10  ` : ` bg-salat-10 w-full h-[280px]`}></div>
+                <div className={isAboveSmallScreens ? `ml-auto max-w-[209px] h-[357px] bg-salat-10  ` : ` bg-salat-10 w-full h-[280px]`}></div>
                 <img src={isAboveSmallScreens ? vegiesTablet : vegiesMobile} alt='Vegetables' className={isAboveSmallScreens ? `absolute -top-12 left-24`:` absolute top-16 left-1/2 transform -translate-x-1/2 -translate-y-1/2 `} />
                 <div className={isAboveSmallScreens  ? ` relative  p-6 -top-28 right-12 bg-white w-[624px] drop-shadow `: 'p-4 bg-white static -mt-24'}>
                 <h3 className=" font-amaticSC font-normal text-2xl text-text-color md:font-bold sx:text-center ">Що ми робимо</h3>
