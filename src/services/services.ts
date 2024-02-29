@@ -40,6 +40,27 @@ export const getTextColor = (title: string) : string => {
     }
 }
 
+
+
+export const getBackgroundImage = (title: string) : string => {
+    switch (title) {
+        case "Для салата":
+            return "tomatoes";
+            break;
+        case "Італійське":
+            return "pasta";
+            break;
+        case 'Для м\'яса':
+            return "herbs";
+            break;
+        case "Східне":
+            return "olives";
+            break;
+        default:
+            return "meet"; 
+    }
+};
+
 export const calculateProductItems = (basketItems: BasketItem[]): number => {
     return basketItems.reduce((total: number, item: BasketItem) => total + item.quantity, 0);
 };

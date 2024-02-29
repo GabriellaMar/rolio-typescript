@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 import { selectBasketItemById } from "@/redux/basket/selectors";
 import { addBasketItemThunk } from "@/redux/operations";
 import { useAppDispatch } from "@/hooks/useAppDispatch";
+import { getBackgroundImage } from "@/services/services";
 
 
 
@@ -43,13 +44,14 @@ const SliderCard: React.FC<Product> = ({ _id, title, img, description, details }
 
     const backgroundColor = BackgroundColor[title as keyof typeof ProductColor] || 'gray';
 
+
     return (
 
         <li key={_id} className="mt-8 relative">
             <div className={`${flexCenter} xs:flex-col md:flex-row  xs:gap-4 md:gap-16`}>
                 <div className={`   relative ${flexCenter}`}>
-                    <div className={`m-auto xs:w-s xs:h-s sm:w-lg sm:h-lg  rounded-full  ${backgroundColor}`}>
-                        <div className={`  absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  xs:w-xs xs:h-xs sm:w-sm sm:h-sm  rounded-full  bg-gradient-to-r ${productColor}`} >
+                    <div className={`m-auto xs:w-s xs:h-s md:w-lg md:h-lg  rounded-full  ${backgroundColor}`}>
+                        <div className={`  absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  xs:w-xs xs:h-xs md:w-sm md:h-sm  rounded-full  bg-gradient-to-r ${productColor} after:absolute after:content-${getBackgroundImage(title)}`} >
                             <img src={`https://rolio-backend-api.onrender.com/${img}`} alt="bottle of Oil"
                                 className={`  inline-block  ${isMobileScreen ? 'not-scaled-img  absolute top-1/2 left-1/2' : 'scaled-img  absolute top-1/2 left-1/2'} `}
                             />

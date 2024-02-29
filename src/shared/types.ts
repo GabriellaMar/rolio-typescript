@@ -27,3 +27,9 @@ export enum SelectedPage {
     'Для м\'яса' = 'bg-meet-50/[.15]',
   }
 
+  export enum ContentImages {
+    'Східне' = 'rise',
+    'Для салата' = 'tomatoes',
+    'Італійське' = 'pasta',
+    'Для м\'яса' = 'meet',
+  }

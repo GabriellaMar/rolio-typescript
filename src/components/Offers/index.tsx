@@ -63,15 +63,11 @@ export const Offers: React.FC<OffersProps> = ({products}) => {
                 img={product.img}
                 description = {product.description}
                 details={product.details}
-                // price={product.price}
                 />
             ))}
        
         </Carousel>
         </div>
-            {/* < OfferSlider products={products}/> */}
-              
-          
         </section>
     )
 

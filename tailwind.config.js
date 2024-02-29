@@ -98,14 +98,15 @@ export default {
         }],
       },
       content: {
-        herbs: "url('./assets/herbs.png')",
+        tomatoes: "url('./assets/tomatoes.png')",
+        rise: "url('./assets/rise.png')",
+        meet: "url('./assets/meet.png')",
+        pasta: "url('./assets/pasta.png')",
+        herbs: "url('./src/assets/herbs.png')",
         olives: "url('./assets/olives.png')",
         bigOlives: "url('./assets/olivesBig.png')",
         bigHerbs: "url('./assets/bigHerbs.png')",
-        tomatos: "url('./assets/tomatos.png')",
-        rise: "url('./assets/rise.png')",
-        meet: "url('./assets/meet.png')",
-        pasta: "url('./assets/pasta.png')"
+     
       },
     },
     screens: {

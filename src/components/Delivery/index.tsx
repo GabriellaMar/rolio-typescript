@@ -8,7 +8,7 @@ import box from '@/assets/box.png';
 export const Delivery = () => {
   const flexCenter = 'flex justify-center items-center'
   return (
-    <section id='доставкатаоплата' className=" pb-6  border">
+    <section id='доставкатаоплата' className=" pt-10  border">
 
       <div className={` flex items-center flex-col sm:flex-row-reverse gap-[30px] sm:justify-end max-w-[768px] md:max-w-[1366px] m-auto`}>
         <div className="relative">

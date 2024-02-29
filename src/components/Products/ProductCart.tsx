@@ -48,7 +48,7 @@ console.log(basketItem)
 
   return (
     <IsHoveredContext.Provider value={isHovered}>
-    <li className="  xs:w-[280px] sm:w-[329px]  md:min-w-[360px]  text-center m-auto">
+    <li className="  xs:w-[280px] sm:w-[329px] text-center ">
       <div className="relative w-[174px] h-[174px] m-auto">
 
         <div className={`relative m-auto     `}>
@@ -77,7 +77,7 @@ console.log(basketItem)
         handleMouseLeave={handleMouseLeave}
       />
       <p className="font-light text-s text-text-color mt-4 ">250мл <span className={`inline-block font-medium text-2xl ${getTextColor(title)} ml-6`}>{`${price} грн`}</span></p>
-      <div className={`${flexCenter} flex-col gap-4 mt-6 text-s md:flex-row md:gap-2`}>
+      <div className={`${flexCenter} flex-col gap-4 mt-6 text-s md:gap-2`}>
         <Buttons title={title} text="В корзину" size={isAboveMediumScreens ? 148 : 248} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onClick={handleAddToBasket} />
         {/* <Buttons title={title} text="Замовити в ТГ" size={isAboveMediumScreens ? 148 : 248} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}/> */}
         <a href="https://t.me/GabriellaMar" target="_blank" rel="noopener noreferrer nofollow" className={` border ${getBorderColor(title)}   rounded-[50px]  px-12 md:px-6 ${isAboveMediumScreens ? `w-[148px]`: `w-[248px]`} xs:w-[280px]  ${getTextColor(title)} uppercase hover-gradient hover:bg-gradient-to-r ${productColor} `}

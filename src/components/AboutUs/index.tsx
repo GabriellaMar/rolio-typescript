@@ -14,7 +14,7 @@ export const AboutUs = () => {
     const flexCenter = 'justify-center items-center'
 
     return (
-        <section id='пронас' className='pt-20 sm:px-10 md:px-[46px] m-auto '>
+        <section id='пронас' className='pt-10 sm:px-10 md:px-[46px] m-auto '>
              {/* <motion.div
         className="mx-auto  items-center justify-center md:flex md:h-5/6"
         onViewportEnter={() => setSelectedPage(SelectedPage.AboutUs)}
