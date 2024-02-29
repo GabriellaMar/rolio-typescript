@@ -38,7 +38,7 @@ const BasketPage: React.FC = () => {
     const totalPrice: number = calculateTotalPrice(basketItems)
 
     return (
-        <section className={`py-[40px] h-full ${basketItems.length !==0 ? `bg-white` : `bg-light-grey-50 `} `}>
+        <section className={`py-[40px] h-100vh ${basketItems.length !==0 ? `bg-white` : `bg-light-grey-50 `} `}>
             <div className={`${flexBetween} px-4 sm:px-[56px]`}>
                 <h1 className="font-amaticSC font-normal text-4xl text-text-color xs:text-start">Корзина</h1>
                 <Link to='/'>
@@ -77,7 +77,7 @@ const BasketPage: React.FC = () => {
                 </>) : (
                     <div className=" border">
                         <div className="m-auto ">
-                    <p className="text-center font-amaticSC font-bold text-4xl text-salat-50 mt-4">Наразі ваша корзина порожня.</p>
+                    <p className="text-center font-amaticSC font-bold text-4xl text-salat-50 mt-12">Наразі ваша корзина порожня.</p>
                     <p className="font-amaticSC text-xl font-normal text-text-color text-center mt-2">Почніть додавати товари, щоб насолоджуватися покупками!</p>
                     </div>
                     <img src={emptyBasket} className="m-auto w-1/2"/>

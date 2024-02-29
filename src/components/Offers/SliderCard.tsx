@@ -43,7 +43,7 @@ const SliderCard: React.FC<Product> = ({ _id, title, img, description, details }
     const productColor = ProductColor[title as keyof typeof ProductColor] || 'gray';
 
     const backgroundColor = BackgroundColor[title as keyof typeof ProductColor] || 'gray';
-
+  
 
     return (
 
@@ -51,10 +51,11 @@ const SliderCard: React.FC<Product> = ({ _id, title, img, description, details }
             <div className={`${flexCenter} xs:flex-col md:flex-row  xs:gap-4 md:gap-16`}>
                 <div className={`   relative ${flexCenter}`}>
                     <div className={`m-auto xs:w-s xs:h-s md:w-lg md:h-lg  rounded-full  ${backgroundColor}`}>
-                        <div className={`  absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  xs:w-xs xs:h-xs md:w-sm md:h-sm  rounded-full  bg-gradient-to-r ${productColor} after:absolute after:content-${getBackgroundImage(title)}`} >
+                        <div className={`  absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  xs:w-xs xs:h-xs md:w-sm md:h-sm  rounded-full  bg-gradient-to-r ${productColor} before:absolute before:-bottom-12 before:-right-3 ${getBackgroundImage(title)}   `} >
                             <img src={`https://rolio-backend-api.onrender.com/${img}`} alt="bottle of Oil"
-                                className={`  inline-block  ${isMobileScreen ? 'not-scaled-img  absolute top-1/2 left-1/2' : 'scaled-img  absolute top-1/2 left-1/2'} `}
+                                className={`  inline-block  ${isMobileScreen ? 'absolute  top-1/2 left-[46%] not-scaled-img  ' : 'absolute  top-1/2 scaled-img  '} `}
                             />
+                        
                         </div>
                     </div>
                 </div>

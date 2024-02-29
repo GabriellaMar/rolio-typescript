@@ -69,6 +69,9 @@ link {
 }
 
 .scaled-logo{
+  position: absolute;
+  top: 50%;
+  left: 40%;
   width: 130px;
   height: 130px;
   transform: scale(1);
@@ -76,6 +79,9 @@ link {
 }
 
 .not-scaled-logo{
+  padding: absolute;
+  top: 50%;
+  left:50%;
   width: 100px;
   height: 100px;
   transition: 250ms ease-in-out;

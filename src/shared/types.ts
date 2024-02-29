@@ -29,7 +29,7 @@ export enum SelectedPage {
 
   export enum ContentImages {
     'Східне' = 'rise',
-    'Для салата' = 'tomatoes',
+    'Для салата' = 'oliva',
     'Італійське' = 'pasta',
-    'Для м\'яса' = 'meet',
+    'Для м\'яса' = 'herbs',
   }

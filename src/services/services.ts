@@ -45,19 +45,19 @@ export const getTextColor = (title: string) : string => {
 export const getBackgroundImage = (title: string) : string => {
     switch (title) {
         case "Для салата":
-            return "tomatoes";
+            return "before:content-tomatoes";
             break;
         case "Італійське":
-            return "pasta";
+            return "before:content-pasta";
             break;
         case 'Для м\'яса':
-            return "herbs";
+            return "before:content-meet";
             break;
         case "Східне":
-            return "olives";
+            return "before:content-rise";
             break;
         default:
-            return "meet"; 
+            return "before:content-tomatoes"; 
     }
 };
 
