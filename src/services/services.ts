@@ -4,7 +4,7 @@ import { BasketItem} from "@/redux/basket/types";
 
 export const getBorderColor = ( title: string) : string => {
     switch (title ) {
-        case "Для салата":
+        case "Для салату":
             return 'border-salat-50';
             break;
         case "Італійське":
@@ -23,7 +23,7 @@ export const getBorderColor = ( title: string) : string => {
 
 export const getTextColor = (title: string) : string => {
     switch (title) {
-        case "Для салата":
+        case "Для салату":
             return 'text-salat-50';
             break;
         case "Італійське":
@@ -44,7 +44,7 @@ export const getTextColor = (title: string) : string => {
 
 export const getBackgroundImage = (title: string) : string => {
     switch (title) {
-        case "Для салата":
+        case "Для салату":
             return "before:content-tomatoes";
             break;
         case "Італійське":
@@ -60,6 +60,27 @@ export const getBackgroundImage = (title: string) : string => {
             return "before:content-tomatoes"; 
     }
 };
+
+
+export const getBigBackgroundImage = (title: string) : string => {
+    switch (title) {
+        case "Для салату":
+            return "before:content-bigTomatoes";
+            break;
+        case "Італійське":
+            return "before:content-bigPasta";
+            break;
+        case 'Для м\'яса':
+            return "before:content-bigMeet";
+            break;
+        case "Східне":
+            return "before:content-bigRise";
+            break;
+        default:
+            return "before:content-bigTomatoes"; 
+    }
+};
+
 
 export const calculateProductItems = (basketItems: BasketItem[]): number => {
     return basketItems.reduce((total: number, item: BasketItem) => total + item.quantity, 0);

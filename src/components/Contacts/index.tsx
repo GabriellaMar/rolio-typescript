@@ -7,12 +7,31 @@ import telegram from '@/assets/telegram.png';
 
 import useMediaQuery from "@/hooks/useMediaQuery";
 import { Buttons } from "../Buttons";
+import { Modal } from "../Modal";
+import { useState } from "react";
 
 
 
 
 export const Contacts = () => {
   const isAboveSmallScreens = useMediaQuery("(min-width: 768px)");
+  const [showModal, setShowModal] = useState<boolean>(false);
+
+  // const closeModal = () => {
+  //   setShowModal(false);
+  //   document.body.style.overflow = 'auto';
+  // };
+
+  // const openModal = () => {
+  //   setShowModal(true);
+  //   document.body.style.overflow = 'hidden';
+  // };
+
+  const toggleModal = () => {
+    setShowModal(!showModal);
+    document.body.style.overflow = showModal ? 'auto' : 'hidden';
+  
+};
   return (
     <section id='контакти' className="  pt-10 pb-14  sm:px-10 md:px-[46px] ">
 
@@ -26,22 +45,29 @@ export const Contacts = () => {
               <img src={phone} alt='Phone icon' />
               <p >+38 (066) 11-43-558</p>
             </li>
-            <li className="flex  xs:gap-4 sm:gap-6">
+            <li>
+            <a className=' flex xs:gap-4 sm:gap-6 ' href="https://www.facebook.com/r.olio8/" target="_blank" rel="noopener noreferrer nofollow">
               <img src={facebook} alt='Facebook icon' />
               <p >https://www.facebook.com/r.olio8/</p>
+              </a>
             </li>
-            <li className="flex xs:gap-4 sm:gap-6">
+            <li>
+            <a className=' flex xs:gap-4 sm:gap-6 ' href="https://www.instagram.com/r.olio_/" target="_blank" rel="noopener noreferrer nofollow">
               <img src={instagram} alt='Instagram icon' />
               <p>https://www.instagram.com/r.olio_/</p>
+              </a>
             </li>
-            <li className="flex xs:gap-4 sm:gap-6 ">
+            <li>
+              <a className=' flex xs:gap-4 sm:gap-6 ' href="https://t.me/r_olio" target="_blank" rel="noopener noreferrer nofollow">
               <img src={telegram} alt='Telegram icon' />
               <p>https://t.me/r_olio</p>
+              </a>
             </li>
           </ul>
-          <Buttons title={"Для салата"} text=" Написати нам" size={200} padding={2} />
+          <Buttons title={"Для салату"} text=" Написати нам" size={200} padding={2} onClick={toggleModal}/>
         </div>
       </div>
+      {showModal && <Modal closeModal={toggleModal}/>}
     </section>
   )
 }

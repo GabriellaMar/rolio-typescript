@@ -34,7 +34,7 @@ export const NavBar: React.FC<NavBarProps> = ({ isTopOfPage, selectedPage, setSe
     const totalItems: number = calculateProductItems(basketItems);
 
     return (
-        <nav className={isAboveMediumScreens ? `${flexBetween}  top-0 z-20 ` : `flex items-center`}>
+        <nav className={isAboveMediumScreens ? `${flexBetween}   z-20 ` : `flex items-center`}>
             <Link to='/'>
                 <div className={`bg-salat-30 rounded-full  ${!isTopOfPage ? ` not-scaled-logo   p-9 -mt-7  ` : ` scaled-logo  p-8 -mt-8   sm:w-[145px] sm:h-[145px]`}`} >
                     <img alt="logo image" src={isAboveSmallScreens ? bigLogo : smallLogo} className={` m-auto ${isTopOfPage ? `-mt-0` : `-mt-1`}`} />
@@ -66,7 +66,7 @@ export const NavBar: React.FC<NavBarProps> = ({ isTopOfPage, selectedPage, setSe
 
             {/* Mobile MENU */}
             {!isAboveMediumScreens && isMenuToggled && (
-                <div className="fixed right-0 bottom-0 z-100 h-screen w-[300px] bg-salat-60a drop-shadow-xl px-[15px] py-16 pl-8" >
+                <div className="fixed right-0 bottom-0 z-100 h-screen w-[300px] bg-salat-60a drop-shadow-xl px-[15px] py-20 pl-8" >
                     <button
                         className="absolute top-5 right-5"
                         onClick={() => setIsMenuToggled(!isMenuToggled)}>

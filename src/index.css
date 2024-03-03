@@ -55,7 +55,7 @@ link {
 
   width: 253px;
   height: 300px;
-  transform: rotate(12deg)scale(1.55)translate(-50%, -50%);
+  transform: rotate(12deg)scale(1.6)translate(-50%, -50%);
   /* transition: 250ms ease-in-out;  */
 }
 .not-scaled-img{
@@ -69,9 +69,6 @@ link {
 }
 
 .scaled-logo{
-  position: absolute;
-  top: 50%;
-  left: 40%;
   width: 130px;
   height: 130px;
   transform: scale(1);
@@ -79,9 +76,6 @@ link {
 }
 
 .not-scaled-logo{
-  padding: absolute;
-  top: 50%;
-  left:50%;
   width: 100px;
   height: 100px;
   transition: 250ms ease-in-out;
@@ -100,5 +94,18 @@ link {
 .carousel-button-group{
   position: absolute;
   top: 150px;
-  
+}
+.backdrop-class{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  backdrop-filter: blur(2px);
+   z-index: 5; 
+
 }

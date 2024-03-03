@@ -21,7 +21,7 @@ export const ProductCart: React.FC<Product> = ({ _id, details, title, descriptio
   const isAboveMediumScreens = useMediaQuery("(min-width: 1366px)");
   const dispatch = useAppDispatch();
   const basketItem = useSelector(selectBasketItemById(_id));
-console.log(basketItem)
+// console.log(basketItem)
  
 
    const addedQuantity = basketItem ? basketItem.quantity  : 0;

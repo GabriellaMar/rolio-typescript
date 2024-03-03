@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 import { selectBasketItemById } from "@/redux/basket/selectors";
 import { addBasketItemThunk } from "@/redux/operations";
 import { useAppDispatch } from "@/hooks/useAppDispatch";
-import { getBackgroundImage } from "@/services/services";
+import { getBackgroundImage, getBigBackgroundImage } from "@/services/services";
 
 
 
@@ -47,13 +47,13 @@ const SliderCard: React.FC<Product> = ({ _id, title, img, description, details }
 
     return (
 
-        <li key={_id} className="mt-8 relative">
-            <div className={`${flexCenter} xs:flex-col md:flex-row  xs:gap-4 md:gap-16`}>
+        <div key={_id} className="mt-8 relative">
+            <div className={`${flexCenter} xs:flex-col md:flex-row  xs:gap-4 md:gap-16 py-3 md:p-6`}>
                 <div className={`   relative ${flexCenter}`}>
                     <div className={`m-auto xs:w-s xs:h-s md:w-lg md:h-lg  rounded-full  ${backgroundColor}`}>
-                        <div className={`  absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  xs:w-xs xs:h-xs md:w-sm md:h-sm  rounded-full  bg-gradient-to-r ${productColor} before:absolute before:-bottom-12 before:-right-3 ${getBackgroundImage(title)}   `} >
+                        <div className={`  absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  xs:w-xs xs:h-xs md:w-sm md:h-sm  rounded-full  bg-gradient-to-r ${productColor} before:absolute  ${isAboveMediumScreens ? ` before:-bottom-20 before:-right-11 ${getBigBackgroundImage(title)}`  : `before:-bottom-12 before:-right-3 ${getBackgroundImage(title)}`}   `} >
                             <img src={`https://rolio-backend-api.onrender.com/${img}`} alt="bottle of Oil"
-                                className={`  inline-block  ${isMobileScreen ? 'absolute  top-1/2 left-[46%] not-scaled-img  ' : 'absolute  top-1/2 scaled-img  '} `}
+                                className={`  inline-block  ${isMobileScreen ? 'absolute  top-1/2 left-[46%] not-scaled-img  ' : 'absolute  top-1/2  scaled-img  '} `}
                             />
                         
                         </div>
@@ -63,11 +63,11 @@ const SliderCard: React.FC<Product> = ({ _id, title, img, description, details }
                     <h2 className="font-amaticSC font-normal  xs:text-4xl sm:text-5xl md:text-[64px] text-text-color xs:text-center md:text-start md:mt-10">
                         Олія "{title}"
                     </h2>
-                    <p className="font-roboto font-light xs:text-base xs:text-center  sm:text-lg  text-text-color mt-8 md:text-left">
+                    <p className="font-roboto font-light xs:text-base xs:text-center  sm:text-lg  text-text-color mt-2 md:text-left">
                         {description}
                     </p>
                     {foundProductId === _id &&
-                        <p className="font-roboto font-light xs:text-base xs:text-center sm:text-lg  text-text-color md:text-left">
+                        <p className="font-roboto font-light xs:text-base xs:text-center sm:text-lg  text-text-color md:text-left mt-4">
                             {details}
                         </p>}
                     <ProductCounter title={title} marginTop={8} position='' btnSize={8} fontSize="2xl" _id={_id} addedQuantity={addedQuantity} />
@@ -77,7 +77,7 @@ const SliderCard: React.FC<Product> = ({ _id, title, img, description, details }
                     </div>
                 </div>
             </div>
-        </li>
+        </div>
     );
 };
 

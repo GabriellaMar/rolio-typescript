@@ -24,7 +24,6 @@ export default {
         "light-grey-50": "#E4EBCE",
         "black-10": "#000000",
         "footer-white": "#eff5ec",
-
         "italian-10": "#8BDFB4",
         "italian-50": "#009246",
         "meet-10": "#E8847E",
@@ -40,6 +39,7 @@ export default {
         "green-800": "#0092470f",
         "italian-100": "#00DB69",
         "italian-200": "#076534",
+        "shadow": "#BEBFB7",
       },
       width: {
         '2lg': '448px',
@@ -99,9 +99,13 @@ export default {
       },
       content: {
         tomatoes: "url('./assets/small-tomatoes.png')",
+        bigTomatoes: "url('./assets/big-tomatoes.png')",
         rise: "url('./assets/small-rise.png')",
+        bigRise: "url('./assets/big-rise.png')",
         meet: "url('./assets/small-meet.png')",
+        bigMeet: "url('./assets/big-meet.png')",
         pasta: "url('./assets/small-pasta.png')",
+        bigPasta: "url('./assets/big-pasta.png')",
         herbs: "url('./assets/herbs.png')",
         olives: "url('./assets/olives.png')",
         bigOlives: "url('./assets/olivesBig.png')",

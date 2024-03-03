@@ -1,15 +1,14 @@
 import { Card } from "@/components/Basket/Card";
 import { useAppDispatch } from "@/hooks/useAppDispatch";
 import { selectBasketItem } from "@/redux/basket/selectors";
-// import { BasketItem } from "@/redux/basket/types";
 import { clearBasketThunk, fetchBasketItemsThunk, removeBasketItemThunk } from "@/redux/operations";
 import { calculateProductItems, calculateTotalPrice } from "@/services/services";
-import { XCircleIcon } from "@heroicons/react/24/outline";
 import { TrashIcon } from "@heroicons/react/24/outline"
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import emptyBasket from "@/assets/empty-cart.png"
+import closeIcon from "@/assets/modal-close.png"
 
 
 
@@ -17,7 +16,6 @@ import emptyBasket from "@/assets/empty-cart.png"
 const BasketPage: React.FC = () => {
     const flexBetween = 'flex items-center justify-between'
     const { basketItems } = useSelector(selectBasketItem);
-    // console.log("basketItems ITEMS:", basketItems)
 
     const dispatch = useAppDispatch();
 
@@ -26,7 +24,6 @@ const BasketPage: React.FC = () => {
     }, [dispatch]);
 
     const handleRemoveBasketItem = (id: string) => {
-
         dispatch(removeBasketItemThunk(id))
     }
 
@@ -38,16 +35,16 @@ const BasketPage: React.FC = () => {
     const totalPrice: number = calculateTotalPrice(basketItems)
 
     return (
-        <section className={`py-[40px] h-100vh ${basketItems.length !==0 ? `bg-white` : `bg-light-grey-50 `} `}>
+        <section className={`py-[40px] h-[100%] ${basketItems.length > 0 ? `bg-white` : `bg-light-grey-50 `} `}>
             <div className={`${flexBetween} px-4 sm:px-[56px]`}>
                 <h1 className="font-amaticSC font-normal text-4xl text-text-color xs:text-start">Корзина</h1>
                 <Link to='/'>
                     <button>
-                        <XCircleIcon className="h-8 w-8  text-salat-50 clear-hover" />
+                        <img src={closeIcon} className="h-8 w-8  text-salat-50 clear-hover" />
                     </button>
                 </Link >
             </div>
-            { basketItems && totalItems > 0 ? (
+            {basketItems && totalItems > 0 ? (
                 <>
                     <ul className="flex flex-col gap-2 mt-4">
                         {basketItems.map((item) => {
@@ -74,16 +71,16 @@ const BasketPage: React.FC = () => {
                     <button type="button" className="block  px-6 py-2 mt-4 ml-auto mr-8" onClick={handleClearBasket}>
                         <TrashIcon className="h-8 w-8 text-salat-50 clear-hover " />
                     </button>
-                </>) : (
-                    <div className=" border">
-                        <div className="m-auto ">
-                    <p className="text-center font-amaticSC font-bold text-4xl text-salat-50 mt-12">Наразі ваша корзина порожня.</p>
-                    <p className="font-amaticSC text-xl font-normal text-text-color text-center mt-2">Почніть додавати товари, щоб насолоджуватися покупками!</p>
+                </>
+            ) : (
+                <>
+                    <div className="m-auto ">
+                        <p className="text-center font-amaticSC font-bold text-4xl text-salat-50 mt-12">Наразі ваша корзина порожня.</p>
+                        <p className="font-amaticSC text-xl font-normal text-text-color text-center mt-2">Почніть додавати товари, щоб насолоджуватися покупками!</p>
                     </div>
-                    <img src={emptyBasket} className="m-auto w-1/2"/>
-                    
-                    </div>
-                )
+                    <img src={emptyBasket} className="m-auto w-1/2" />
+                </>
+            )
             }
         </section>
     )

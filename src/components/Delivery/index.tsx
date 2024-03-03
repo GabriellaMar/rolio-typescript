@@ -8,7 +8,7 @@ import box from '@/assets/box.png';
 export const Delivery = () => {
   const flexCenter = 'flex justify-center items-center'
   return (
-    <section id='доставкатаоплата' className=" pt-10  border">
+    <section id='доставкатаоплата' className=" pt-10 ">
 
       <div className={` flex items-center flex-col sm:flex-row-reverse gap-[30px] sm:justify-end max-w-[768px] md:max-w-[1366px] m-auto`}>
         <div className="relative">
@@ -40,15 +40,15 @@ export const Delivery = () => {
         <div className={`  xs:w-full sm:w-[490px] md:w-[730px] h-[100px] bg-salat-60 ${flexCenter} gap-10 `}  >
           <div >
             <img src={coins} alt='Delivery truck icon' className=' m-auto' />
-            <p className='text-2xs font-roboto font-light  sm:text-2m  text-text-color mt-2'>Нова пошта</p>
+            <p className='text-2xs font-roboto font-light  sm:text-2m  text-text-color text-center mt-2'>Наложений <br/> платіж</p>
           </div>
           <div>
             <img src={card} alt='Box icon' className=' m-auto' />
-            <p className='text-2xs font-roboto font-light  sm:text-2m  text-text-color  mt-2'>Укрпошта</p>
+            <p className='text-2xs font-roboto font-light  sm:text-2m  text-text-color  mt-2'>Приват 24</p>
           </div>
           <div>
             <img src={cash} alt='House icon' className=' m-auto' />
-            <p className='text-2xs font-roboto font-light  sm:text-2m  text-text-color  mt-2'>Самовивіз</p>
+            <p className='text-2xs font-roboto font-light  sm:text-2m  text-text-color text-center mt-2'>Готівка <br/> при самовивозі</p>
           </div>
         </div>
       </div>
