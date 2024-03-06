@@ -7,7 +7,7 @@ import { Product } from './product/types';
 import { BasketItem} from './basket/types';
 
 const instance = axios.create({
-    //   baseURL: 'http://localhost:8000',
+//    baseURL: 'http://localhost:8000',
      baseURL: 'https://rolio-backend-api.onrender.com'
 });
 

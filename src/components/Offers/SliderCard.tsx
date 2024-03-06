@@ -56,6 +56,10 @@ const SliderCard: React.FC<Product> = ({ _id, title, img, description, details }
                                 className={`  inline-block  ${isMobileScreen ? 'absolute  top-1/2 left-[46%] not-scaled-img  ' : 'absolute  top-1/2  scaled-img  '} `}
                             />
                         
+                          {/* <img src={`http://localhost:8000/${img}`} alt="bottle of Oil"
+                                className={`  inline-block  ${isMobileScreen ? 'absolute  top-1/2 left-[46%] not-scaled-img  ' : 'absolute  top-1/2  scaled-img  '} `}
+                            /> */}
+                        
                         </div>
                     </div>
                 </div>
