@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import emptyBasket from "@/assets/empty-cart.png"
 import closeIcon from "@/assets/modal-close.png"
+import { BasketForm } from "@/components/Basket/BasketForm";
 
 
 
@@ -35,8 +36,8 @@ const BasketPage: React.FC = () => {
     const totalPrice: number = calculateTotalPrice(basketItems)
 
     return (
-        <section className={`py-[40px] h-[100%] ${basketItems.length > 0 ? `bg-white` : `bg-light-grey-50 `} `}>
-            <div className={`${flexBetween} px-4 sm:px-[56px]`}>
+        <section className={`py-[40px] h-[100hv] ${basketItems.length > 0 ? `bg-white` : `bg-light-grey-50 `} `}>
+            <div className={`${flexBetween} px-4 sm:px-[46px]`}>
                 <h1 className="font-amaticSC font-normal text-4xl text-text-color xs:text-start">Корзина</h1>
                 <Link to='/'>
                     <button>
@@ -63,7 +64,7 @@ const BasketPage: React.FC = () => {
                             }
                         })}
                     </ul>
-                    <p className="mt-20 text-right pr-8 font-roboto text-sm font-normal text-text-color">Загальна вартість:
+                    <p className="mt-6 text-right pr-8 font-roboto text-sm font-normal text-text-color">Загальна вартість:
                         <span className=" inline-block text-lg  text-salat-50 mx-2">{totalPrice}
                         </span>
                         грн
@@ -71,6 +72,7 @@ const BasketPage: React.FC = () => {
                     <button type="button" className="block  px-6 py-2 mt-4 ml-auto mr-8" onClick={handleClearBasket}>
                         <TrashIcon className="h-8 w-8 text-salat-50 clear-hover " />
                     </button>
+                    <BasketForm />
                 </>
             ) : (
                 <>
@@ -81,8 +83,9 @@ const BasketPage: React.FC = () => {
                     <img src={emptyBasket} className="m-auto w-1/2" />
                 </>
             )
-            }
-        </section>
+         }
+        
+     </section>
     )
 }
 
