@@ -4,7 +4,8 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import axios  from 'axios';
 import { Product } from './product/types';
-import { BasketItem} from './basket/types';
+import { BasketItem, UpdateBasketItemData} from './basket/types';
+import { Order } from './Order/type';
 
 const instance = axios.create({
 //    baseURL: 'http://localhost:8000',
@@ -22,10 +23,7 @@ interface ErrorPayload {
 }
 
 
-interface UpdateBasketItemData {
-    id: string;
-    action: 'increment' | 'decrement';
-}
+// ----------Products Thunks---------------------------
 
 export const fetchProductsThunk = createAsyncThunk<Product[], void, { rejectValue: ErrorPayload }>(
     'products/fetchAllProducts',
@@ -94,17 +92,6 @@ export const removeBasketItemThunk = createAsyncThunk<BasketItem, string, { reje
     }
 );
 
-//  export const decrementBasketItemThunk =createAsyncThunk<BasketItem, string, { rejectValue: ErrorPayload }>('basket/decrementBasketItem',
-//  async (id, thunkApi) => {
-//     try {
-//         const { data } = await instance.patch(`/basket/decrement/${id}`);
-//         return data;
-
-//     } catch (error) {
-//         const errorMessage: string = (error as Error).message;
-//             return thunkApi.rejectWithValue({ message: errorMessage });
-//     }
-//  })
 
 export const updateBasketItemThunk = createAsyncThunk(
     'basket/updateBasketItem',
@@ -124,6 +111,82 @@ export const updateBasketItemThunk = createAsyncThunk(
     async (_, thunkApi) => {
       try {
         await instance.delete(`/basket`); 
+      } catch (error) {
+        const errorMessage: string = (error as Error).message;
+        return thunkApi.rejectWithValue({ message: errorMessage });
+      }
+    }
+  );
+
+  // ----------Orders Thunks---------------------------
+
+  export const fetchOrdersThunk = createAsyncThunk<Order[], {  _id: string,
+    userName: string, 
+    phone: string, 
+    deliveryMethod: string, 
+    deliveryAddress: string,
+    products: BasketItem[],}, { rejectValue: ErrorPayload }>(
+    'orders/fetchAllOrders',
+    async (_, thunkApi) => {
+        try {
+            const { data } = await instance.get<Order[]>('/orders');
+            console.log(data);
+            return data;
+        } catch (error) {
+            const errorMessage: string = (error as Error).message ;
+            return thunkApi.rejectWithValue({ message: errorMessage });
+        }
+    }
+);
+
+export const addOrderThunk = createAsyncThunk<Order, Order, { rejectValue: ErrorPayload }>(
+    'orders/addOrderItem',
+    async (order, thunkApi) => { 
+        try {
+            const { data } = await instance.post<Order>('/orders', order); 
+            console.log("DATA!!!!!!:", data);
+            return data as Order;
+        } catch (error) {
+            const errorMessage: string = (error as Error).message;
+            return thunkApi.rejectWithValue({ message: errorMessage });
+        }
+    }
+);
+
+export const removeOrderThunk = createAsyncThunk<Order, string, { rejectValue: ErrorPayload }>(
+    'orders/removeOrder',
+    async (_id, thunkApi) => { 
+        try {
+            const { data } = await instance.delete(`/orders/${_id}`);
+            // console.log("DAT:", data)
+            // console.log(data);
+            return data;
+        } catch (error) {
+            const errorMessage: string = (error as Error).message;
+            return thunkApi.rejectWithValue({ message: errorMessage });
+        }
+    }
+);
+
+
+export const updateOrderThunk = createAsyncThunk(
+    'orders/updateOrder',
+    async (_id, thunkApi) => {
+        try {
+            const { data } = await instance.patch(`/orders/${_id}`);
+            return data;
+        } catch (error) {
+            const errorMessage = (error as Error).message;
+            return thunkApi.rejectWithValue({ message: errorMessage });
+        }
+    }
+);
+
+export const resetOrderThunk = createAsyncThunk<void, void, { rejectValue: ErrorPayload }>(
+    'orders/clearOrders',
+    async (_, thunkApi) => {
+      try {
+        await instance.delete(`/orders`); 
       } catch (error) {
         const errorMessage: string = (error as Error).message;
         return thunkApi.rejectWithValue({ message: errorMessage });

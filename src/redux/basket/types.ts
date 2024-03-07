@@ -17,3 +17,9 @@ export type BasketItem = {
    basketItems: BasketItem[];
      status: Status;
   }
+
+
+ export interface UpdateBasketItemData {
+    id: string;
+    action: 'increment' | 'decrement';
+}

@@ -76,8 +76,8 @@ const SliderCard: React.FC<Product> = ({ _id, title, img, description, details }
                         </p>}
                     <ProductCounter title={title} marginTop={8} position='' btnSize={8} fontSize="2xl" _id={_id} addedQuantity={addedQuantity} />
                     <div className={`${isAboveMediumScreens ? flexStart : flexCenter} xs:flex-col  sm:flex-row  gap-4 sm:gap-10  mt-8`} >
-                        <Buttons title={title} text={foundProductId ? "Закрити" : "Детальніше"} size={200} padding={2} onClick={() => showDetails(_id)} />
-                        <Buttons title={title} text="В корзину" size={200} padding={2} onClick={handleAddToBasket} />
+                        <Buttons title={title} type={"button"} text={foundProductId ? "Закрити" : "Детальніше"} size={200} padding={2} onClick={() => showDetails(_id)} />
+                        <Buttons title={title} type={"button"} text="В корзину" size={200} padding={2} onClick={handleAddToBasket} />
                     </div>
                 </div>
             </div>
