@@ -33,7 +33,7 @@ export const UkrPost = () => {
 
             <input className=" sm:w-[127px] border rounded border-light-grey-10 px-4 py-2 xs:w-full sm:max-w-[427px] md:w-[457] mt-1 outline-0 focus:border-salat-50 placeholder:roboto placeholder:text-light-grey-10"
                 type='text'
-                name="idex"
+                name="index"
                 placeholder="Індекс"
                 autoComplete="off"
                 value={index}

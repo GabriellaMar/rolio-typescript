@@ -2,57 +2,67 @@
 
 // type Props = {}
 
-import { useState } from "react";
+import { SyntheticEvent, useState } from "react";
 import { Buttons } from "../Buttons"
 import { NovaPost } from "./DeliveryInputs/NovaPost";
 import { UkrPost } from "./DeliveryInputs/UkrPost";
-// import { useAppDispatch } from "@/hooks/useAppDispatch";
-// import { addOrderThunk } from "@/redux/operations";
-import { Order } from "@/redux/Order/type";
+import { useAppDispatch } from "@/hooks/useAppDispatch";
+import { addOrderThunk } from "@/redux/operations";
+import { useSelector } from "react-redux";
+// import { selectOrders } from "@/redux/Order/selectors";
+import { selectBasketItem } from "@/redux/basket/selectors";
+// import { BasketItem } from "@/redux/basket/types";
 
-export const BasketForm: React.FC<Order[]> = () => {
+
+export const BasketForm = () => {
 
     const [deliveryMethod, setDeliveryMethod] = useState<string>('нова пошта');
+    const [deliveryAddress, setDeliveryAddress] = useState<string>('');
     const [userName, setUserName] = useState<string>('');
     const [phone, setPhone] = useState<string>('');
 
-    // const dispatch = useAppDispatch();
+    const dispatch = useAppDispatch();
+    const { basketItems } = useSelector(selectBasketItem);
+
+
 
     const handleDeliveryChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setDeliveryMethod(event.target.value);
     }
-        
 
-        const handleUserChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-            switch (e.target.name) {
-                case 'userName':
-                    setUserName(e.target.value);
-                    break;
-                case 'phone':
-                    setPhone(e.target.value);
-                    break;
-                default:
-                    return
-            }
+
+    const handleUserChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        switch (e.target.name) {
+            case 'userName':
+                setUserName(e.target.value);
+                break;
+            case 'phone':
+                setPhone(e.target.value);
+                break;
+            default:
+                return
         }
+    }
 
-        // const handleSubmit = (e: SyntheticEvent<HTMLFormElement, SubmitEvent>) => {
-        //     // const order = { 
-        //     //     _id,
-        //     //     userName, 
-        //     //     phone, 
-        //     //     deliveryMethod, 
-        //     //     deliveryAddress,
-        //     //     products,
-             
-        //     // };
-        //     e.preventDefault();
-        //     dispatch(addOrderThunk(order));
-        // }
-    
+
+
+    const handleSubmit = (e: SyntheticEvent<HTMLFormElement, SubmitEvent>) => {
+        e.preventDefault();
+        const order = {
+            userName,
+            phone,
+            deliveryMethod,
+            deliveryAddress,
+            products: basketItems,
+
+        };
+
+        dispatch(addOrderThunk(order));
+    }
+
     return (
-        <form className="  px-4 sm:px-[46px]" 
-        // onSubmit={handleSubmit}
+        <form className="  px-4 sm:px-[46px]"
+            onSubmit={handleSubmit}
         >
 
             <label className="flex flex-col font-roboto  text-base text-text-color font-normal  ">
@@ -106,58 +116,17 @@ export const BasketForm: React.FC<Order[]> = () => {
                 </label>
             </div>
             {deliveryMethod === 'нова пошта' && (
-                <NovaPost 
+                <NovaPost
+                    setDeliveryAddress={setDeliveryAddress}
                 />
-                // <div className=" flex flex-col w-[360px] gap-4 mt-6">
-                //     <input className="border rounded border-light-grey-10 px-4 py-2 xs:w-full sm:max-w-[427px] md:w-[457] mt-1 outline-0 focus:border-salat-50 placeholder:roboto placeholder:text-light-grey-10"
-                //         type='text'
-                //         name="name"
-                //         placeholder="Місто"
-                //         autoComplete="off"
-                //     />
-                //     <input className="border rounded border-light-grey-10 px-4 py-2 xs:w-full sm:max-w-[427px] md:w-[457] mt-1 outline-0 focus:border-salat-50 placeholder:roboto placeholder:text-light-grey-10"
-                //         type='text'
-                //         placeholder="Номер відділення"
-                //         autoComplete="off"
-                //     />
-                // </div>
             )}
             {deliveryMethod === 'укр пошта' && (
                 <UkrPost />
-                // <div className=" flex flex-wrap w-[360px] gap-4  mt-6">
-
-                //     <input className=" sm:w-[127px] border rounded border-light-grey-10 px-4 py-2 xs:w-full sm:max-w-[427px] md:w-[457] mt-1 outline-0 focus:border-salat-50 placeholder:roboto placeholder:text-light-grey-10"
-                //         type='text'
-                //         name="name"
-                //         placeholder="Індекс"
-                //         autoComplete="off"
-                //     />
-                //     <input className=" sm:w-[217px] border rounded border-light-grey-10 px-4 py-2 xs:w-full sm:max-w-[427px] md:w-[457] mt-1 outline-0 focus:border-salat-50 placeholder:roboto placeholder:text-light-grey-10"
-                //         type='text'
-                //         placeholder="Місто"
-                //         autoComplete="off"
-                //     />
-
-                //     <input className=" sm:w-[217px] border rounded border-light-grey-10 px-4 py-2 xs:w-full sm:max-w-[427px] md:w-[457] mt-1 outline-0 focus:border-salat-50 placeholder:roboto placeholder:text-light-grey-10"
-                //         type='text'
-                //         placeholder="Вулиця"
-                //         autoComplete="off"
-                //     />
-                //     <input className="sm:w-[127px] border rounded border-light-grey-10 px-4 py-2 xs:w-full sm:max-w-[427px] md:w-[457] mt-1 outline-0 focus:border-salat-50 placeholder:roboto placeholder:text-light-grey-10"
-                //         type='text'
-                //         placeholder="Будинок"
-                //         autoComplete="off"
-                //     />
-                //     <input className="border rounded border-light-grey-10 px-4 py-2 xs:w-full sm:max-w-[427px] md:w-[457] mt-1 outline-0 focus:border-salat-50 placeholder:roboto placeholder:text-light-grey-10"
-                //         type='text'
-                //         placeholder="Додатково (під'їзд, квартира)"
-                //         autoComplete="off"
-                //     />
-                // </div>
+                
             )}
             {/* <button > Зробити замовлення</button> */}
             <div className="flex flex-col gap-6 xs:items-center sm:items-end mt-6">
-                <Buttons title={"Для салату"} text="Замовити" size={200} padding={2} type={"submit"}/>
+                <Buttons title={"Для салату"} text="Замовити" size={200} padding={2} type={"submit"} />
                 <Buttons title={"Для салату"} text="Скинути" size={200} padding={2} type={"button"} />
             </div>
         </form>

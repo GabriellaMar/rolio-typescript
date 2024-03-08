@@ -1,6 +1,10 @@
 import { useState } from "react"
+type NovaPostProps = {
+    setDeliveryAddress: (value: string)=> void;
+}
 
-export const NovaPost = () => {
+
+export const NovaPost: React.FC<NovaPostProps> = ({ setDeliveryAddress}) => {
     const [city, setCity] = useState<string>('');
     const [department, setDepartment] = useState<string>('')
 
@@ -15,6 +19,7 @@ export const NovaPost = () => {
             default:
                 return
         }
+        setDeliveryAddress(`${city}, ${department}`);
     }
     return (
         <div className=" flex flex-col w-[360px] gap-4 mt-6">

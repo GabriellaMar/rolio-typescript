@@ -120,12 +120,7 @@ export const updateBasketItemThunk = createAsyncThunk(
 
   // ----------Orders Thunks---------------------------
 
-  export const fetchOrdersThunk = createAsyncThunk<Order[], {  _id: string,
-    userName: string, 
-    phone: string, 
-    deliveryMethod: string, 
-    deliveryAddress: string,
-    products: BasketItem[],}, { rejectValue: ErrorPayload }>(
+  export const fetchOrdersThunk = createAsyncThunk<Order[], void, { rejectValue: ErrorPayload }>(
     'orders/fetchAllOrders',
     async (_, thunkApi) => {
         try {
@@ -139,7 +134,10 @@ export const updateBasketItemThunk = createAsyncThunk(
     }
 );
 
-export const addOrderThunk = createAsyncThunk<Order, Order, { rejectValue: ErrorPayload }>(
+export const addOrderThunk = createAsyncThunk<Order, 
+// {userName: string, phone: string, deliveryAddress: string, deliveryMethod: string, products: BasketItem[] }
+Order,
+ { rejectValue: ErrorPayload }>(
     'orders/addOrderItem',
     async (order, thunkApi) => { 
         try {
