@@ -7,7 +7,7 @@ export type Order = {
     phone: string;
     products: BasketItem[],
     deliveryMethod: string,
-    deliveryAddress: string,
+    deliveryAddress: object,
 };
 
 export  interface IOrderSliceState {
