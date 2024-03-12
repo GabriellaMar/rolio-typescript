@@ -1,11 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export const UkrPost = () => {
+
+type UkrPostProps = {
+    setDeliveryAddress: (value: string)=> void;
+}
+export const UkrPost: React.FC<UkrPostProps> = ({  setDeliveryAddress }) => {
     const [index, setIndex] = useState<string>('');
     const [cityName, setCityName] = useState<string>('');
     const [street, setStreet] = useState<string>('');
     const [house, setHouse] = useState<string>('');
     const [apartment, setApartment] = useState<string>('')
+
+
 
     const handleNovaPostChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         switch (e.target.name) {
@@ -28,6 +34,13 @@ export const UkrPost = () => {
                 return
         }
     }
+
+    useEffect(() => {
+        if (index && cityName && street && house && apartment) {
+            setDeliveryAddress(`${index}, ${cityName}, ${street}, ${house}, ${apartment}`);
+        }
+    }, [index, cityName, street, house, apartment, setDeliveryAddress]);
+    
     return (
         <div className=" flex flex-wrap w-[360px] gap-4  mt-6">
 
