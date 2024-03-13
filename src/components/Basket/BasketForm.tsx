@@ -10,7 +10,7 @@ import { addOrderThunk, clearBasketThunk } from "@/redux/operations";
 import { useSelector } from "react-redux";
 // import { selectOrders } from "@/redux/Order/selectors";
 import { selectBasketItem } from "@/redux/basket/selectors";
-import { Order } from "@/redux/Order/type";
+import { Order } from "@/redux/order/type";
 
 // import { BasketItem } from "@/redux/basket/types";
 
@@ -269,8 +269,7 @@ const handleResetBasket=()=>{
     }
 
     const validationSchema = Yup.object().shape({
-        userName: Yup.string().min(2, 'Too Short!')
-        .max(50, 'Too Long!').required("Будь ласка, введіть своє ім'я"),
+        userName: Yup.string().min(2, 'Занадто коротке').matches(/^[A-Za-zА-Яа-яЁёІіЇїЄє]+$/, 'Ім\'я повинне містити тільки букви').required("Будь ласка, введіть своє ім'я"),
         phone: Yup.string()
           .matches(/^\+\d{12}$/, "Телефон повинен мати формат +12345678901")
           .required("Телефон є обов'язковим")
@@ -280,8 +279,8 @@ const handleResetBasket=()=>{
         //   if (value.deliveryMethod === 'нова пошта') {
             // return Yup.object().shape({ 
               city: Yup.string().required("Назва міста обов'язкова "),
-              warehouse: Yup.number().typeError("Номер склада має бути число").notRequired(),
-              index: Yup.number().notRequired(),
+              warehouse: Yup.number().typeError("Має бути число").notRequired(),
+              index:Yup.number().max(5, ' Не більше 5 цифр').typeError("Має бути число").notRequired(),
               street: Yup.string().notRequired(),
               house: Yup.number().typeError("Має бути число").notRequired(),
               apartment: Yup.string().notRequired(),
@@ -381,7 +380,7 @@ const handleResetBasket=()=>{
                             <span className=" after:content-['*'] after:ml-0.5 after:text-red-500 block font-roboto  text-base text-text-color font-normal">
                                 Номер телефону
                             </span></label>
-                        <Field className="border rounded border-light-grey-10 px-4 py-2 xs:w-full sm:max-w-[427px] md:w-[457] mt-1 outline-0 focus:border-salat-50 placeholder:roboto placeholder:text-light-grey-10"
+                        <Field className="border rounded border-light-grey-10 px-4 py-2 xs:w-full sm:max-w-[427px] md:w-[457px] mt-1 outline-0 focus:border-salat-50 placeholder:roboto placeholder:text-light-grey-10"
                             type="text"
                             id="phone"
                             name="phone" />
@@ -412,7 +411,7 @@ const handleResetBasket=()=>{
                             <ErrorMessage name="deliveryMethod" component="div" className="text-red-500" />
                         </div>
                         {values.deliveryMethod === 'нова пошта' && (
-                            <div className=" flex flex-col w-[360px] gap-4 mt-6">
+                            <div className=" flex flex-col xs:w-full sm:w-[427px] md:w-[457]  gap-4 mt-6">
                                 <Field className="border rounded border-light-grey-10 px-4 py-2 xs:w-full sm:max-w-[427px] md:w-[457] mt-1 outline-0 focus:border-salat-50 placeholder:roboto placeholder:text-light-grey-10"
                                     type="text"
                                     id="deliveryAddress.city"
@@ -430,9 +429,9 @@ const handleResetBasket=()=>{
                             </div>
                         )}
                         {values.deliveryMethod === 'укр пошта' && (
-                            <div className=" flex flex-wrap w-[360px] gap-4  mt-6">
+                            <div className=" flex flex-wrap xs:w-full xs:max-w-[427px] md:max-w-[457px]  gap-4  mt-6">
                                 <div>
-                                    <Field className=" sm:w-[127px] border rounded border-light-grey-10 px-4 py-2 xs:w-full sm:max-w-[427px] md:w-[457] mt-1 outline-0 focus:border-salat-50 placeholder:roboto placeholder:text-light-grey-10"
+                                    <Field className=" border rounded border-light-grey-10 px-4 py-2 xs:w-full  sm:w-[153px]  md:w-[160px] mt-1 outline-0 focus:border-salat-50 placeholder:roboto placeholder:text-light-grey-10"
                                         type="text"
                                         id="deliveryAddress.index"
                                         name="deliveryAddress.index"
@@ -441,7 +440,7 @@ const handleResetBasket=()=>{
                                     <ErrorMessage name="deliveryAddress.index" component="div" className="text-red-500" />
                                 </div>
                                 <div>
-                                    <Field className=" sm:w-[217px] border rounded border-light-grey-10 px-4 py-2 xs:w-full sm:max-w-[427px] md:w-[457] mt-1 outline-0 focus:border-salat-50 placeholder:roboto placeholder:text-light-grey-10"
+                                    <Field className="  border rounded border-light-grey-10 px-4 py-2 xs:w-full sm:w-[255px] md:w-[263px]  mt-1 outline-0 focus:border-salat-50 placeholder:roboto placeholder:text-light-grey-10"
                                         type="text"
                                         id="deliveryAddress.city"
                                         name="deliveryAddress.city"
@@ -450,7 +449,7 @@ const handleResetBasket=()=>{
                                     <ErrorMessage name="deliveryAddress.city" component="div" className="text-red-500" />
                                 </div>
                                 <div>
-                                    <Field className=" sm:w-[217px] border rounded border-light-grey-10 px-4 py-2 xs:w-full sm:max-w-[427px] md:w-[457] mt-1 outline-0 focus:border-salat-50 placeholder:roboto placeholder:text-light-grey-10"
+                                    <Field className="  border rounded border-light-grey-10 px-4 py-2 xs:w-full sm:w-[255px] md:w-[263px] mt-1 outline-0 focus:border-salat-50 placeholder:roboto placeholder:text-light-grey-10"
                                         type="text"
                                         id="deliveryAddress.street"
                                         name="deliveryAddress.street"
@@ -459,7 +458,7 @@ const handleResetBasket=()=>{
                                     <ErrorMessage name="deliveryAddress.street" component="div" className="text-red-500" />
                                 </div>
                                 <div>
-                                    <Field className="sm:w-[127px] border rounded border-light-grey-10 px-4 py-2 xs:w-full sm:max-w-[427px] md:w-[457] mt-1 outline-0 focus:border-salat-50 placeholder:roboto placeholder:text-light-grey-10"
+                                    <Field className=" border rounded border-light-grey-10 px-4 py-2  xs:w-full  sm:w-[153px]  md:w-[160px] mt-1 outline-0 focus:border-salat-50 placeholder:roboto placeholder:text-light-grey-10"
                                         type="text"
                                         id="deliveryAddress.house"
                                         name="deliveryAddress.house"
@@ -467,7 +466,7 @@ const handleResetBasket=()=>{
                                     />
                                     <ErrorMessage name="deliveryAddress.house" component="div" className="text-red-500" />
                                 </div>
-                                <Field className="border rounded border-light-grey-10 px-4 py-2 xs:w-full sm:max-w-[427px] md:w-[457] mt-1 outline-0 focus:border-salat-50 placeholder:roboto placeholder:text-light-grey-10"
+                                <Field className="border rounded border-light-grey-10 px-4 py-2 xs:w-full max-w-[427px] md:w-[457px] mt-1 outline-0 focus:border-salat-50 placeholder:roboto placeholder:text-light-grey-10"
                                     type="text"
                                     id="deliveryAddress.apartment"
                                     name="deliveryAddress.apartment"

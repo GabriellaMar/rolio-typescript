@@ -5,7 +5,8 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios  from 'axios';
 import { Product } from './product/types';
 import { BasketItem, UpdateBasketItemData} from './basket/types';
-import { Order } from './Order/type';
+import { Order } from './order/type';
+import { Review } from './reviews/types';
 
 const instance = axios.create({
 //    baseURL: 'http://localhost:8000',
@@ -191,3 +192,35 @@ export const resetOrderThunk = createAsyncThunk<void, void, { rejectValue: Error
       }
     }
   );
+
+   // ----------Reviews Thunks---------------------------
+
+
+   export const fetchOReviewThunk = createAsyncThunk<Review[], void, { rejectValue: ErrorPayload }>(
+    'reviews/fetchAllReviews',
+    async (_, thunkApi) => {
+        try {
+            const { data } = await instance.get<Review[]>('/reviews');
+            console.log(data);
+            return data;
+        } catch (error) {
+            const errorMessage: string = (error as Error).message ;
+            return thunkApi.rejectWithValue({ message: errorMessage });
+        }
+    }
+);
+
+
+export const addReviewsThunk = createAsyncThunk<Review, Review, { rejectValue: ErrorPayload }>(
+    'reviews/addReview',
+    async (review, thunkApi) => { 
+        try {
+            const { data } = await instance.post<Review>('/reviews', review); 
+            // console.log("DATA!!!!!!:", data);
+            return data as Review;
+        } catch (error) {
+            const errorMessage: string = (error as Error).message;
+            return thunkApi.rejectWithValue({ message: errorMessage });
+        }
+    }
+);
