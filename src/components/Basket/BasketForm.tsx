@@ -2,19 +2,16 @@
 
 // type Props = {}
 
-import { SyntheticEvent, useCallback, useState } from "react";
 import { Formik, Field, Form, ErrorMessage } from 'formik'
 import * as Yup from 'yup';
 import { Buttons } from "../Buttons"
-import { NovaPost } from "./DeliveryInputs/NovaPost";
-import { UkrPost } from "./DeliveryInputs/UkrPost";
 import { useAppDispatch } from "@/hooks/useAppDispatch";
 import { addOrderThunk, clearBasketThunk } from "@/redux/operations";
 import { useSelector } from "react-redux";
 // import { selectOrders } from "@/redux/Order/selectors";
 import { selectBasketItem } from "@/redux/basket/selectors";
 import { Order } from "@/redux/Order/type";
-import { BasketItem } from "@/redux/basket/types";
+
 // import { BasketItem } from "@/redux/basket/types";
 
 
@@ -89,10 +86,10 @@ import { BasketItem } from "@/redux/basket/types";
 //     // }
 
 
-//     // const handleResetBasket=()=>{
-//     //     dispatch(clearBasketThunk());
-//     //     // console.log("RESET BASKET")
-//     // }
+    // const handleResetBasket=()=>{
+    //     dispatch(clearBasketThunk());
+    //     // console.log("RESET BASKET")
+    // }
 //     const handleResetBasket = useCallback(() => {
 //         if (window.confirm('Ви дійсно, що хочете очистити вашу корзину?')) {
 //             dispatch(clearBasketThunk());
@@ -250,6 +247,7 @@ import { BasketItem } from "@/redux/basket/types";
 
 export const BasketForm = () => {
     const { basketItems } = useSelector(selectBasketItem);
+  
     const dispatch = useAppDispatch();
     const initialValues = {
         userName: '',
@@ -266,40 +264,109 @@ export const BasketForm = () => {
         products: basketItems
     };
 
+const handleResetBasket=()=>{
+        dispatch(clearBasketThunk());
+    }
+
     const validationSchema = Yup.object().shape({
-        userName: Yup.string().required('Please enter your name'),
-        phone: Yup.string().matches(/^\+\d{12}$/, "Телефон повинен мати формат +12345678901").required("Телефон обов'язкове поле").trim(),
-        deliveryMethod: Yup.string().required('Please select delivery method'),
+        userName: Yup.string().min(2, 'Too Short!')
+        .max(50, 'Too Long!').required("Будь ласка, введіть своє ім'я"),
+        phone: Yup.string()
+          .matches(/^\+\d{12}$/, "Телефон повинен мати формат +12345678901")
+          .required("Телефон є обов'язковим")
+          .trim(),
+        deliveryMethod: Yup.string().required('Будь ласка, оберіть метод доставки').trim(),
         deliveryAddress: Yup.object().shape({
-            city: Yup.string().required("Назва міста обов'язкове "),
-            //  phone: Yup.string().matches(/^\+\d{12}$/, "Телефон повинен мати формат +12345678901").required("Телефон обов'язкове поле").trim(),
-            warehouse: Yup.string().required("Будь ласка, введіть  номер складу "),
-            // index: Yup.string().required("Введіть індекс"),
-            // street: Yup.string().required("Вулиця обов'язкове поле"),
-            // house: Yup.string().required("Номер будинку"),
-            //   apartment: Yup.string(),
-        })
+        //   if (value.deliveryMethod === 'нова пошта') {
+            // return Yup.object().shape({ 
+              city: Yup.string().required("Назва міста обов'язкова "),
+              warehouse: Yup.number().typeError("Номер склада має бути число").notRequired(),
+              index: Yup.number().notRequired(),
+              street: Yup.string().notRequired(),
+              house: Yup.number().typeError("Має бути число").notRequired(),
+              apartment: Yup.string().notRequired(),
+            })
+        //   } else if (value.deliveryMethod === 'укр пошта') {
+        //     return Yup.object().shape({
+        //       index: Yup.string().required("Введіть індекс"),
+        //       city: Yup.string().required("Назва міста обов'язкова "),
+        //       street: Yup.string().required("Вулиця є обов'язковою"),
+        //       house: Yup.string().required("Номер будинку є обов'язковим"),
+        //       apartment: Yup.string(),
+        //       warehouse: Yup.string().notRequired(),
+        //     });
+        //   }
+        //   return Yup.object().required("Поля адреси повинні бути заповнені");
+        // })
+      });
+    
 
-    });
+//       const validationSchema = Yup.object().shape({
+//         userName: Yup.string().required("Будь ласка, введіть своє ім'я"),
+//         phone: Yup.string()
+//           .matches(/^\+\d{12}$/, "Телефон повинен мати формат +12345678901")
+//           .required("Телефон є обов'язковим")
+//           .trim(),
+//         deliveryMethod: Yup.string().required('Будь ласка, оберіть метод доставки').trim(),
+//         deliveryAddress: Yup.object().when('deliveryMethod', (deliveryMethod, schema)=>{
+//             if (deliveryMethod === 'нова пошта'){
+//                 return schema.shape({ 
+//                     city: Yup.string().required("Назва міста обов'язкова "),
+//                     warehouse: Yup.string().notRequired(),
+//                     index: Yup.string().notRequired(),
+//                     street: Yup.string().notRequired(),
+//                     house: Yup.string().notRequired(),
+//                     apartment: Yup.string().notRequired(),
+//                   })
+//             }
+// return schema
+//         })
+//         // ({
+//         // //   if (value.deliveryMethod === 'нова пошта') {
+//         //     // return Yup.object().shape({ 
+//         //       city: Yup.string().required("Назва міста обов'язкова "),
+//         //       warehouse: Yup.string().notRequired(),
+//         //       index: Yup.string().notRequired(),
+//         //       street: Yup.string().notRequired(),
+//         //       house: Yup.string().notRequired(),
+//         //       apartment: Yup.string().notRequired(),
+//         //     })
+//         //   } else if (value.deliveryMethod === 'укр пошта') {
+//         //     return Yup.object().shape({
+//         //       index: Yup.string().required("Введіть індекс"),
+//         //       city: Yup.string().required("Назва міста обов'язкова "),
+//         //       street: Yup.string().required("Вулиця є обов'язковою"),
+//         //       house: Yup.string().required("Номер будинку є обов'язковим"),
+//         //       apartment: Yup.string(),
+//         //       warehouse: Yup.string().notRequired(),
+//         //     });
+//         //   }
+//         //   return Yup.object().required("Поля адреси повинні бути заповнені");
+//         // })
+//       });
 
-    const handleSubmit = (values: Order) => {
+    const handleSubmit = (values: Order, ) => {
         // Тут має бути логіка відправки даних на бекенд
         console.log('Form submitted:', values);
         dispatch(addOrderThunk(values));
-        //   resetForm();
+        handleResetBasket()
+        
     };
+
+   
 
     return (
         <div>
-            <h1>Order Form</h1>
             <Formik
                 initialValues={initialValues}
                 validationSchema={validationSchema}
                 onSubmit={handleSubmit}
+                validateOnChange={true}
+                validateOnBlur={true}
             >
                 {({ values }) => (
                     <Form className=" px-4 sm:px-[46px]">
-                        {/* <div> */}
+                    
                         <label className="flex flex-col font-roboto  text-base text-text-color font-normal  ">
                             <span className=" after:content-['*'] after:ml-0.5 after:text-red-500 block font-roboto  text-base text-text-color font-normal">
                                 Ім'я та прізвище користувача
@@ -309,8 +376,7 @@ export const BasketForm = () => {
                             id="userName"
                             name="userName" />
                         <ErrorMessage name="userName" component="div" className="text-red-500" />
-                        {/* </div> */}
-                        {/* <div> */}
+                       
                         <label className="flex flex-col mt-6 font-roboto  text-base text-text-color font-normal">
                             <span className=" after:content-['*'] after:ml-0.5 after:text-red-500 block font-roboto  text-base text-text-color font-normal">
                                 Номер телефону
@@ -320,7 +386,7 @@ export const BasketForm = () => {
                             id="phone"
                             name="phone" />
                         <ErrorMessage name="phone" component="div" className="text-red-500" />
-                        {/* </div> */}
+                      
                         <div>
                             <h2 className="mt-6 font-amaticSC font-normal text-xl text-text-color">Способи доставки</h2>
                             <div className="flex gap-14 items-center mt-6">
@@ -328,30 +394,31 @@ export const BasketForm = () => {
                                     <Field className="ml-6 indeterminate:bg-gray-300 "
                                         type="radio"
                                         name="deliveryMethod"
-                                        value="NovaPoshta" />
+                                        value="нова пошта" 
+                                        />
+
                                     Нова пошта
                                 </label>
                                 <label className="font-roboto  text-base text-text-color font-normal" >
                                     <Field className="ml-6 indeterminate:bg-gray-300 "
                                         type="radio"
                                         name="deliveryMethod"
-                                        value="UkrPoshta" />
+                                        value="укр пошта" 
+                                        />
                                     Укр пошта
                                 </label>
-
+                            
                             </div>
+                            <ErrorMessage name="deliveryMethod" component="div" className="text-red-500" />
                         </div>
-                        {values.deliveryMethod === 'NovaPoshta' && (
+                        {values.deliveryMethod === 'нова пошта' && (
                             <div className=" flex flex-col w-[360px] gap-4 mt-6">
-
-                                {/* <label htmlFor="deliveryAddress.city">City:</label> */}
                                 <Field className="border rounded border-light-grey-10 px-4 py-2 xs:w-full sm:max-w-[427px] md:w-[457] mt-1 outline-0 focus:border-salat-50 placeholder:roboto placeholder:text-light-grey-10"
                                     type="text"
                                     id="deliveryAddress.city"
                                     name="deliveryAddress.city"
                                     placeholder="Місто"
                                 />
-                                {/* <label htmlFor="deliveryAddress.warehouse">Warehouse Number:</label> */}
                                 <ErrorMessage name="deliveryAddress.city" component="div" className="text-red-500" />
                                 <Field className="border rounded border-light-grey-10 px-4 py-2 xs:w-full sm:max-w-[427px] md:w-[457] mt-1 outline-0 focus:border-salat-50 placeholder:roboto placeholder:text-light-grey-10"
                                     type="text"
@@ -359,12 +426,11 @@ export const BasketForm = () => {
                                     name="deliveryAddress.warehouse"
                                     placeholder="Склад"
                                 />
-                                <ErrorMessage name="deliveryAddress.warehouse" component="div" className="text-red-500" />
+                                <ErrorMessage name="deliveryAddress.warehouse" component="div"  className="text-red-500" />
                             </div>
                         )}
-                        {values.deliveryMethod === 'UkrPoshta' && (
+                        {values.deliveryMethod === 'укр пошта' && (
                             <div className=" flex flex-wrap w-[360px] gap-4  mt-6">
-                                {/* <label htmlFor="deliveryAddress.index">Index:</label> */}
                                 <div>
                                     <Field className=" sm:w-[127px] border rounded border-light-grey-10 px-4 py-2 xs:w-full sm:max-w-[427px] md:w-[457] mt-1 outline-0 focus:border-salat-50 placeholder:roboto placeholder:text-light-grey-10"
                                         type="text"
@@ -374,7 +440,6 @@ export const BasketForm = () => {
                                     />
                                     <ErrorMessage name="deliveryAddress.index" component="div" className="text-red-500" />
                                 </div>
-                                {/* <label htmlFor="deliveryAddress.city">City:</label> */}
                                 <div>
                                     <Field className=" sm:w-[217px] border rounded border-light-grey-10 px-4 py-2 xs:w-full sm:max-w-[427px] md:w-[457] mt-1 outline-0 focus:border-salat-50 placeholder:roboto placeholder:text-light-grey-10"
                                         type="text"
@@ -384,7 +449,6 @@ export const BasketForm = () => {
                                     />
                                     <ErrorMessage name="deliveryAddress.city" component="div" className="text-red-500" />
                                 </div>
-                                {/* <label htmlFor="deliveryAddress.street">Street:</label> */}
                                 <div>
                                     <Field className=" sm:w-[217px] border rounded border-light-grey-10 px-4 py-2 xs:w-full sm:max-w-[427px] md:w-[457] mt-1 outline-0 focus:border-salat-50 placeholder:roboto placeholder:text-light-grey-10"
                                         type="text"
@@ -394,7 +458,6 @@ export const BasketForm = () => {
                                     />
                                     <ErrorMessage name="deliveryAddress.street" component="div" className="text-red-500" />
                                 </div>
-                                {/* <label htmlFor="deliveryAddress.house">House:</label> */}
                                 <div>
                                     <Field className="sm:w-[127px] border rounded border-light-grey-10 px-4 py-2 xs:w-full sm:max-w-[427px] md:w-[457] mt-1 outline-0 focus:border-salat-50 placeholder:roboto placeholder:text-light-grey-10"
                                         type="text"
@@ -412,7 +475,10 @@ export const BasketForm = () => {
                                 />
                             </div>
                         )}
-                        <button type="submit">Submit</button>
+                        <div className="flex flex-col gap-6 xs:items-center sm:items-end mt-6">
+            <Buttons title={"Для салату"} text="Замовити" size={200} padding={2} type={"submit"} />
+             <Buttons title={"Для салату"} text="Скинути" size={200} padding={2} type={"button"} />
+       </div>
                     </Form>
                 )}
             </Formik>
@@ -420,3 +486,18 @@ export const BasketForm = () => {
     );
 };
 
+
+    
+    // const novaPoshtaSchema = Yup.object().shape({
+    //     city: Yup.string().required("Назва міста обов'язкове "),
+    //     warehouse: Yup.string().required("Будь ласка, введіть номер складу "),
+    // });
+    
+    // const ukrPoshtaSchema = Yup.object().shape({
+    //     index: Yup.string().required("Введіть індекс"),
+    //     city: Yup.string().required("Назва міста обов'язкове "),
+    //     street: Yup.string().required("Вулиця обов'язкове поле"),
+    //     house: Yup.string().required("Номер будинку"),
+    //     apartment: Yup.string(),
+    // });
+    
