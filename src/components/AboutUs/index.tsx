@@ -11,6 +11,7 @@ import useMediaQuery from '@/hooks/useMediaQuery';
 
 export const AboutUs = () => {
     const isAboveSmallScreens = useMediaQuery("(min-width: 768px)");
+    const isAboveMediumScreens = useMediaQuery("(min-width: 1366px)");
     const flexCenter = 'justify-center items-center'
 
     return (
@@ -24,7 +25,7 @@ export const AboutUs = () => {
                 <li className='relative'>
                     {/* <div className={isAboveSmallScreens ? ` max-w-[209px] h-[357px] bg-salat-10  `: ` max-w-[320px] h-[209px]`}></div> */}
                     <div className={isAboveSmallScreens ? ` max-w-[209px] h-[357px] bg-salat-10  ` : ` bg-salat-10 w-full h-[280px]`}></div>
-                    <img src={isAboveSmallScreens ? aboutAsTablet :aboutAsMobile} alt='Owner image' className={isAboveSmallScreens ? `absolute -top-12 left-24`:` absolute top-16 left-1/2 transform -translate-x-1/2 -translate-y-1/2 `} />
+                    <img src={isAboveSmallScreens ? aboutAsTablet :aboutAsMobile} alt='Owner image' className={isAboveSmallScreens ? `absolute -top-12 left-24`:` ${isAboveMediumScreens ? `absolute top-20 left-2/3  `: `absolute top-16 left-1/2 transform -translate-x-1/2 -translate-y-1/2 `} `} />
                     <div className={isAboveSmallScreens  ? ` relative  p-6  -top-24 left-12 bg-white w-[624px] drop-shadow `: 'p-4 bg-white static -mt-24 '}>
                         <h3 className=" font-amaticSC font-normal text-2xl text-text-color md:font-bold sx:text-center ">Хто ми</h3>
                         <p className={`  font-roboto font-light text-xs sm:text-base  text-text-color `}> Ми пара: Таня та Рома та ми творці пряної оливкової олії R.olio.

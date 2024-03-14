@@ -113,3 +113,7 @@ link {
 input[type="radio"]:checked {
   background-color: #97241e;
 }
+
+.button-position {
+  margin-left: auto;
+}

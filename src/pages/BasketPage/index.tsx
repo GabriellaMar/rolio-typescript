@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import emptyBasket from "@/assets/empty-cart.png"
 import closeIcon from "@/assets/modal-close.png"
 import { BasketForm } from "@/components/Basket/BasketForm";
+import { ModalProvider } from "@/components/ModalContext";
 
 
 
@@ -72,7 +73,10 @@ const BasketPage: React.FC = () => {
                     <button type="button" className="block  px-6 py-2 mt-4 ml-auto mr-8" onClick={handleClearBasket}>
                         <TrashIcon className="h-8 w-8 text-salat-50 clear-hover " />
                     </button>
+                    <ModalProvider>
                     <BasketForm />
+                    </ModalProvider>
+                    
                 </>
             ) : (
                 <>

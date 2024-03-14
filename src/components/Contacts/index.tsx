@@ -7,31 +7,35 @@ import telegram from '@/assets/telegram.png';
 
 import useMediaQuery from "@/hooks/useMediaQuery";
 import { Buttons } from "../Buttons";
-import { Modal } from "../Modal";
-import { useState } from "react";
+// import { Modal } from "../Modal";
+import { useContext} from "react";
+import { ReviewModal } from "../ReviewModal";
+import { ModalContext } from "../ModalContext";
 
 
 
 
 export const Contacts = () => {
   const isAboveSmallScreens = useMediaQuery("(min-width: 768px)");
-  const [showModal, setShowModal] = useState<boolean>(false);
+  const { showModal, toggleModal } = useContext(ModalContext);
 
-  // const closeModal = () => {
-  //   setShowModal(false);
-  //   document.body.style.overflow = 'auto';
-  // };
+//   const [showModal, setShowModal] = useState<boolean>(false);
 
-  // const openModal = () => {
-  //   setShowModal(true);
-  //   document.body.style.overflow = 'hidden';
-  // };
+//   // const closeModal = () => {
+//   //   setShowModal(false);
+//   //   document.body.style.overflow = 'auto';
+//   // };
 
-  const toggleModal = () => {
-    setShowModal(!showModal);
-    document.body.style.overflow = showModal ? 'auto' : 'hidden';
+//   // const openModal = () => {
+//   //   setShowModal(true);
+//   //   document.body.style.overflow = 'hidden';
+//   // };
+
+//   const toggleModal = () => {
+//     setShowModal(!showModal);
+//     document.body.style.overflow = showModal ? 'auto' : 'hidden';
   
-};
+// };
   return (
     <section id='контакти' className="  pt-10 pb-14  sm:px-10 md:px-[46px] ">
 
@@ -67,7 +71,8 @@ export const Contacts = () => {
           <Buttons title={"Для салату"} text=" Написати нам" size={200} padding={2} onClick={toggleModal}/>
         </div>
       </div>
-      {showModal && <Modal closeModal={toggleModal}/>}
+      {/* {showModal && <Modal closeModal={toggleModal} children={children}/>} */}
+      {showModal && <ReviewModal closeModal={toggleModal} />}
     </section>
   )
 }

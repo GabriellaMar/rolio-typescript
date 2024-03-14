@@ -11,6 +11,10 @@ import { useSelector } from "react-redux";
 // import { selectOrders } from "@/redux/Order/selectors";
 import { selectBasketItem } from "@/redux/basket/selectors";
 import { Order } from "@/redux/order/type";
+import { SuccessOrderModal } from '../SuccessOrderModal';
+import { useContext} from 'react';
+import { ModalContext } from '../ModalContext';
+import { selectOrders } from '@/redux/order/selectors';
 
 // import { BasketItem } from "@/redux/basket/types";
 
@@ -247,6 +251,10 @@ import { Order } from "@/redux/order/type";
 
 export const BasketForm = () => {
     const { basketItems } = useSelector(selectBasketItem);
+    const { showModal, toggleModal } = useContext(ModalContext);
+    // const [isBasketEmptyAfterOrder, setIsBasketEmptyAfterOrder] = useState<boolean>(false);
+    const orders = useSelector(selectOrders);
+    console.log(orders)
   
     const dispatch = useAppDispatch();
     const initialValues = {
@@ -264,9 +272,9 @@ export const BasketForm = () => {
         products: basketItems
     };
 
-const handleResetBasket=()=>{
-        dispatch(clearBasketThunk());
-    }
+// const handleResetBasket=()=>{
+//         dispatch(clearBasketThunk());
+//     }
 
     const validationSchema = Yup.object().shape({
         userName: Yup.string().min(2, 'Занадто коротке').matches(/^[A-Za-zА-Яа-яЁёІіЇїЄє]+$/, 'Ім\'я повинне містити тільки букви').required("Будь ласка, введіть своє ім'я"),
@@ -300,57 +308,32 @@ const handleResetBasket=()=>{
       });
     
 
-//       const validationSchema = Yup.object().shape({
-//         userName: Yup.string().required("Будь ласка, введіть своє ім'я"),
-//         phone: Yup.string()
-//           .matches(/^\+\d{12}$/, "Телефон повинен мати формат +12345678901")
-//           .required("Телефон є обов'язковим")
-//           .trim(),
-//         deliveryMethod: Yup.string().required('Будь ласка, оберіть метод доставки').trim(),
-//         deliveryAddress: Yup.object().when('deliveryMethod', (deliveryMethod, schema)=>{
-//             if (deliveryMethod === 'нова пошта'){
-//                 return schema.shape({ 
-//                     city: Yup.string().required("Назва міста обов'язкова "),
-//                     warehouse: Yup.string().notRequired(),
-//                     index: Yup.string().notRequired(),
-//                     street: Yup.string().notRequired(),
-//                     house: Yup.string().notRequired(),
-//                     apartment: Yup.string().notRequired(),
-//                   })
-//             }
-// return schema
-//         })
-//         // ({
-//         // //   if (value.deliveryMethod === 'нова пошта') {
-//         //     // return Yup.object().shape({ 
-//         //       city: Yup.string().required("Назва міста обов'язкова "),
-//         //       warehouse: Yup.string().notRequired(),
-//         //       index: Yup.string().notRequired(),
-//         //       street: Yup.string().notRequired(),
-//         //       house: Yup.string().notRequired(),
-//         //       apartment: Yup.string().notRequired(),
-//         //     })
-//         //   } else if (value.deliveryMethod === 'укр пошта') {
-//         //     return Yup.object().shape({
-//         //       index: Yup.string().required("Введіть індекс"),
-//         //       city: Yup.string().required("Назва міста обов'язкова "),
-//         //       street: Yup.string().required("Вулиця є обов'язковою"),
-//         //       house: Yup.string().required("Номер будинку є обов'язковим"),
-//         //       apartment: Yup.string(),
-//         //       warehouse: Yup.string().notRequired(),
-//         //     });
-//         //   }
-//         //   return Yup.object().required("Поля адреси повинні бути заповнені");
-//         // })
-//       });
 
     const handleSubmit = (values: Order, ) => {
         // Тут має бути логіка відправки даних на бекенд
         console.log('Form submitted:', values);
         dispatch(addOrderThunk(values));
-        handleResetBasket()
+
         
+
+        if(values ){
+            toggleModal();
+            // handleResetBasket()
+        } 
+
+      
+
     };
+
+
+    // setIsBasketEmptyAfterOrder(true);
+    // // Відкриття модального вікна про успішне замовлення
+    // toggleModal();
+    // Відкриття модального вікна про успішне замовлення і передача імені користувача
+   
+    // useEffect(() => {
+    //     setIsBasketEmpty(basketItems.length === 0); 
+    // }, [basketItems]);
 
    
 
@@ -373,17 +356,22 @@ const handleResetBasket=()=>{
                         <Field className="border rounded border-light-grey-10 px-4 py-2 xs:w-full sm:max-w-[427px] md:w-[457] mt-1 outline-0 focus:border-salat-50 placeholder:roboto placeholder:text-light-grey-10"
                             type="text"
                             id="userName"
-                            name="userName" />
+                            name="userName" 
+                            placeholder=" Ваше ім'я та прізвище"
+                            />
                         <ErrorMessage name="userName" component="div" className="text-red-500" />
                        
                         <label className="flex flex-col mt-6 font-roboto  text-base text-text-color font-normal">
                             <span className=" after:content-['*'] after:ml-0.5 after:text-red-500 block font-roboto  text-base text-text-color font-normal">
-                                Номер телефону
+                                Контактний номер телефону
                             </span></label>
                         <Field className="border rounded border-light-grey-10 px-4 py-2 xs:w-full sm:max-w-[427px] md:w-[457px] mt-1 outline-0 focus:border-salat-50 placeholder:roboto placeholder:text-light-grey-10"
                             type="text"
                             id="phone"
-                            name="phone" />
+                            name="phone" 
+                            placeholder="+380"
+                            
+                            />
                         <ErrorMessage name="phone" component="div" className="text-red-500" />
                       
                         <div>
@@ -481,6 +469,8 @@ const handleResetBasket=()=>{
                     </Form>
                 )}
             </Formik>
+          
+            {showModal && <SuccessOrderModal closeModal={toggleModal}  />}
         </div>
     );
 };

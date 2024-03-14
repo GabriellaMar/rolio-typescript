@@ -224,3 +224,45 @@ export const addReviewsThunk = createAsyncThunk<Review, Review, { rejectValue: E
         }
     }
 );
+
+
+export const updateReviewThunk = createAsyncThunk(
+    'reviews/updateReview',
+    async (_id, thunkApi) => {
+        try {
+            const { data } = await instance.patch(`/reviews/${_id}`);
+            return data;
+        } catch (error) {
+            const errorMessage = (error as Error).message;
+            return thunkApi.rejectWithValue({ message: errorMessage });
+        }
+    }
+);
+
+export const removeReviewThunk = createAsyncThunk<Review, string, { rejectValue: ErrorPayload }>(
+    'reviews/removeReview',
+    async (_id, thunkApi) => { 
+        try {
+            const { data } = await instance.delete(`/reviews/${_id}`);
+            // console.log("DAT:", data)
+            // console.log(data);
+            return data;
+        } catch (error) {
+            const errorMessage: string = (error as Error).message;
+            return thunkApi.rejectWithValue({ message: errorMessage });
+        }
+    }
+);
+
+
+export const resetReviewThunk = createAsyncThunk<void, void, { rejectValue: ErrorPayload }>(
+    'reviews/clearReviews',
+    async (_, thunkApi) => {
+      try {
+        await instance.delete(`/reviews`); 
+      } catch (error) {
+        const errorMessage: string = (error as Error).message;
+        return thunkApi.rejectWithValue({ message: errorMessage });
+      }
+    }
+  );

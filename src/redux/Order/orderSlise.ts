@@ -61,7 +61,7 @@ const orderSlice = createSlice({
                 }
                 state.status = Status.SUCCESS;
             })
-            .addCase(updateOrderThunk .rejected, (state) => {
+            .addCase(updateOrderThunk.rejected, (state) => {
                 state.status = Status.ERROR;
             })
             .addCase(resetOrderThunk.pending, (state) => {

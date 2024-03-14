@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { addReviewsThunk, fetchOReviewThunk } from "../operations";
+import { addReviewsThunk, fetchOReviewThunk, removeReviewThunk, resetReviewThunk, updateReviewThunk } from "../operations";
 import { Status } from "../product/types";
 import { IReviewsSliceState } from "./types";
 
@@ -36,43 +36,42 @@ const reviewSlice = createSlice({
             .addCase(addReviewsThunk.rejected, (state) => {
                 state.status = Status.ERROR;
             })
-            // .addCase(removeOrderThunk.pending, (state) => {
-            //     state.status = Status.LOADING;
-            // })
-            // .addCase(removeOrderThunk.fulfilled, (state, action) => {
-            //     state.orders = state.orders.filter(order => order._id !== action.payload._id);
-            //     state.status = Status.SUCCESS;
-            // })
-            // .addCase(removeBasketItemThunk.rejected, (state) => {
-            //     state.status = Status.ERROR;
-            // })
-            // .addCase(updateOrderThunk .pending, (state) => {
-            //     state.status = Status.LOADING;
-            // })
-            // .addCase(updateOrderThunk.fulfilled, (state, action) => {
-            //     const updatedOrder = action.payload; 
+            .addCase(removeReviewThunk.pending, (state) => {
+                state.status = Status.LOADING;
+            })
+            .addCase(removeReviewThunk.fulfilled, (state, action) => {
+                state.reviews = state.reviews.filter(review => review._id !== action.payload._id);
+                state.status = Status.SUCCESS;
+            })
+            .addCase(removeReviewThunk.rejected, (state) => {
+                state.status = Status.ERROR;
+            })
+            .addCase(updateReviewThunk .pending, (state) => {
+                state.status = Status.LOADING;
+            })
+            .addCase(updateReviewThunk.fulfilled, (state, action) => {
+                const updatedReview = action.payload; 
 
-            //     const updatedOrderIndex = state.orders.findIndex(order => order._id === updatedOrder._id);
+                const updatedReviewIndex = state.reviews.findIndex(review => review._id === updatedReview._id);
         
-            //     if (updatedOrderIndex !== -1) {
-            //         state.orders[updatedOrderIndex] = updatedOrder;
-            //     }
-            //     state.status = Status.SUCCESS;
-            // })
-            // .addCase(updateOrderThunk .rejected, (state) => {
-            //     state.status = Status.ERROR;
-            // })
-            // .addCase(resetOrderThunk.pending, (state) => {
-            //     state.status = Status.ERROR;
-            // })
-
-            // .addCase(resetOrderThunk.fulfilled, (state) => {
-            //     state.orders = [];
-            //     state.status = Status.SUCCESS;
-            // })
-            // .addCase(resetOrderThunk.rejected, (state) => {
-            //     state.status = Status.ERROR;
-            // })
+                if (updatedReviewIndex !== -1) {
+                    state.reviews[updatedReviewIndex] = updatedReview;
+                }
+                state.status = Status.SUCCESS;
+            })
+            .addCase(updateReviewThunk.rejected, (state) => {
+                state.status = Status.ERROR;
+            })
+            .addCase(resetReviewThunk.pending, (state) => {
+                state.status = Status.ERROR;
+            })
+            .addCase(resetReviewThunk.fulfilled, (state) => {
+                state.reviews = [];
+                state.status = Status.SUCCESS;
+            })
+            .addCase(resetReviewThunk.rejected, (state) => {
+                state.status = Status.ERROR;
+            })
     },
 });
 

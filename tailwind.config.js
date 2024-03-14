@@ -111,6 +111,9 @@ export default {
         olives: "url('./assets/olives.png')",
         bigOlives: "url('./assets/olivesBig.png')",
         bigHerbs: "url('./assets/bigHerbs.png')",
+        smallOilCap: "url('./assets/small-oil-cap.png')",
+        mediumOilCap: "url('./assets/medium-oil-cap.png')",
+        largeOilCap: "url('./assets/large-oil-cap.png')",
      
       },
     },

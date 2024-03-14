@@ -10,6 +10,7 @@ import { Contacts } from "@/components/Contacts"
 import { Offers } from "@/components/Offers"
 import { Header } from "@/components/Header"
 import { Product } from "@/redux/product/types"
+import { ModalProvider } from "@/components/ModalContext"
 // import SliderComponent from "@/components/Offers/Slider"
 
 
@@ -62,9 +63,14 @@ const MainPage: React.FC<MainPageProps> = ({ selectedPage, setSelectedPage, isTo
       // selectedPage={selectedPage}
       //   setSelectedPage={setSelectedPage}
       />
+       <ModalProvider>
       <Reviews />
+      </ModalProvider>
       < Delivery />
+      <ModalProvider>
       <Contacts />
+      </ModalProvider>
+     
       <Footer
         selectedPage={selectedPage}
         setSelectedPage={setSelectedPage}

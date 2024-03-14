@@ -1,14 +1,19 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
-import { SliderArrows } from "../Offers/SliderArrows";
+// import { SliderArrows } from "../Offers/SliderArrows";
+import { selectReviews } from "@/redux/reviews/selectors";
+import { useSelector } from "react-redux";
 
 
 export const ReviewSlider: React.FC = () => {
+    const { reviews } = useSelector(selectReviews);
+    console.log(reviews)
+
     const responsive = {
         desktop: {
             breakpoint: { max: 5000, min: 1366 },
-            items: 3,
+            items: 2,
         },
         tablet: {
             breakpoint: { max: 1365, min: 768 },
@@ -26,34 +31,25 @@ export const ReviewSlider: React.FC = () => {
             <Carousel responsive={responsive}
                 infinite={true}
                 autoPlay={true}
-                autoPlaySpeed={3500}
+                autoPlaySpeed={4000}
                 customTransition="transform 1500ms ease-in-out"
-                transitionDuration={2000}
+                transitionDuration={2500}
                 arrows={false}
                 renderButtonGroupOutside={true}
-                customButtonGroup={<SliderArrows />}
+            // customButtonGroup={<SliderArrows />}
             >
-           
-                <div className=' border border-green-500 p-4 w-[300px] h-[100px]'>
-                    <h3>User name 1 </h3>
-                    <p className="border ">Review 1 </p>
-                </div>
-                <div className=' border border-green-500 p-4 w-[300px] h-[100px]'>
-                    <h3>User name 2 </h3>
-                    <p className=" border ">Review 2 </p>
-                </div>
-                <div className=' border border-green-500 p-4 w-[300px] h-[100px]'>
-                    <h3>User name 3 </h3>
-                    <p className="border ">Review 3 </p>
-                </div>
-                <div className=' border border-green-500 p-4 w-[300px] h-[100px]'>
-                    <h3>User name 4 </h3>
-                    <p className="border ">Review 4 </p>
-                </div>
-           
+
+                {reviews.map((review) => {
+                    return (
+                        <div key={review._id} className=' bg-white shadow-lg xs:w-full  sm:w-[600px] md:w-[750px] h-[260px]  p-5'>
+                            <h3 className="font-amaticSC tracking-widest font-bold xs:text-base  sm:text-lg  text-salat-50 ">{review.userName}</h3>
+                            <p className="font-roboto font-light xs:text-base  sm:text-lg  text-text-color mt-2">{review.comment}</p>
+                        </div>
+                    );
+                })}
             </Carousel>
         </div>
-    
+
     )
 
 }
