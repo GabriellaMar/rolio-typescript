@@ -42,7 +42,7 @@ export const BasketForm = () => {
 
   
     const validationSchema = Yup.object().shape({
-        userName: Yup.string().min(2, 'Занадто коротке').matches(/^[A-Za-zА-Яа-яЁёІіЇїЄє]+$/, 'Ім\'я повинне містити тільки букви').required("Будь ласка, введіть своє ім'я"),
+        userName: Yup.string().min(2, 'Занадто коротке').matches(/^[A-Za-zА-Яа-яЁёІіЇїЄє\s']+$/, 'Ім\'я повинне містити тільки букви').required("Будь ласка, введіть своє ім'я"),
         phone: Yup.string()
           .matches(/^\+\d{12}$/, "Телефон повинен мати формат +12345678901")
           .required("Телефон є обов'язковим")

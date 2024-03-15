@@ -15,13 +15,13 @@ body,
 
 
 
-.common-product-style {
+/* .common-product-style {
   @apply text-salat-10 border px-4 py-2 min-w-[143px] text-center font-normal text-lg ;
 
   /* &:hover {
     @apply bg-salat-10 text-salat-50 ;
   } */
-}
+/* } */ 
 link {
   text-decoration: none;
   background-color: #ebf4cd;

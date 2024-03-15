@@ -33,6 +33,13 @@ export const NavBar: React.FC<NavBarProps> = ({ isTopOfPage, selectedPage, setSe
 
     const totalItems: number = calculateProductItems(basketItems);
 
+    // const handleClick = (event: React.SyntheticEvent<EventTarget>) => {
+    //     if (event.currentTarget === event.target) {
+    //         setIsMenuToggled(false)
+    //     }
+    //   };
+
+
     return (
         <nav className={isAboveMediumScreens ? `${flexBetween}   z-20 ` : `flex items-center`}>
             <Link to='/'>

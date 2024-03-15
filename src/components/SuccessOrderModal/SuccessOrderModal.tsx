@@ -14,7 +14,7 @@ export const SuccessMessage: React.FC<SuccessMessageProps> = ({ values }) => {
 
 
     return (
-        <div className="relative border border-salat-5a px-5 pt-14 pb-16 mt-10">
+        <div className="relative border border-salat-5a px-5 xs:py-9 sm:pt-14 pb-16 xs:mt-5 sm:mt-10">
             {orderStatus === Status.SUCCESS ? (
                 <>
                     <h2 className=" font-amaticSC tracking-widest font-bold xs:text-base  sm:text-3xl  text-salat-30 ">Дякуємо</h2>
