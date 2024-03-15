@@ -20,7 +20,7 @@ export const SuccessMessage: React.FC<SuccessMessageProps> = ({ values }) => {
                     <h2 className=" font-amaticSC tracking-widest font-bold xs:text-base  sm:text-3xl  text-salat-30 ">Дякуємо</h2>
                     <p className="font-roboto text-lg md:text-xl text-text-color font-normal  mt-3 after:absolute after:content-bigOlives after:-rotate-45 after:-bottom-16 after:-right-8">
                         <span className="font-roboto  text-lg md:text-xl text-text-color font-normal"> {values}</span>
-                        , Ваше замовлення успішно оформлено. Ми отримали ваше повідомлення та невдовзі зв'яжемося з вами для уточнення деталей. Будь ласка, очікуйте нашого дзвінка.
+                        , Ваше замовлення успішно оформлене. Ми отримали ваше повідомлення та невдовзі зв'яжемося з вами для уточнення деталей. Будь ласка, очікуйте нашого дзвінка.
                     </p>
                 </>
             ) : orderStatus === Status.ERROR ? (

@@ -54,7 +54,7 @@ export const AddReviewForm: React.FC = () => {
           placeholder="Ваше ім'я"
         />
       </label>
-      <textarea className="border rounded border-light-grey-10 px-4 py-2 w-full h-60  mt-5 outline-0 focus:border-salat-50 placeholder:roboto placeholder:text-light-grey-10"
+      <textarea className="border rounded border-light-grey-10 px-4 py-2 w-full xs:h-48 sm:h-60  mt-5 outline-0 focus:border-salat-50 placeholder:roboto placeholder:text-light-grey-10"
         //  type='text'
         name="comment"
         placeholder="Ваш коментар"
@@ -62,7 +62,7 @@ export const AddReviewForm: React.FC = () => {
         onChange={handleReviewChange}
       >
       </textarea>
-      <div className=' before:absolute flex justify-end gap-20 items-center mt-4 xs:before:content-smallOilCap sm:before:content-mediumOilCap md:before:content-largeOilCap before:-bottom-10 before:-left-6'>
+      <div className=' before:absolute flex justify-end xs:gep-4 sm:gap-20 items-center mt-4 xs:before:content-smallOilCap sm:before:content-mediumOilCap md:before:content-largeOilCap before:-bottom-10 before:-left-6 xs:before:-bottom-[100px] xs:before:-left-2'>
         <Buttons title={"Для салату"} text="Відправити" size={200} padding={2} type={"submit"} />
         <button type="button" className=" " onClick={resetForm}>
           <TrashIcon className="h-8 w-8 text-salat-50 clear-hover " />
