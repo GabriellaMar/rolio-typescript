@@ -40,7 +40,7 @@ export const Modal: React.FC<ModalProps> = ({ children, closeModal }) => {
       <div className=" xs:w-[280px] h-[529px] sm:w-[560px] sm:h-[552px] md:w-[630px] shadow-shadow/10 xs:px-5 sm:p-[46px] bg-white" >
         {/* <div className={`${flexBetween}`}> */}
           {/* <p className="font-amaticSC tracking-widest font-bold xs:text-base  sm:text-lg  text-salat-50 " >Напишіть нам</p> */}
-          <button type="button" onClick={closeModal} className="block ml-auto">
+          <button type="button" onClick={closeModal} className="block ml-auto clear-hover">
             <img src={closeIcon} alt="Close button icon"/>
           </button>
         {/* </div> */}

@@ -1,19 +1,19 @@
+
 import { Modal } from "../Modal";
 import { SuccessMessage } from "./SuccessOrderModal";
 
+
 type SuccessModalProps = {
-    closeModal: () => void;
-    
- 
-  };
-  
-  
-  export const SuccessOrderModal: React.FC<SuccessModalProps> = ({ closeModal }) => {
-    return (
-      <Modal closeModal={closeModal}>
-     <SuccessMessage
-     
-      />
-      </Modal>
-    )
-  };
+  closeModal: () => void;
+  values: string;
+};
+
+
+export const SuccessOrderModal: React.FC<SuccessModalProps> = ({ closeModal, values }) => {
+
+  return (
+    <Modal closeModal={closeModal}>
+      <SuccessMessage values={values} />
+    </Modal>
+  )
+};

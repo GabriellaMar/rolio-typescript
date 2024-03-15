@@ -1,29 +1,44 @@
+import { selectOrderStatus } from "@/redux/order/selectors";
+import { Status } from "@/redux/product/types";
+import { useSelector } from "react-redux";
 
 
 type SuccessMessageProps = {
-    //  isBasketEmpty: boolean ,
-  };
+    values: string;
+};
 
-  export const SuccessMessage: React.FC<SuccessMessageProps> = () => {
+export const SuccessMessage: React.FC<SuccessMessageProps> = ({ values }) => {
+
+
+    const orderStatus = useSelector(selectOrderStatus);
+
+
     return (
-        // <div>
-        //     {isBasketEmpty ? (
-        //         <>
-        //             <div className="m-auto ">
-        //                 <p className="text-center font-amaticSC font-bold text-4xl text-salat-50 mt-12">Наразі ваша корзина порожня.</p>
-        //                 <p className="font-amaticSC text-xl font-normal text-text-color text-center mt-2">Почніть додавати товари, щоб насолоджуватися покупками!</p>
-        //             </div>
-        //             <img src={emptyBasket} className="m-auto w-1/2" />
-        //         </>
-        //     ) : (
-                <div>
-                    <h2>Дякуємо</h2>
-                    <p>
-                        <span> $Ім'я$,</span>
-                        Ваше замовлення успішно оформлено. Ми отримали ваше повідомлення та невдовзі зв'яжемося з вами для уточнення деталей. Будь ласка, очікуйте нашого дзвінка.
+        <div className="relative border border-salat-5a px-5 pt-14 pb-16 mt-10">
+            {orderStatus === Status.SUCCESS ? (
+                <>
+                    <h2 className=" font-amaticSC tracking-widest font-bold xs:text-base  sm:text-3xl  text-salat-30 ">Дякуємо</h2>
+                    <p className="font-roboto text-lg md:text-xl text-text-color font-normal  mt-3 after:absolute after:content-bigOlives after:-rotate-45 after:-bottom-16 after:-right-8">
+                        <span className="font-roboto  text-lg md:text-xl text-text-color font-normal"> {values}</span>
+                        , Ваше замовлення успішно оформлено. Ми отримали ваше повідомлення та невдовзі зв'яжемося з вами для уточнення деталей. Будь ласка, очікуйте нашого дзвінка.
                     </p>
-                </div>
-            // )}
-        // </div>
+                </>
+            ) : orderStatus === Status.ERROR ? (
+                <>
+                    <h2 className=" font-amaticSC tracking-widest font-bold xs:text-base  sm:text-3xl  text-red-500  "> Виникла якась помилка</h2>
+                    <p className="font-roboto text-lg md:text-xl text-text-color font-normal  mt-3 after:absolute after:content-bigOlives after:-rotate-45 after:-bottom-16 after:-right-8">
+                        <span className="font-roboto  text-lg md:text-xl text-text-color font-normal"> {values}</span>
+                        ,  Виникла помилка при обробці замовлення. Будь ласка, спробуйте оформити замовлення ще раз.
+                    </p>
+                </>
+            ) : (
+                <>
+                    <h2 className=" font-amaticSC tracking-widest font-bold xs:text-base  sm:text-3xl  text-yellow-500  ">Попередження</h2>
+                    <p className="font-roboto text-lg md:text-xl text-text-color font-normal  mt-3 after:absolute after:content-bigOlives after:-rotate-45 after:-bottom-16 after:-right-8">
+                        Виконується обробка замовлення.
+                    </p>
+                </>
+            )}
+        </div>
     );
 };

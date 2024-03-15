@@ -1,9 +1,9 @@
 import { Card } from "@/components/Basket/Card";
 import { useAppDispatch } from "@/hooks/useAppDispatch";
 import { selectBasketItem } from "@/redux/basket/selectors";
-import { clearBasketThunk, fetchBasketItemsThunk, removeBasketItemThunk } from "@/redux/operations";
+import { fetchBasketItemsThunk, removeBasketItemThunk } from "@/redux/operations";
 import { calculateProductItems, calculateTotalPrice } from "@/services/services";
-import { TrashIcon } from "@heroicons/react/24/outline"
+// import { TrashIcon } from "@heroicons/react/24/outline"
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -11,7 +11,6 @@ import emptyBasket from "@/assets/empty-cart.png"
 import closeIcon from "@/assets/modal-close.png"
 import { BasketForm } from "@/components/Basket/BasketForm";
 import { ModalProvider } from "@/components/ModalContext";
-
 
 
 
@@ -29,9 +28,9 @@ const BasketPage: React.FC = () => {
         dispatch(removeBasketItemThunk(id))
     }
 
-    const handleClearBasket = () => {
-        dispatch(clearBasketThunk());
-    };
+    // const handleClearBasket = () => {
+    //     dispatch(clearBasketThunk());
+    // };
 
     const totalItems: number = calculateProductItems(basketItems);
     const totalPrice: number = calculateTotalPrice(basketItems)
@@ -70,13 +69,10 @@ const BasketPage: React.FC = () => {
                         </span>
                         грн
                     </p>
-                    <button type="button" className="block  px-6 py-2 mt-4 ml-auto mr-8" onClick={handleClearBasket}>
-                        <TrashIcon className="h-8 w-8 text-salat-50 clear-hover " />
-                    </button>
                     <ModalProvider>
-                    <BasketForm />
+                        <BasketForm />
                     </ModalProvider>
-                    
+
                 </>
             ) : (
                 <>
@@ -87,9 +83,8 @@ const BasketPage: React.FC = () => {
                     <img src={emptyBasket} className="m-auto w-1/2" />
                 </>
             )
-         }
-        
-     </section>
+            }
+        </section>
     )
 }
 

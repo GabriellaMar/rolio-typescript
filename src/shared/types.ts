@@ -4,12 +4,8 @@ export enum SelectedPage {
     Reviews = 'відгуки',
     Delivery = 'доставкатаоплата',
     Contacts = 'контакти'
-  
   }
 
-
-  
- 
 
   export enum ProductColor {
     'Східне' = 'from-orange-100 to-orange-200',
@@ -18,7 +14,6 @@ export enum SelectedPage {
     'Для м\'яса' = 'from-meet-100 to-meet-200',
   }
 
-  //  export type ProductTitle = keyof typeof ProductColor;
 
   export enum BackgroundColor {
     'Східне' = 'bg-orange-50/[.15]',
@@ -27,9 +22,4 @@ export enum SelectedPage {
     'Для м\'яса' = 'bg-meet-50/[.15]',
   }
 
-  // export enum ContentImages {
-  //   'Східне' = 'rise',
-  //   'Для салату' = 'oliva',
-  //   'Італійське' = 'pasta',
-  //   'Для м\'яса' = 'herbs',
-  // }
+

@@ -1,14 +1,11 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-
-// import { SliderArrows } from "../Offers/SliderArrows";
 import { selectReviews } from "@/redux/reviews/selectors";
 import { useSelector } from "react-redux";
 
 
 export const ReviewSlider: React.FC = () => {
     const { reviews } = useSelector(selectReviews);
-    console.log(reviews)
 
     const responsive = {
         desktop: {

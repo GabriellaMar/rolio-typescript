@@ -1,7 +1,4 @@
-// import { ProductTitle } from '@/shared/types';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-
-
 import axios  from 'axios';
 import { Product } from './product/types';
 import { BasketItem, UpdateBasketItemData} from './basket/types';
@@ -14,11 +11,6 @@ const instance = axios.create({
 });
 
 
-
-
- 
-
-// Опис типу для повідомлення про помилку
 interface ErrorPayload {
     message: string;
 }
@@ -49,9 +41,6 @@ export const fetchBasketItemsThunk = createAsyncThunk<BasketItem[], void, { reje
         try {
     
             const { data } = await instance.get<BasketItem[]>('/basket');
-          
-            // console.log("Basket data:", data)
-         
             return data
         } catch (error) {
             const errorMessage: string = (error as Error).message ;
@@ -83,8 +72,6 @@ export const removeBasketItemThunk = createAsyncThunk<BasketItem, string, { reje
     async (_id, thunkApi) => { 
         try {
             const { data } = await instance.delete(`/basket/${_id}`);
-            // console.log("DAT:", data)
-            // console.log(data);
             return data;
         } catch (error) {
             const errorMessage: string = (error as Error).message;
@@ -136,14 +123,13 @@ export const updateBasketItemThunk = createAsyncThunk(
 );
 
 export const addOrderThunk = createAsyncThunk<Order, 
-// {userName: string, phone: string, deliveryAddress: string, deliveryMethod: string, products: BasketItem[] }
 Order,
  { rejectValue: ErrorPayload }>(
     'orders/addOrderItem',
     async (order, thunkApi) => { 
         try {
             const { data } = await instance.post<Order>('/orders', order); 
-            console.log("DATA!!!!!!:", data);
+            // console.log("DATA!!!!!!:", data);
             return data as Order;
         } catch (error) {
             const errorMessage: string = (error as Error).message;
@@ -157,8 +143,6 @@ export const removeOrderThunk = createAsyncThunk<Order, string, { rejectValue: E
     async (_id, thunkApi) => { 
         try {
             const { data } = await instance.delete(`/orders/${_id}`);
-            // console.log("DAT:", data)
-            // console.log(data);
             return data;
         } catch (error) {
             const errorMessage: string = (error as Error).message;
@@ -201,7 +185,7 @@ export const resetOrderThunk = createAsyncThunk<void, void, { rejectValue: Error
     async (_, thunkApi) => {
         try {
             const { data } = await instance.get<Review[]>('/reviews');
-            console.log(data);
+            // console.log(data);
             return data;
         } catch (error) {
             const errorMessage: string = (error as Error).message ;
@@ -244,8 +228,6 @@ export const removeReviewThunk = createAsyncThunk<Review, string, { rejectValue:
     async (_id, thunkApi) => { 
         try {
             const { data } = await instance.delete(`/reviews/${_id}`);
-            // console.log("DAT:", data)
-            // console.log(data);
             return data;
         } catch (error) {
             const errorMessage: string = (error as Error).message;

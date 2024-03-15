@@ -1,10 +1,5 @@
 import {  Status } from "../product/types";
 
-// export type BasketItem = {
-//      productId: string;
-//      quantity: number;
-//    //   totalPrice: number;
-//   };
 export type BasketItem = {
       _id: string;
       title: string;

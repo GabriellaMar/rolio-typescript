@@ -9,15 +9,16 @@ import { useSelector } from "react-redux";
 import { selectBasketItemById } from "@/redux/basket/selectors";
 import { addBasketItemThunk } from "@/redux/operations";
 import { useAppDispatch } from "@/hooks/useAppDispatch";
-import { getBackgroundImage, getBigBackgroundImage } from "@/services/services";
+import { getBackgroundImage, getBigBackgroundImage, getCategoriesBorderColor,  getTextColor } from "@/services/services";
+import { OfferCategories } from "./OfferCategories";
+
+type SliderProps = {
+    sliderProducts: Product[];
+    product: Product;
+}
 
 
-
-// type SliderProps = {
-//     products: Product[];
-// };
-
-const SliderCard: React.FC<Product> = ({ _id, title, img, description, details }) => {
+const SliderCard: React.FC<SliderProps> = ({product: { _id, title, img, description, details }, sliderProducts}) => {
     const [foundProductId, setFoundProductId] = useState<string | null>(null);
     const isAboveMediumScreens = useMediaQuery("(min-width: 1366px)");
     const isMobileScreen = useMediaQuery("(min-width: 320px)");
@@ -43,28 +44,28 @@ const SliderCard: React.FC<Product> = ({ _id, title, img, description, details }
     const productColor = ProductColor[title as keyof typeof ProductColor] || 'gray';
 
     const backgroundColor = BackgroundColor[title as keyof typeof ProductColor] || 'gray';
+
+    const borderColor =  getCategoriesBorderColor(title);
+    const textColor = getTextColor(title);
+
   
 
     return (
 
-        <div key={_id} className="mt-8 relative">
-            <div className={`${flexCenter} xs:flex-col md:flex-row  xs:gap-4 md:gap-16 py-3 md:p-6`}>
+        <div key={_id} className="  sm:items-center  relative mt-6">
+           <OfferCategories sliderProducts={sliderProducts} borderColor={borderColor} textColor={textColor} />
+            <div className={`${flexCenter} xs:flex-col md:flex-row md:-mt-10 xs:gap-4 md:gap-16 pb-6 md:px-6 xs:mt-10`}>
                 <div className={`   relative ${flexCenter}`}>
                     <div className={`m-auto xs:w-s xs:h-s md:w-lg md:h-lg  rounded-full  ${backgroundColor}`}>
                         <div className={`  absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  xs:w-xs xs:h-xs md:w-sm md:h-sm  rounded-full  bg-gradient-to-r ${productColor} before:absolute  ${isAboveMediumScreens ? ` before:-bottom-20 before:-right-11 ${getBigBackgroundImage(title)}`  : `before:-bottom-12 before:-right-3 ${getBackgroundImage(title)}`}   `} >
                             <img src={`https://rolio-backend-api.onrender.com/${img}`} alt="bottle of Oil"
                                 className={`  inline-block  ${isMobileScreen ? 'absolute  top-1/2 left-[46%] not-scaled-img  ' : 'absolute  top-1/2  scaled-img  '} `}
                             />
-                        
-                          {/* <img src={`http://localhost:8000/${img}`} alt="bottle of Oil"
-                                className={`  inline-block  ${isMobileScreen ? 'absolute  top-1/2 left-[46%] not-scaled-img  ' : 'absolute  top-1/2  scaled-img  '} `}
-                            /> */}
-                        
                         </div>
                     </div>
                 </div>
                 <div className="max-w-[609px]">
-                    <h2 className="font-amaticSC font-normal  xs:text-4xl sm:text-5xl md:text-[64px] text-text-color xs:text-center md:text-start md:mt-10">
+                    <h2 className="font-amaticSC font-normal  xs:text-4xl sm:text-5xl md:text-[64px] text-text-color xs:text-center md:text-start md:mt-20">
                         Олія "{title}"
                     </h2>
                     <p className="font-roboto font-light xs:text-base xs:text-center  sm:text-lg  text-text-color mt-2 md:text-left">

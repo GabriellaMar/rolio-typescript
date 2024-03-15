@@ -1,4 +1,3 @@
-// import {  ProductTitle } from "@/shared/types";
 
 import { BasketItem} from "@/redux/basket/types";
 
@@ -40,6 +39,43 @@ export const getTextColor = (title: string) : string => {
     }
 }
 
+export const getCategoriesBorderColor = ( title: string) : string => {
+    switch (title ) {
+        case "Для салату":
+            return 'border-salat-10 ';
+            break;
+        case "Італійське":
+            return 'border-italian-5' ;
+            break;
+        case 'Для м\'яса':
+            return 'border-meet-10 ';
+            break;
+        case "Східне":
+            return 'border-orange-10 ';
+            break;
+        default:
+            return 'border-red-100';
+    }
+}
+
+export const getCategoriesBgColor = ( title: string) : string => {
+    switch (title ) {
+        case "Для салату":
+            return ' bg-salat-10';
+            break;
+        case "Італійське":
+            return ' bg-italian-10';
+            break;
+        case 'Для м\'яса':
+            return ' bg-meet-10';
+            break;
+        case "Східне":
+            return ' bg-orange-10';
+            break;
+        default:
+            return 'border-red-100';
+    }
+}
 
 
 export const getBackgroundImage = (title: string) : string => {
