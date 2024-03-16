@@ -54,7 +54,7 @@ const SliderCard: React.FC<SliderProps> = ({product: { _id, title, img, descript
 
         <div key={_id} className="  sm:items-center  relative mt-6">
            <OfferCategories sliderProducts={sliderProducts} borderColor={borderColor} textColor={textColor} />
-            <div className={`${flexCenter} xs:flex-col md:flex-row md:-mt-10 xs:gap-4 md:gap-16 pb-6 md:px-6 xs:mt-10`}>
+            <div className={`${flexCenter} xs:flex-col md:flex-row md:-mt-10 xs:gap-4 md:gap-16 pb-14 md:px-6 xs:mt-10`}>
                 <div className={`   relative ${flexCenter}`}>
                     <div className={`m-auto xs:w-s xs:h-s md:w-lg md:h-lg  rounded-full  ${backgroundColor}`}>
                         <div className={`  absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  xs:w-xs xs:h-xs md:w-sm md:h-sm  rounded-full  bg-gradient-to-r ${productColor} before:absolute  ${isAboveMediumScreens ? ` before:-bottom-20 before:-right-11 ${getBigBackgroundImage(title)}`  : `before:-bottom-12 before:-right-3 ${getBackgroundImage(title)}`}   `} >
@@ -65,7 +65,7 @@ const SliderCard: React.FC<SliderProps> = ({product: { _id, title, img, descript
                     </div>
                 </div>
                 <div className="max-w-[609px]">
-                    <h2 className="font-amaticSC font-normal  xs:text-4xl sm:text-5xl md:text-[64px] text-text-color xs:text-center md:text-start md:mt-20">
+                    <h2 className="font-amaticSC font-normal  xs:text-4xl sm:text-5xl md:text-[48px] text-text-color xs:text-center md:text-start md:mt-20">
                         Олія "{title}"
                     </h2>
                     <p className="font-roboto font-light xs:text-base xs:text-center  sm:text-lg  text-text-color mt-2 md:text-left">

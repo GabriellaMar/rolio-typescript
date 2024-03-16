@@ -16,6 +16,7 @@ import { SliderArrows } from "./SliderArrows";
 
 
 
+
 type OffersProps = {
      products: Product[],
 };
@@ -40,7 +41,7 @@ export const Offers: React.FC<OffersProps> = ({products}) => {
 
     return (
         <section className="px-5 sm:px-10  pt-40  md:px-[46px]  ">
-            <h2 className="xs:mb-4 sm:mb-6 font-amaticSC font-normal text-4xl text-salat-50 md:font-bold text-center">Наші продукти</h2>
+            <h2 className="xs:mb-4 sm:mb-6 font-amaticSC font-normal text-4xl sm:text-5xl text-salat-50 md:font-bold text-center">Наші продукти</h2>
              {/* <OfferCategories 
              sliderProducts={products} 
             // products={products}
@@ -55,7 +56,11 @@ export const Offers: React.FC<OffersProps> = ({products}) => {
             customTransition="transform 1500ms ease-in-out"
             transitionDuration={2000}
             arrows={false}
-            renderButtonGroupOutside={true}
+            showDots={true}
+            // customDot={<CustomDots />}
+            swipeable
+            renderDotsOutside
+            dotListClass="  carousel-dots  react-multi-carousel-dot "
             customButtonGroup={<SliderArrows  />}
         >
 

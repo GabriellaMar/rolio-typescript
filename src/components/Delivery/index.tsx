@@ -10,7 +10,7 @@ export const Delivery = () => {
   return (
   <section id='доставкатаоплата' className=" ">
 
-      <div className={` relative flex  gep-8  items-center flex-col sm:flex-row-reverse gap-[30px] sm:justify-end sm:max-w-[768px] sm:m-auto md:max-w-[1366px] md:ml-0`}>
+      <div className={` relative flex  gep-8  items-center flex-col sm:flex-row-reverse gap-[30px] sm:justify-end sm:max-w-[768px] sm:m-auto md:max-w-[1366px] md:ml-0 pt-16`}>
         <div className=" flex flex-col-reverse sm:flex-row gap-8 items-center after:absolute after:-top-10 sm:after:top-0 after:-right-6   after:z-[1] after:content-herbs sm:after:content-bigHerbs">
            {/* <div className="relative"> */}
             {/* <div className="after:absolute after:-top-10 sm:after:top-0 after:-right-28  sm:after:left-24  after:z-[1] after:content-herbs sm:after:content-bigHerbs"> */}

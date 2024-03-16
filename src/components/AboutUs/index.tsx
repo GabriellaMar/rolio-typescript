@@ -20,7 +20,7 @@ export const AboutUs = () => {
         className="mx-auto  items-center justify-center md:flex md:h-5/6"
         onViewportEnter={() => setSelectedPage(SelectedPage.AboutUs)}
       > */}
-            <h2 className=" font-amaticSC font-normal text-4xl text-text-color md:font-bold text-center">Про нас</h2>
+            <h2 className=" font-amaticSC font-normal text-4xl sm:text-5xl text-text-color md:font-bold text-center">Про нас</h2>
             <ul className={isAboveSmallScreens ? `flex flex-col  mt-[93px] ${flexCenter}`: ` flex flex-col gap-12 text-center mt-[58px] `}>
                 <li className='relative'>
                     {/* <div className={isAboveSmallScreens ? ` max-w-[209px] h-[357px] bg-salat-10  `: ` max-w-[320px] h-[209px]`}></div> */}

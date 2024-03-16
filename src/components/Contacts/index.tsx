@@ -37,9 +37,9 @@ export const Contacts = () => {
   
 // };
   return (
-    <section id='контакти' className="  pt-10 pb-14  sm:px-10 md:px-[46px] ">
+    <section id='контакти' className="  pt-16 pb-14  sm:px-10 md:px-[46px] ">
 
-      <h2 className=" font-amaticSC font-normal text-4xl text-text-color md:font-bold text-center">Контакти</h2>
+      <h2 className=" font-amaticSC font-normal text-4xl sm:text-5xl text-text-color md:font-bold text-center">Контакти</h2>
       <div className="relative mt-[72px]  max-w-[768px] m-auto">
         <div className={isAboveSmallScreens ? ` max-w-[209px] h-[424px] bg-salat-10  ` : ` bg-salat-10 w-full h-[280px]`}></div>
         <img src={isAboveSmallScreens ? oilBottleTablet : oilBottleMobile} alt='Owner image' className={isAboveSmallScreens ? `absolute -top-8 left-28 ` : `w-[300px] absolute top-14 left-1/2 transform -translate-x-1/2 -translate-y-1/2 `} />

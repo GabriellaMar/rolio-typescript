@@ -24,7 +24,7 @@ export const ReviewSlider: React.FC = () => {
 
     return (
 
-        <div className=' mx-auto relative mt-10 '>
+        <div className=' mx-auto relative mt-10 pb-12'>
             <Carousel responsive={responsive}
                 infinite={true}
                 autoPlay={true}
@@ -32,7 +32,12 @@ export const ReviewSlider: React.FC = () => {
                 customTransition="transform 1500ms ease-in-out"
                 transitionDuration={2500}
                 arrows={false}
-                renderButtonGroupOutside={true}
+                // renderButtonGroupOutside={true}
+                showDots={true}
+                renderDotsOutside
+                // customDot={<CustomDots />}
+                swipeable
+                dotListClass=" carousel-dots  react-multi-carousel-dot "
             // customButtonGroup={<SliderArrows />}
             >
 

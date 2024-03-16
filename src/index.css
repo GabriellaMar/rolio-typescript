@@ -24,8 +24,8 @@ body,
 /* } */ 
 link {
   text-decoration: none;
-  background-color: #ebf4cd;
-  background-color: #eff5ec
+  background-color: #f7faecd2;
+  background-color: #f6f9f5
   
 }
 
@@ -110,10 +110,24 @@ link {
 
 }
 
-input[type="radio"]:checked {
+/* input[type="radio"]:checked {
   background-color: #97241e;
-}
+} */
 
 .button-position {
   margin-left: auto;
 }
+
+.carousel-dots  .react-multi-carousel-dot {
+  margin-left: 16px;
+background-color: #fff;
+
+}
+
+.carousel-dots  .react-multi-carousel-dot--active  button{
+
+background-color: #688800;
+
+}
+
+

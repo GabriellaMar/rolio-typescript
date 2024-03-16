@@ -11,8 +11,8 @@ export const Reviews = () => {
 
 
   return (
-    <section id='відгуки' className=" -mt-10   sm:px-12 md:px-[46px]  pb-20  ">
-      <h2 className=" font-amaticSC font-normal text-4xl text-text-color md:font-bold text-center"> Відгуки</h2>
+    <section id='відгуки' className=" bg-white-review sm:-mt-10 sm:px-10 md:px-[46px]  py-10  ">
+      <h2 className=" font-amaticSC font-normal text-4xl sm:text-5xl text-text-color md:font-bold text-center"> Відгуки</h2>
       <div className="  w-full h-[280px] " >
         <ReviewSlider />
       </div>

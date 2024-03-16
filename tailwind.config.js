@@ -24,6 +24,7 @@ export default {
         "light-grey-10" : "#D9D9D9",
         "light-grey-50": "#E4EBCE",
         "black-10": "#000000",
+        'white-review': "#f7faecd2",
         "footer-white": "#eff5ec",
         "italian-5": "#69D49E",
         "italian-10": "#8BDFB4",
