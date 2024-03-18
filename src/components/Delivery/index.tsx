@@ -6,7 +6,7 @@ import coins from '@/assets/coins.png';
 import box from '@/assets/box.png';
 
 export const Delivery = () => {
-  const flexCenter = 'flex justify-center items-center'
+  // const flexCenter = 'flex justify-center items-center'
   return (
   <section id='доставкатаоплата' className=" pt-20 ">
     <div className='flex relative xs:flex-col-reverse sm:flex-row  items-center gap-8  after:z-[1]'>
@@ -30,15 +30,16 @@ export const Delivery = () => {
 <p className='  before:absolute before:z-[1] before:content-olives sm:before:content-bigOlives before:left-14 before:-top-24 font-amaticSC font-normal text-4xl text-text-color sm:text-5xl sx:text-center'> Оплата -</p>
 <ul className='flex items-center xs:w-full sm:w-2/3 h-[110px]  xs:justify-center  sm:justify-start  gap-16 bg-salat-60 p-6 '>
 <li className=' '> 
-  <img src={truck} alt='Delivery truck icon' className=' m-auto' /> 
-  <p className='text-2xs font-roboto font-light  sm:text-2m  text-text-color mt-2'>Нова пошта</p></li>
-<li>
-<img src={box} alt='Box icon' className=' m-auto' />
-  <p className='text-2xs font-roboto font-light  sm:text-2m  text-text-color  mt-2'>Укрпошта</p>
+<img src={coins} alt='Delivery truck icon' className=' m-auto' />
+<p className='text-2xs font-roboto font-light  sm:text-2m  text-text-color text-center mt-2'>Накладений <br/> платіж</p>
+</li>
+  <li>
+  <img src={card} alt='Box icon' className=' m-auto' />
+            <p className='text-2xs font-roboto font-light  sm:text-2m  text-text-color  mt-2'>Приват 24</p>
 </li>
 <li>
-<img src={house} alt='House icon' className=' m-auto' />
-<p className=' text-2xs font-roboto font-light  sm:text-2m  text-text-color  mt-2'>Самовивіз</p>
+<img src={cash} alt='House icon' className=' m-auto' />
+  <p className='text-2xs font-roboto font-light  sm:text-2m  text-text-color text-center mt-2'>Готівка <br/> при самовивозі</p>
 </li>
 </ul>
 
