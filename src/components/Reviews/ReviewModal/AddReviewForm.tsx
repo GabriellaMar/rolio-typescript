@@ -1,6 +1,6 @@
 
 import { Review } from '@/redux/reviews/types';
-import { Buttons } from '../Buttons'
+import { Buttons } from '../../Buttons'
 import { TrashIcon } from "@heroicons/react/24/outline"
 import { SyntheticEvent, useState } from 'react';
 import { addReviewsThunk } from '@/redux/operations';

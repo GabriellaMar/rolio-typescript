@@ -13,7 +13,7 @@ export const NavList: React.FC <NavListProps> = ({ selectedPage, setSelectedPage
     const isAboveMediumScreens = useMediaQuery("(min-width: 1366px)");
     const flexBetween = "flex items-center justify-between"
     return (
-        <ul className={` text-salat-50 ${isAboveMediumScreens ? `${flexBetween} gap-8 text-sm mx-20 font-messiri ` : `flex flex-col items-center gap-4 text-sm font-messiri`}`}>
+        <ul className={` text-salat-50 ${isAboveMediumScreens ? `${flexBetween} gap-8 text-lg mx-20 font-messiri ` : `flex flex-col items-center gap-4 text-sm font-messiri`}`}>
             <li>
                 <Link page='Олія'
                     selectedPage={selectedPage}

@@ -91,10 +91,8 @@ link {
   transition: 250ms ease-in-out; 
 }
 
-.carousel-button-group{
-  position: absolute;
-  top: 150px;
-}
+
+
 .backdrop-class{
   position: fixed;
   top: 0;
@@ -118,6 +116,10 @@ link {
   margin-left: auto;
 }
 
+.carousel-button-group{
+  position: absolute;
+}
+
 .carousel-dots  .react-multi-carousel-dot {
   margin-left: 16px;
 background-color: #fff;
@@ -128,6 +130,16 @@ background-color: #fff;
 
 background-color: #688800;
 
+}
+
+.review-list .react-multi-carousel-list {
+  justify-content: center;
+}
+
+.scroll-style{
+  overflow-x: auto;
+  white-space: nowrap;
+  max-width: 100%;
 }
 
 

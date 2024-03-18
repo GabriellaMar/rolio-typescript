@@ -1,7 +1,7 @@
 
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { ReviewSlider } from "./reviewSlider"
-import { ReviewModal } from "../ReviewModal";
+import { ReviewModal } from "./ReviewModal";
 import { useContext } from "react";
 import { ModalContext } from "../ModalContext";
 
@@ -11,7 +11,7 @@ export const Reviews = () => {
 
 
   return (
-    <section id='відгуки' className=" bg-white-review sm:-mt-10 sm:px-10 md:px-[46px]  py-10  ">
+    <section id='відгуки' className=" bg-white-review sm:-mt-10 xs:px-5  sm:px-10 md:px-[46px]  py-10  ">
       <h2 className=" font-amaticSC font-normal text-4xl sm:text-5xl text-text-color md:font-bold text-center"> Відгуки</h2>
       <div className="  w-full h-[280px] " >
         <ReviewSlider />

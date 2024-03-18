@@ -33,12 +33,11 @@ export const NavBar: React.FC<NavBarProps> = ({ isTopOfPage, selectedPage, setSe
 
     const totalItems: number = calculateProductItems(basketItems);
 
-    // const handleClick = (event: React.SyntheticEvent<EventTarget>) => {
-    //     if (event.currentTarget === event.target) {
-    //         setIsMenuToggled(false)
-    //     }
-    //   };
-
+   
+    const handleMobileMenu = ()=>{
+        setIsMenuToggled(!isMenuToggled)
+        document.body.style.overflow = isMenuToggled ? 'auto' : 'hidden';
+    }
 
     return (
         <nav className={isAboveMediumScreens ? `${flexBetween}   z-20 ` : `flex items-center`}>
@@ -55,7 +54,7 @@ export const NavBar: React.FC<NavBarProps> = ({ isTopOfPage, selectedPage, setSe
 
             ) : (<button type="button"
                 className="bg-transparent ml-auto  mr-6 sm:mr-8 mt-1"
-                onClick={() => setIsMenuToggled(!isMenuToggled)}>
+                onClick={handleMobileMenu}>
                 <Bars4Icon className="h-10 w-10 text-salat-50 hover-icon" />
             </button >)
             }
@@ -73,10 +72,10 @@ export const NavBar: React.FC<NavBarProps> = ({ isTopOfPage, selectedPage, setSe
 
             {/* Mobile MENU */}
             {!isAboveMediumScreens && isMenuToggled && (
-                <div className="fixed right-0 bottom-0 z-100 h-screen w-[300px] bg-salat-60a drop-shadow-xl px-[15px] py-20 pl-8" >
+                <div className="fixed top-0 right-0 bottom-0 z-100 h-screen w-[300px] bg-salat-60a drop-shadow-xl px-[15px] py-28 pl-8" >
                     <button
-                        className="absolute top-5 right-5"
-                        onClick={() => setIsMenuToggled(!isMenuToggled)}>
+                        className="absolute top-8 right-10"
+                        onClick={handleMobileMenu}>
                         <XMarkIcon className="h-8 w-8 text-salat-50 " />
                     </button>
 

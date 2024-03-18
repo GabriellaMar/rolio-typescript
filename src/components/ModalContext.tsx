@@ -16,6 +16,7 @@ export const ModalProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
   const toggleModal = () => {
     setShowModal(!showModal);
+    document.body.style.overflow = showModal ? 'auto' : 'hidden';
   };
 
   const value = {

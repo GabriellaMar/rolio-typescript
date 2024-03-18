@@ -17,6 +17,7 @@ import { SliderArrows } from "./SliderArrows";
 
 
 
+
 type OffersProps = {
      products: Product[],
 };
@@ -39,6 +40,8 @@ export const Offers: React.FC<OffersProps> = ({products}) => {
         },
     };
 
+
+
     return (
         <section className="px-5 sm:px-10  pt-40  md:px-[46px]  ">
             <h2 className="xs:mb-4 sm:mb-6 font-amaticSC font-normal text-4xl sm:text-5xl text-salat-50 md:font-bold text-center">Наші продукти</h2>
@@ -49,7 +52,7 @@ export const Offers: React.FC<OffersProps> = ({products}) => {
             />  */}
             <div className=' mx-auto relative  '>
                 {/* <OfferCategories sliderProducts={products} /> */}
-             <Carousel responsive={responsive}
+             <Carousel responsive={responsive} 
             infinite={true}
             // autoPlay={true}
             // autoPlaySpeed={3500}
@@ -60,6 +63,7 @@ export const Offers: React.FC<OffersProps> = ({products}) => {
             // customDot={<CustomDots />}
             swipeable
             renderDotsOutside
+            keyBoardControl={true}
             dotListClass="  carousel-dots  react-multi-carousel-dot "
             customButtonGroup={<SliderArrows  />}
         >

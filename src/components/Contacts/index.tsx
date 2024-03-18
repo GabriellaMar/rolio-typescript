@@ -9,8 +9,8 @@ import useMediaQuery from "@/hooks/useMediaQuery";
 import { Buttons } from "../Buttons";
 // import { Modal } from "../Modal";
 import { useContext} from "react";
-import { ReviewModal } from "../ReviewModal";
 import { ModalContext } from "../ModalContext";
+import { ContactModal } from "./ContactsModal";
 
 
 
@@ -37,7 +37,7 @@ export const Contacts = () => {
   
 // };
   return (
-    <section id='контакти' className="  pt-16 pb-14  sm:px-10 md:px-[46px] ">
+    <section id='контакти' className="  pt-20 pb-20 sm:px-10 md:px-[46px] ">
 
       <h2 className=" font-amaticSC font-normal text-4xl sm:text-5xl text-text-color md:font-bold text-center">Контакти</h2>
       <div className="relative mt-[72px]  max-w-[768px] m-auto">
@@ -72,7 +72,7 @@ export const Contacts = () => {
         </div>
       </div>
       {/* {showModal && <Modal closeModal={toggleModal} children={children}/>} */}
-      {showModal && <ReviewModal closeModal={toggleModal} />}
+      {showModal && <ContactModal closeModal={toggleModal} />}
     </section>
   )
 }

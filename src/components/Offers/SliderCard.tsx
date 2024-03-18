@@ -1,5 +1,5 @@
 import { Product } from "@/redux/product/types";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "react-multi-carousel/lib/styles.css";
 import { Buttons } from "../Buttons";
 import { BackgroundColor, ProductColor } from "@/shared/types";
@@ -9,17 +9,20 @@ import { useSelector } from "react-redux";
 import { selectBasketItemById } from "@/redux/basket/selectors";
 import { addBasketItemThunk } from "@/redux/operations";
 import { useAppDispatch } from "@/hooks/useAppDispatch";
-import { getBackgroundImage, getBigBackgroundImage, getCategoriesBorderColor,  getTextColor } from "@/services/services";
+import { getBackgroundImage, getBigBackgroundImage, getCategoriesBgColor, getCategoriesBorderColor,  getTextColor } from "@/services/services";
 import { OfferCategories } from "./OfferCategories";
 
-type SliderProps = {
+type SliderCartProps = {
     sliderProducts: Product[];
     product: Product;
+   
 }
 
 
-const SliderCard: React.FC<SliderProps> = ({product: { _id, title, img, description, details }, sliderProducts}) => {
+const SliderCard: React.FC<SliderCartProps> = ({product: { _id, title, img, description, details }, sliderProducts}) => {
     const [foundProductId, setFoundProductId] = useState<string | null>(null);
+    const [activeSlide, setActiveSlide] = useState<string >("");
+
     const isAboveMediumScreens = useMediaQuery("(min-width: 1366px)");
     const isMobileScreen = useMediaQuery("(min-width: 320px)");
     const dispatch = useAppDispatch();
@@ -47,13 +50,18 @@ const SliderCard: React.FC<SliderProps> = ({product: { _id, title, img, descript
 
     const borderColor =  getCategoriesBorderColor(title);
     const textColor = getTextColor(title);
+    const CategoriesBgColor =  getCategoriesBgColor(title)
 
+    useEffect(() => {
+        setActiveSlide(_id);
+     }, [_id]);
   
+   
 
     return (
 
-        <div key={_id} className="  sm:items-center  relative mt-6">
-           <OfferCategories sliderProducts={sliderProducts} borderColor={borderColor} textColor={textColor} />
+        <div key={_id}  className="  sm:items-center  relative mt-6">
+           <OfferCategories sliderProducts={sliderProducts} borderColor={borderColor} textColor={textColor}  bgColor={CategoriesBgColor} activeSlide={activeSlide} />
             <div className={`${flexCenter} xs:flex-col md:flex-row md:-mt-10 xs:gap-4 md:gap-16 pb-14 md:px-6 xs:mt-10`}>
                 <div className={`   relative ${flexCenter}`}>
                     <div className={`m-auto xs:w-s xs:h-s md:w-lg md:h-lg  rounded-full  ${backgroundColor}`}>
