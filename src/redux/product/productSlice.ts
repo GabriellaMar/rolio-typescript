@@ -2,20 +2,6 @@ import { createSlice } from '@reduxjs/toolkit';
 import { fetchProductsThunk } from '../operations';
 import { IProductSliceState, Status } from './types';
 
-// type Product = {
-//     id: string,
-//     title: string,
-//     img: string,
-//     description: string,
-//     details: string,
-//     price: number,
-// };
-
-// interface ProductsState {
-//     entities: Product[];
-//     loading: 'idle' | 'pending' | 'succeeded' | 'failed';
-// }
-
 const initialState: IProductSliceState = {
     items: [],
     status: Status.IDLE,

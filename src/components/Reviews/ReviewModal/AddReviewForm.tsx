@@ -5,8 +5,6 @@ import { TrashIcon } from "@heroicons/react/24/outline"
 import { SyntheticEvent, useState } from 'react';
 import { addReviewsThunk } from '@/redux/operations';
 import { useAppDispatch } from '@/hooks/useAppDispatch';
-// import { selectOrderStatus } from '@/redux/order/selectors';
-// import { useSelector } from 'react-redux';
 
 
 type AddReviewFormProps = {
@@ -14,12 +12,9 @@ type AddReviewFormProps = {
 };
 
 
-export const AddReviewForm: React.FC<AddReviewFormProps> = ({closeModal}) => {
+export const AddReviewForm: React.FC<AddReviewFormProps> = ({ closeModal }) => {
   const [userName, setUserName] = useState<string>('');
   const [comment, setComment] = useState<string>('');
-
-  // const orderStatus = useSelector(selectOrderStatus);
-
 
   const dispatch = useAppDispatch();
 
@@ -54,7 +49,6 @@ export const AddReviewForm: React.FC<AddReviewFormProps> = ({closeModal}) => {
   }
 
   return (
-    
     <form className='relative mt-3' onSubmit={handleReviewSubmit}>
       <label className="font-roboto  text-base text-text-color font-normal"> Ваше ім'я
         <input className="border rounded border-light-grey-10 px-4 py-2 w-full  mt-2 outline-0 focus:border-salat-50 placeholder:roboto placeholder:text-light-grey-10"

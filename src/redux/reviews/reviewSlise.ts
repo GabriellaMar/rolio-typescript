@@ -6,7 +6,6 @@ import { IReviewsSliceState } from "./types";
 const initialState: IReviewsSliceState = {
     reviews: [],
     status: Status.IDLE,
-
 };
 
 const reviewSlice = createSlice({

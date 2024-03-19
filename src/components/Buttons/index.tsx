@@ -1,7 +1,5 @@
 import { getBorderColor, getTextColor } from '@/services/services'
-import { ProductColor} from '@/shared/types';
-
-// type ProductTitle = keyof typeof ProductColor;
+import { ProductColor } from '@/shared/types';
 
 type ButtonType = "button" | "submit" | "reset";
 
@@ -18,13 +16,9 @@ type ButtonProps = Partial<{
 
 
 
+export const Buttons: React.FC<ButtonProps> = ({ text, type, size, title = "Для салата", padding, onClick, onMouseEnter, onMouseLeave }) => {
 
-
-
-export const Buttons: React.FC<ButtonProps> = ({ text, type, size, title="Для салата", padding, onClick, onMouseEnter, onMouseLeave}) => {
-
-     const productColor = ProductColor[title as keyof typeof ProductColor] || '';
-    // const productColor = ProductColor[title] || '';
+    const productColor = ProductColor[title as keyof typeof ProductColor] || '';
     return (
         <>
             <button

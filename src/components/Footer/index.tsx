@@ -20,7 +20,7 @@ export const Footer: React.FC<FooterProps> = ({ selectedPage, setSelectedPage })
     return (
         <footer className={`${flexCenter} flex-col  gap-8 md:flex-row py-8 bg-salat-15`}>
             <img src={bigLogo} alt="Logo image" />
-            <ul className={`  text-footer-white  ${flexCenter} text-sm font-messiri ${isAboveSmallScreens ? ` flex-row gap-8  mx-20  ` : ` flex-col  gap-4`}`}>
+            <ul className={`  text-footer-white  ${flexCenter}  text-lg font-messiri ${isAboveSmallScreens ? ` flex-row gap-8  mx-20 ` : ` flex-col  gap-4 text-sm `}`}>
                 <li>
                     <Link page='Олія'
                         selectedPage={selectedPage}

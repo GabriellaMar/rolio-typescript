@@ -9,6 +9,7 @@ import { useAppDispatch } from "@/hooks/useAppDispatch";
 import { useSelector } from "react-redux";
 import { selectBasketItemById } from "@/redux/basket/selectors";
 import { Product } from "@/redux/product/types";
+import { motion } from "framer-motion";
 
 
 export const IsHoveredContext = createContext<boolean>(false);
@@ -46,9 +47,18 @@ export const ProductCart: React.FC<Product> = ({ _id, details, title, descriptio
 
   const backgroundColor = BackgroundColor[title as keyof typeof ProductColor] || 'gray';
 
+  const item = {
+    visible: { opacity: 1, x: 0 },
+    hidden: { opacity: 0, x: 60 },
+  }
+
   return (
     <IsHoveredContext.Provider value={isHovered}>
-    <li className="  xs:w-[280px] sm:w-[329px] text-center ">
+    <motion.li className="  xs:w-[280px] sm:w-[329px] text-center "
+    variants={item}
+    viewport={{once: true, amount: 0.5}}
+    transition={{duration: 1.5,}}
+    >
       <div className="relative w-[174px] h-[174px] m-auto">
 
         <div className={`relative m-auto     `}>
@@ -85,7 +95,7 @@ export const ProductCart: React.FC<Product> = ({ _id, details, title, descriptio
         onMouseLeave={handleMouseLeave}
         >Замовити в ТГ</a>
       </div>
-    </li>
+    </motion.li>
     </IsHoveredContext.Provider>
   );
 };

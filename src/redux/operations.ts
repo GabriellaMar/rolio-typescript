@@ -6,15 +6,12 @@ import { Order } from './order/type';
 import { Review } from './reviews/types';
 
 const instance = axios.create({
-//    baseURL: 'http://localhost:8000',
      baseURL: 'https://rolio-backend-api.onrender.com'
 });
-
 
 interface ErrorPayload {
     message: string;
 }
-
 
 // ----------Products Thunks---------------------------
 
@@ -51,14 +48,11 @@ export const fetchBasketItemsThunk = createAsyncThunk<BasketItem[], void, { reje
 
 
 
-
-
 export const addBasketItemThunk = createAsyncThunk<BasketItem, { _id: string, quantity: number }, { rejectValue: ErrorPayload }>(
     'basket/addBasketItem',
     async (product, thunkApi) => { 
         try {
-            const { data } = await instance.post<BasketItem>('/basket', product); 
-            // console.log("DATA!!!!!!:", data);
+            const { data } = await instance.post<BasketItem>('/basket', product);
             return data as BasketItem;
         } catch (error) {
             const errorMessage: string = (error as Error).message;
@@ -129,7 +123,6 @@ Order,
     async (order, thunkApi) => { 
         try {
             const { data } = await instance.post<Order>('/orders', order); 
-            // console.log("DATA!!!!!!:", data);
             return data as Order;
         } catch (error) {
             const errorMessage: string = (error as Error).message;
@@ -185,7 +178,6 @@ export const resetOrderThunk = createAsyncThunk<void, void, { rejectValue: Error
     async (_, thunkApi) => {
         try {
             const { data } = await instance.get<Review[]>('/reviews');
-            // console.log(data);
             return data;
         } catch (error) {
             const errorMessage: string = (error as Error).message ;
@@ -200,7 +192,6 @@ export const addReviewsThunk = createAsyncThunk<Review, Review, { rejectValue: E
     async (review, thunkApi) => { 
         try {
             const { data } = await instance.post<Review>('/reviews', review); 
-            // console.log("DATA!!!!!!:", data);
             return data as Review;
         } catch (error) {
             const errorMessage: string = (error as Error).message;

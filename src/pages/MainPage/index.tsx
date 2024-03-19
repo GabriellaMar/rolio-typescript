@@ -20,7 +20,6 @@ type MainPageProps = {
 };
 
 
-
 const MainPage: React.FC<MainPageProps> = ({ selectedPage, setSelectedPage, isTopOfPage, products }) => {
 
   return (

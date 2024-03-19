@@ -3,7 +3,6 @@ import { useAppDispatch } from "@/hooks/useAppDispatch";
 import { selectBasketItem } from "@/redux/basket/selectors";
 import { fetchBasketItemsThunk, removeBasketItemThunk } from "@/redux/operations";
 import { calculateProductItems, calculateTotalPrice } from "@/services/services";
-// import { TrashIcon } from "@heroicons/react/24/outline"
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -27,10 +26,6 @@ const BasketPage: React.FC = () => {
     const handleRemoveBasketItem = (id: string) => {
         dispatch(removeBasketItemThunk(id))
     }
-
-    // const handleClearBasket = () => {
-    //     dispatch(clearBasketThunk());
-    // };
 
     const totalItems: number = calculateProductItems(basketItems);
     const totalPrice: number = calculateTotalPrice(basketItems)
@@ -72,7 +67,6 @@ const BasketPage: React.FC = () => {
                     <ModalProvider>
                         <BasketForm />
                     </ModalProvider>
-
                 </>
             ) : (
                 <>

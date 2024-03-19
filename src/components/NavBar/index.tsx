@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 import { selectBasketItem } from "@/redux/basket/selectors";
 import { useSelector } from "react-redux";
 import { calculateProductItems } from "@/services/services";
+import { motion } from "framer-motion";
 
 
 
@@ -39,6 +40,16 @@ export const NavBar: React.FC<NavBarProps> = ({ isTopOfPage, selectedPage, setSe
         document.body.style.overflow = isMenuToggled ? 'auto' : 'hidden';
     }
 
+
+    const variantsOpen = {
+        visible: { opacity: 1, y: 0 },
+        hidden: { opacity: 1, y: -100 },
+    }
+
+    const variantsClose = {
+        visible: { opacity: 0, y: -100 },
+        hidden: { opacity: 1, y: 0 },
+    }
     return (
         <nav className={isAboveMediumScreens ? `${flexBetween}   z-20 ` : `flex items-center`}>
             <Link to='/'>
@@ -72,7 +83,13 @@ export const NavBar: React.FC<NavBarProps> = ({ isTopOfPage, selectedPage, setSe
 
             {/* Mobile MENU */}
             {!isAboveMediumScreens && isMenuToggled && (
-                <div className="fixed top-0 right-0 bottom-0 z-100 h-screen w-[300px] bg-salat-60a drop-shadow-xl px-[15px] py-28 pl-8" >
+                <motion.div className={`toggle-mob-menu fixed top-0 right-0 bottom-0 z-100 h-screen w-[300px] bg-salat-60a drop-shadow-xl px-[15px] py-28 pl-8 `}
+                
+                initial="hidden"
+                animate={isMenuToggled ? "visible" : "hidden"}
+                transition={{ duration: 0.2 }}
+                variants={isMenuToggled ? variantsOpen : variantsClose}
+                >
                     <button
                         className="absolute top-8 right-10"
                         onClick={handleMobileMenu}>
@@ -83,7 +100,7 @@ export const NavBar: React.FC<NavBarProps> = ({ isTopOfPage, selectedPage, setSe
                         selectedPage={selectedPage}
                         setSelectedPage={setSelectedPage}
                     />
-                </div>
+                </motion.div>
             )}
         </nav>
     )

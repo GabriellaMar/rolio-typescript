@@ -8,10 +8,7 @@ type SuccessMessageProps = {
 };
 
 export const SuccessMessage: React.FC<SuccessMessageProps> = ({ values }) => {
-
-
     const orderStatus = useSelector(selectOrderStatus);
-
 
     return (
         <div className="relative border border-salat-5a px-5 xs:py-9 sm:pt-14 pb-16 xs:mt-5 sm:mt-10">
