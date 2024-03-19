@@ -6,6 +6,7 @@ import { fetchBasketItemsThunk, fetchOReviewThunk, fetchProductsThunk } from "./
 import { selectProductData } from "./redux/product/selectors";
 import { useAppDispatch } from "./hooks/useAppDispatch";
 import { SelectedPage } from "./shared/types";
+import { ErrorPage } from "./pages/ErrorPage";
 
 
 const MainPage = lazy(() => import('./pages/MainPage/index'));
@@ -49,7 +50,7 @@ const App: React.FC = () => {
         products={items}
       />} />
       <Route path="/basket" element={<BasketPage />} />
-      {/* <Route path="*" element={<ErrorPage />} /> */}
+      <Route path="*" element={<ErrorPage />} />
     </Routes>
   )
 
