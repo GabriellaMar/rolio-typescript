@@ -24,7 +24,8 @@ const list = {
            <motion.ul className={`${flexCenter}  flex-col  flex-wrap  gap-[30px] sm:flex-row  xs:max-w-screen-sm  xs:mt-8 sm:mt-12  md:max-w-screen-md md:flex-nowrap md:gap-5 m-auto`}
              initial='hidden'
              whileInView='visible'
-            transition={{duration: 1.5,}}
+             viewport={{ once: true, amount: 0.5 }}
+            transition={{duration: 1.2,}}
             variants={list}
            >
            {products.map((product)=> 
