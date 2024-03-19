@@ -40,7 +40,7 @@ export const ReviewSlider: React.FC = () => {
             >
                 {reviews.map((review) => {
                     return (
-                        <div key={review._id} className=' bg-white shadow-lg xs:w-full   md:w-[650px] h-[260px]  p-6'>
+                        <div key={review._id} className=' bg-white shadow-lg xs:w-full   md:w-[600px] h-[260px]  p-6'>
                             <h3 className="font-amaticSC tracking-widest font-bold xs:text-base  sm:text-lg  text-salat-50 ">{review.userName}</h3>
                             <p className="font-roboto font-light xs:text-base  sm:text-lg  text-text-color mt-2">{review.comment}</p>
                         </div>
