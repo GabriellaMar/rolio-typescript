@@ -16,14 +16,14 @@ export const AboutUs = () => {
 
 
     return (
-        <section id='пронас' className='py-10 md:py-20 sm:px-10 md:px-[150px] m-auto '>
+        <section id='пронас' className='py-10 md:py-20 sm:px-10  m-auto '>
             <h2 className=" font-amaticSC font-normal text-4xl sm:text-5xl text-text-color md:font-bold text-center mb-20">Про нас</h2>
             <ul className="flex flex-col gap-24 items-center ">
                 <motion.div
                     initial='hidden'
                     whileInView='visible'
                     viewport={{ once: true, amount: 0.5 }}
-                    transition={{ duration: 1.5, }}
+                    transition={{ duration: 1.5 }}
                     variants={{
                         hidden: { opacity: 0, x: -50 },
                         visible: { opacity: 1, x: 0 },
@@ -47,13 +47,12 @@ export const AboutUs = () => {
                     initial='hidden'
                     whileInView='visible'
                     viewport={{ once: true, amount: 0.5 }}
-                    transition={{ duration: 1, }}
+                    transition={{ duration: 2 }}
                     variants={{
                         hidden: { opacity: 0, x: 50 },
-                        visible: { opacity: 1, x: 0 },
+                        visible: { opacity: 1.5, x: 0 },
                     }}
                 >
-                    {/* <li> */}
                     <li className="relative">
                         <div className={` ${isAboveSmallScreens && `square-mobile m-auto`} ${isAboveMediumScreens && ` doing-square-tablet`}  ${isAboveLargeScreens && `doing-square-desktop`}`}></div>
                         <img src={isAboveMediumScreens ? vegiesTablet : vegiesMobile} alt='Owner image' className={`${isAboveSmallScreens && `aboutImg-mobile`}  ${isAboveLargeScreens && `doingImg-desktop`}`} />
@@ -67,7 +66,6 @@ export const AboutUs = () => {
                             </p>
                         </div>
                     </li>
-                    {/* </li> */}
                 </motion.div >
             </ul>
         </section>

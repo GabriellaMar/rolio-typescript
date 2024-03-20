@@ -60,7 +60,7 @@ const SliderCard: React.FC<SliderCartProps> = ({product: { _id, title, img, desc
 
     return (
 
-        <div   className="  sm:items-center  relative mt-6">
+        <div   className="  sm:items-center  relative mt-6 justify-center">
            <OfferCategories sliderProducts={sliderProducts} borderColor={borderColor} textColor={textColor}  bgColor={CategoriesBgColor} activeSlide={activeSlide} />
             <div className={`${flexCenter} xs:flex-col md:flex-row md:-mt-10 xs:gap-4 md:gap-16 pb-14 md:px-6 xs:mt-10`}>
                 <div className={`   relative ${flexCenter}`}>

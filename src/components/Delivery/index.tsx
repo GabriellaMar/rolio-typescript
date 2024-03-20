@@ -11,12 +11,12 @@ export const Delivery = () => {
 
   
   return (
-    <section id='доставкатаоплата' className=" pt-20 ">
+    <section id='доставкатаоплата' className=" xs:pt-6 sm:pt-20 ">
       <motion.div className='flex relative xs:flex-col-reverse sm:flex-row  items-center gap-8  after:z-[1]'
        initial='hidden'
        whileInView='visible'
        viewport={{once: true, amount: 0.5}}
-       transition={{duration: 1.5,}}
+       transition={{duration: 1,}}
        variants={{
         hidden: {opacity: 0, x: 20},
         visible: {opacity: 1, x: 0},
@@ -42,7 +42,7 @@ export const Delivery = () => {
         initial='hidden'
         whileInView='visible'
         viewport={{once: true, amount: 0.5}}
-        transition={{duration: 1.5,}}
+        transition={{duration: 1,}}
         variants={{
            hidden: {opacity: 0, x: -20},
            visible: {opacity: 1, x: 0},

@@ -70,7 +70,7 @@ export const AddReviewForm: React.FC<AddReviewFormProps> = ({ closeModal }) => {
       <div className=' before:absolute flex justify-end xs:gep-4 sm:gap-20 items-center mt-4 xs:before:content-smallOilCap sm:before:content-mediumOilCap md:before:content-largeOilCap before:-bottom-10 before:-left-6 xs:before:-bottom-[100px] xs:before:-left-2'>
         <Buttons title={"Для салату"} text="Відправити" size={200} padding={2} type={"submit"} />
         <button type="button" className=" " onClick={resetForm}>
-          <TrashIcon className="h-8 w-8 text-salat-50 clear-hover " />
+          <TrashIcon className=" xs:absolute -bottom-20 right-1 h-8 w-8 text-salat-50 clear-hover " />
         </button>
       </div>
     </form>

@@ -34,7 +34,7 @@ export const Offers: React.FC<OffersProps> = ({ products }) => {
     return (
         <section className="px-5 sm:px-10  pt-40  md:px-[46px]  ">
             <h2 className="xs:mb-4 sm:mb-6 font-amaticSC font-normal text-4xl sm:text-5xl text-salat-50 md:font-bold text-center">Наші продукти</h2>
-            <motion.div className=' mx-auto relative  '
+            <motion.div className='  relative  '
                 initial='hidden'
                 whileInView='visible'
                 viewport={{ once: true, amount: 0.5 }}

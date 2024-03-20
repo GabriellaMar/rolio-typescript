@@ -118,14 +118,14 @@ export default {
         smallOilCap: "url('./assets/small-oil-cap.png')",
         mediumOilCap: "url('./assets/medium-oil-cap.png')",
         largeOilCap: "url('./assets/large-oil-cap.png')",
-     
       },
+      screens: {
+        xs: '320px',
+        sm: '768px',
+        md: '1366px',
+      }
     },
-    screens: {
-      xs: '320px',
-      sm: '768px',
-      md: '1366px',
-    }
+   
   },
   plugins: [
     formsPlugin,

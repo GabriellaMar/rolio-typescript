@@ -51,9 +51,9 @@ export const ContactForm: React.FC<ContactFormProps> = ({ closeModal }) => {
 
   return (
 
-    <form className='relative mt-1' onSubmit={handleMessageSubmit}>
+    <form className='relative xs:mt-1 sm::mt-3' onSubmit={handleMessageSubmit}>
       <label className="font-roboto  text-base text-text-color font-normal"> Ваше ім'я
-        <input className="border rounded border-light-grey-10 px-4 py-1 w-full  mt-2 outline-0 focus:border-salat-50 placeholder:roboto placeholder:text-light-grey-10"
+        <input className="border rounded border-light-grey-10 px-4 py-1 w-full  mt-1 outline-0 focus:border-salat-50 placeholder:roboto placeholder:text-light-grey-10 xs:mb-3 sm:mb-3"
           type='text'
           name="userName"
           value={userName}
@@ -61,8 +61,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({ closeModal }) => {
           placeholder="Ваше ім'я"
         />
       </label>
-      <label className="font-roboto  text-base text-text-color font-normal"> Ваше номер телефону
-        <input className="border rounded border-light-grey-10 px-4 py-1 w-full  mt-2 outline-0 focus:border-salat-50 placeholder:roboto placeholder:text-light-grey-10"
+      <label className="font-roboto  text-base text-text-color font-normal "> Ваше номер телефону
+        <input className="border rounded border-light-grey-10 px-4 py-1 w-full  mt-1 outline-0 focus:border-salat-50 placeholder:roboto placeholder:text-light-grey-10"
           type='phone'
           name="phone"
           value={phone}
@@ -70,14 +70,14 @@ export const ContactForm: React.FC<ContactFormProps> = ({ closeModal }) => {
           placeholder="+380"
         />
       </label>
-      <textarea className="border rounded border-light-grey-10 px-4 py-1 w-full xs:h-40   mt-5 outline-0 focus:border-salat-50 placeholder:roboto placeholder:text-light-grey-10"
+      <textarea className="border rounded border-light-grey-10 px-4 py-1 w-full xs:h-40   mt-4 outline-0 focus:border-salat-50 placeholder:roboto placeholder:text-light-grey-10"
         name="message"
         placeholder="Ваше повідомлення"
         value={message}
         onChange={handleMessageChange}
       >
       </textarea>
-      <div className=' before:absolute flex justify-center  mt-4 xs:before:content-olives xs:before:-rotate-12 xs:before:-bottom-[67px] xs:before:-left-3  sm:before:content-mediumOilCap md:before:content-largeOilCap sm:before:-bottom-18 sm:before:-left-4 '>
+      <div className=' before:absolute flex justify-center  mt-4 xs:before:content-olives xs:before:-rotate-12 xs:before:-bottom-[67px] xs:before:-left-3  sm:before:content-mediumOilCap md:before:content-largeOilCap sm:before:-bottom-18 sm:before:-left-4 md:before:-bottom-[76px]'>
         <Buttons title={"Для салату"} text="Відправити" size={200} padding={2} type={"submit"} />
 
       </div>

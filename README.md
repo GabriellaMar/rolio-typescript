@@ -1,30 +1,59 @@
-# React + TypeScript + Vite
+<p align="center ">
+  <img src="./src/assets/ReadMe-logo.png" alt="R.Olio-logo">
+  <h1 align="center">R.Olio store</h1>
+  <p align="center">
+ R.Olio - це простий веб-додаток, який спрощує процес замовлення оливкової олії з різними видами приправ для користувачів та малих бізнесів
+</p>
+</p>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Основна Функціональність
+-  Користувачі можуть обирати серед чотирьох основних видів оливкової олії: олія 'Для салату', 'Італійська', 'Для м'яса' та 'Східна'.
+- Простий і зручний інтерфейс дозволяє користувачам легко робити замовлення онлайн, обираючи потрібну кількість та методи доставки.
+- Користувачі мають залишити повідомлення для отримання більш точної інформації про продукт або зателефонувати чи зв'язатися через соц.мережі.
+-Вся інформація про товари та замовлення зберігаються в базі даних.
 
-Currently, two official plugins are available:
+## Technologies Used
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+#### TypeScript :
+TypeScript is a superset of JavaScript that adds static typing to the language. It allows developers to catch errors early in the development process and provides enhanced tooling for building scalable and maintainable applications. By adding types to JavaScript, TypeScript helps improve code quality, readability, and developer productivity. Additionally, TypeScript seamlessly integrates with popular JavaScript frameworks and libraries like React, enabling developers to leverage its benefits while building dynamic and high-performance web applications.
 
-## Expanding the ESLint configuration
+#### React :
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+React is a JavaScript library for building user interfaces, enabling you to
+create dynamic and highly performant web applications. Your application is built
+on React, making it easy to create components and manage application state.
 
-- Configure the top-level `parserOptions` property like this:
+#### Redux Toolkit :
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+Redux Toolkit is a library for managing the state of your application in React
+projects. It helps organize and simplify state management, centralizing it and
+providing debugging tools.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+#### Axios :
+
+Axios is a library for making HTTP requests in your React applications, allowing
+you to interact with the server, fetch, and send data.
+
+#### React Router DOM :
+
+React Router DOM is a library for navigation and routing in React applications,
+enabling the creation of routers and page navigation.
+
+#### Yup :
+
+Yup is a library for data validation in React applications, allowing you to set
+validation rules for forms and data, ensuring their correctness.
+
+#### React-Redux :
+
+React-Redux is a library for integrating Redux into your React applications,
+simplifying the connection between Redux state and React components.
+
+#### Formik :
+
+Formik is a library for managing forms in React applications, making form
+creation and management more convenient and efficient.
+
+#### Framer Motion :
+Framer Motion is a JavaScript library designed for creating fluid animations and interactions in React applications. It provides developers with a simple and intuitive API to animate elements, manage complex transitions, and add interactive gestures seamlessly.

@@ -15,13 +15,15 @@ import { ContactModal } from "./ContactsModal";
 
 
 export const Contacts = () => {
-  const isAboveSmallScreens = useMediaQuery("(min-width: 768px)");
+  const isAboveSmallScreens = useMediaQuery("(min-width: 320px)");
+  const isAboveMediumScreens = useMediaQuery("(min-width: 768px)");
+  const isAboveLargeScreens = useMediaQuery("(min-width: 1366px)");
   const { showModal, toggleModal } = useContext(ModalContext);
 
   return (
-    <section id='контакти' className="  pt-20 pb-20 sm:px-10 md:px-[46px] ">
-      <h2 className=" font-amaticSC font-normal text-4xl sm:text-5xl text-text-color md:font-bold text-center">Контакти</h2>
-      <motion.div className="relative mt-[72px]  max-w-[768px] m-auto"
+    <section id='контакти' className=" xs:py-10 sm:py-20  sm:px-10 md:px-[46px] flex flex-col  items-center">
+      <h2 className=" font-amaticSC font-normal text-4xl sm:text-5xl text-text-color md:font-bold text-center mb-20 ">Контакти</h2>
+      <motion.div className={`relative ] ${isAboveLargeScreens && `flex `}`}
         initial='hidden'
         whileInView='visible'
         viewport={{ once: true, amount: 0.5 }}
@@ -30,14 +32,12 @@ export const Contacts = () => {
           hidden: { opacity: 0, y: 30 },
           visible: { opacity: 1, y: 0 },
         }}
-
-        animate={{ x: 100 }}
         transition={{ ease: "easeOut", duration: 1 }}
       >
-        <div className={isAboveSmallScreens ? ` max-w-[209px] h-[424px] bg-salat-10  ` : ` bg-salat-10 w-full h-[280px]`}></div>
-        <img src={isAboveSmallScreens ? oilBottleTablet : oilBottleMobile} alt='Owner image' className={isAboveSmallScreens ? `absolute -top-8 left-28 ` : `w-[300px] absolute top-14 left-1/2 transform -translate-x-1/2 -translate-y-1/2 `} />
-        <div className={isAboveSmallScreens ? `m-auto p-10 bg-white  -mt-44 ml-36 drop-shadow w-[390px]` : `px-2.5 py-3  m-auto -mt-20 bg-white drop-shadow w-[300px]`}>
-          <ul className="flex flex-col gap-[27px] mb-4 text-sm">
+       <div className={` ${isAboveSmallScreens && `square-contact-mobile m-auto`} ${isAboveMediumScreens && ` square-contact-tablet`} ${isAboveLargeScreens && `square-contact-desktop`} ${isAboveLargeScreens && `ml-0 `}`}></div>
+       <img src={isAboveMediumScreens ?  oilBottleTablet : oilBottleMobile} alt='Owner image' className={`${isAboveSmallScreens && `contactImg-mobile`}  ${isAboveLargeScreens && `contactImg-desktop`}`} />
+       <div className={` bg-white drop-shadow  ${isAboveSmallScreens && ` contact-info-mobile m-auto `} ${isAboveMediumScreens && `contact-info-tablet`} ${isAboveLargeScreens && ` contact-info-desktop`}`}>
+          <ul className="flex flex-col gap-[27px] mb-4 text-sm ">
             <li className="flex xs:gap-4 sm:gap-6">
               <img src={phone} alt='Phone icon' />
               <p >+38 (066) 11-43-558</p>
