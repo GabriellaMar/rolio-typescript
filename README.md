@@ -57,3 +57,7 @@ creation and management more convenient and efficient.
 
 #### Framer Motion :
 Framer Motion is a JavaScript library designed for creating fluid animations and interactions in React applications. It provides developers with a simple and intuitive API to animate elements, manage complex transitions, and add interactive gestures seamlessly.
+
+
+## Backend
+[R.Olio Frontend](https://github.com/GabriellaMar/rolio-backend)

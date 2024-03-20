@@ -67,12 +67,12 @@ export const AddReviewForm: React.FC<AddReviewFormProps> = ({ closeModal }) => {
         onChange={handleReviewChange}
       >
       </textarea>
-      <div className=' before:absolute flex justify-end xs:gep-4 sm:gap-20 items-center mt-4 xs:before:content-smallOilCap sm:before:content-mediumOilCap md:before:content-largeOilCap before:-bottom-10 before:-left-6 xs:before:-bottom-[100px] xs:before:-left-2'>
+      <div className=' before:absolute flex justify-center  mt-4 xs:before:content-olives xs:before:-rotate-12 xs:before:-bottom-[67px] xs:before:-left-3  sm:before:content-mediumOilCap md:before:content-largeOilCap sm:before:-bottom-18 sm:before:-left-4 md:before:-bottom-[76px]'>
         <Buttons title={"Для салату"} text="Відправити" size={200} padding={2} type={"submit"} />
-        <button type="button" className=" " onClick={resetForm}>
-          <TrashIcon className=" xs:absolute -bottom-20 right-1 h-8 w-8 text-salat-50 clear-hover " />
-        </button>
       </div>
+      <button type="button" className=" " onClick={resetForm}>
+          <TrashIcon className="xs:absolute -bottom-10 right-1 h-8 w-8 text-salat-50 clear-hover " />
+        </button>
     </form>
   )
 }
