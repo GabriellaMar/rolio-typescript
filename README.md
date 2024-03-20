@@ -1,16 +1,16 @@
 <p align="center ">
   <img src="./src/assets/ReadMe-logo.png" alt="R.Olio-logo">
-  <h1 align="center">R.Olio store</h1>
+  <h1 align="center">R.Olio</h1>
   <p align="center">
- R.Olio - це простий веб-додаток, який спрощує процес замовлення оливкової олії з різними видами приправ для користувачів та малих бізнесів
+ R.Olio is a simple e-commerce web application that streamlines the process of ordering olive oil with various spices for users and small businesses.
 </p>
 </p>
 
-## Основна Функціональність
--  Користувачі можуть обирати серед чотирьох основних видів оливкової олії: олія 'Для салату', 'Італійська', 'Для м'яса' та 'Східна'.
-- Простий і зручний інтерфейс дозволяє користувачам легко робити замовлення онлайн, обираючи потрібну кількість та методи доставки.
-- Користувачі мають залишити повідомлення для отримання більш точної інформації про продукт або зателефонувати чи зв'язатися через соц.мережі.
--Вся інформація про товари та замовлення зберігаються в базі даних.
+## Main Functionality
+- Users can choose from four main types of olive oil: 'For Salad', 'Italian', 'For Meat', and 'Eastern'.
+- A simple and convenient interface allows users to easily place orders online, selecting the desired quantity and delivery methods.
+- Users can leave a message to receive more detailed information about the product or contact via phone or social media.
+- All information about products and orders is stored in the database.
 
 ## Technologies Used
 
