@@ -51,7 +51,7 @@ export const AddReviewForm: React.FC<AddReviewFormProps> = ({ closeModal }) => {
   return (
     <form className='relative mt-3' onSubmit={handleReviewSubmit}>
       <label className="font-roboto  text-base text-text-color font-normal"> Ваше ім'я
-        <input className="border rounded border-light-grey-10 px-4 py-2 w-full  mt-2 outline-0 focus:border-salat-50 placeholder:roboto placeholder:text-light-grey-10"
+        <input className="border rounded border-light-grey-10 px-4 py-2 w-full  mt-2 outline-0 focus:border-salat-50  focus:ring-transparent placeholder:roboto placeholder:text-light-grey-10"
           type='text'
           name="userName"
           value={userName}
@@ -59,7 +59,7 @@ export const AddReviewForm: React.FC<AddReviewFormProps> = ({ closeModal }) => {
           placeholder="Ваше ім'я"
         />
       </label>
-      <textarea className="border rounded border-light-grey-10 px-4 py-2 w-full xs:h-48 sm:h-60  mt-5 outline-0 focus:border-salat-50 placeholder:roboto placeholder:text-light-grey-10"
+      <textarea className="border rounded border-light-grey-10 px-4 py-2 w-full xs:h-48 sm:h-60  mt-5 outline-0 focus:border-salat-50  focus:ring-transparent placeholder:roboto placeholder:text-light-grey-10"
         //  type='text'
         name="comment"
         placeholder="Ваш коментар"
@@ -67,11 +67,11 @@ export const AddReviewForm: React.FC<AddReviewFormProps> = ({ closeModal }) => {
         onChange={handleReviewChange}
       >
       </textarea>
-      <div className=' before:absolute flex justify-center  mt-4 xs:before:content-olives xs:before:-rotate-12 xs:before:-bottom-[67px] xs:before:-left-3  sm:before:content-mediumOilCap md:before:content-largeOilCap sm:before:-bottom-18 sm:before:-left-4 md:before:-bottom-[76px]'>
+      <div className=' before:absolute flex justify-center  mt-4 xs:before:content-olives xs:before:-rotate-12 xs:before:-bottom-[67px] xs:before:-left-3  sm:before:content-mediumOilCap md:before:content-largeOilCap sm:before:-bottom-18 sm:before:-left-4 sm:before:-bottom-[55px]'>
         <Buttons title={"Для салату"} text="Відправити" size={200} padding={2} type={"submit"} />
       </div>
       <button type="button" className=" " onClick={resetForm}>
-          <TrashIcon className="xs:absolute -bottom-10 right-1 h-8 w-8 text-salat-50 clear-hover " />
+          <TrashIcon className="xs:absolute -bottom-10 sm:-bottom-5 right-1 h-8 w-8 text-salat-50 clear-hover " />
         </button>
     </form>
   )

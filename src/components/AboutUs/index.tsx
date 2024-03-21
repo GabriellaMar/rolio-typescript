@@ -20,14 +20,14 @@ export const AboutUs = () => {
             <h2 className=" font-amaticSC font-normal text-4xl sm:text-5xl text-text-color md:font-bold text-center mb-20">Про нас</h2>
             <ul className="flex flex-col gap-24 items-center ">
                 <motion.div
-                    initial='hidden'
-                    whileInView='visible'
-                    viewport={{ once: true, amount: 0.5 }}
-                    transition={{ duration: 1.5 }}
-                    variants={{
-                        hidden: { opacity: 0, x: -50 },
-                        visible: { opacity: 1, x: 0 },
-                    }}
+                     initial='hidden'
+                     whileInView='visible'
+                     viewport={{once: true, amount: 0.5}}
+                     transition={{duration: 2,}}
+                     variants={{
+                      hidden: {opacity: 0, x: 50},
+                      visible: {opacity: 1, x: 0},
+                     }}
                 >
                     <li className={`relative ${isAboveLargeScreens && `flex `}`}>
                         <div className={` ${isAboveSmallScreens && `square-mobile m-auto`} ${isAboveMediumScreens && ` square-tablet`} ${isAboveLargeScreens && `square-desktop`} ${isAboveLargeScreens && `ml-0 `}`}></div>
@@ -44,14 +44,14 @@ export const AboutUs = () => {
                     </li>
                 </motion.div >
                 <motion.div
-                    initial='hidden'
-                    whileInView='visible'
-                    viewport={{ once: true, amount: 0.5 }}
-                    transition={{ duration: 2 }}
-                    variants={{
-                        hidden: { opacity: 0, x: 50 },
-                        visible: { opacity: 1.5, x: 0 },
-                    }}
+                     initial='hidden'
+                     whileInView='visible'
+                     viewport={{once: true, amount: 0.5}}
+                     transition={{duration: 2,}}
+                     variants={{
+                        hidden: {opacity: 0, x: -50},
+                        visible: {opacity: 1, x: 0},
+                     }}
                 >
                     <li className="relative">
                         <div className={` ${isAboveSmallScreens && `square-mobile m-auto`} ${isAboveMediumScreens && ` doing-square-tablet`}  ${isAboveLargeScreens && `doing-square-desktop`}`}></div>

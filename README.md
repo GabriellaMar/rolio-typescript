@@ -2,7 +2,8 @@
   <img src="./src/assets/ReadMe-logo.png" alt="R.Olio-logo">
   <h1 align="center">R.Olio</h1>
   <p align="center">
- R.Olio is a simple e-commerce web application that streamlines the process of ordering olive oil with various spices for users and small businesses.
+ R.Olio is a simple e-commerce web application that empowers customers and small businesses easily and conveniently
+ order online olive oil with various types of spices.
 </p>
 </p>
 

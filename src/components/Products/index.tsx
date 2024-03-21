@@ -20,7 +20,7 @@ const flexCenter =  'flex items-center justify-center';
              viewport={{ once: true, amount: 0.5 }}
              transition={{duration: 1}}
              variants={{
-               hidden: { opacity: 0, y: 50 },
+               hidden: { opacity: 0, y: 30 },
                visible: { opacity: 1, y: 0 },
              }}
      
