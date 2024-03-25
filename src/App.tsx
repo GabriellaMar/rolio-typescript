@@ -21,6 +21,7 @@ const App: React.FC = () => {
   const { items } = useSelector(selectProductData);
 
   useEffect(() => {
+    console.log("useEffect called"); 
     let userId = localStorage.getItem("userId");
     if (!userId) {
       userId = uuidv4();

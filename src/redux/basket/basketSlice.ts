@@ -33,11 +33,10 @@ const basketSlice = createSlice({
             .addCase(addBasketItemThunk.fulfilled, (state, action) => {
 
                 const findItem = state.basketItems.find(item => item._id === action.payload._id);
-                const newItem = action.payload;
-                 if (findItem) {
-                    findItem.quantity += newItem.quantity;
+                if (findItem) {
+                    findItem.quantity += 1;
                 } else {
-                    state.basketItems.push(newItem);
+                    state.basketItems.push({ ...action.payload, quantity: 1 });
                 }
                 state.status = Status.SUCCESS;
             })
