@@ -7,7 +7,6 @@ import { Product } from "@/redux/product/types";
 import { SliderArrows } from "./SliderArrows";
 
 
-
 type OffersProps = {
     products: Product[],
 };
@@ -46,8 +45,6 @@ export const Offers: React.FC<OffersProps> = ({ products }) => {
             >
                 <Carousel responsive={responsive}
                     infinite={true}
-                    // autoPlay={true}
-                    // autoPlaySpeed={3500}
                     customTransition="transform 1500ms ease-in-out"
                     transitionDuration={2000}
                     arrows={false}

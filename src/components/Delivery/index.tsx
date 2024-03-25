@@ -7,9 +7,7 @@ import box from '@/assets/box.png';
 import { motion } from "framer-motion";
 
 export const Delivery = () => {
-  // const flexCenter = 'flex justify-center items-center'
 
-  
   return (
     <section id='доставкатаоплата' className=" xs:pt-6 sm:pt-20 ">
       <motion.div className='flex relative xs:flex-col-reverse sm:flex-row  items-center gap-8  after:z-[1]'

@@ -23,9 +23,6 @@ const flexCenter =  'flex items-center justify-center';
                hidden: { opacity: 0, y: 30 },
                visible: { opacity: 1, y: 0 },
              }}
-     
-            //  animate={{ x: 100 }}
-            //  transition={{ ease: "easeOut", duration: 1 }}
            >
            {products.map((product)=> 
            <ProductCart

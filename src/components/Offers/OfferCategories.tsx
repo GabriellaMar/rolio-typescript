@@ -1,11 +1,4 @@
-
-
 import { Product } from "@/redux/product/types";
-
-
-
-
-
 
 
 type SliderProps = {
@@ -17,8 +10,6 @@ type SliderProps = {
 };
 
  export const OfferCategories: React.FC <SliderProps> = ({ sliderProducts, borderColor, textColor,  bgColor, activeSlide}) => {
-  // const categoriesRef = useRef(null);
-  
 
   return (
     <ul className={`flex flex-wrap gap-4 items-center  xs:justify-center md:justify-start  sm:m-auto md:ml-[44%] `} >

@@ -22,9 +22,8 @@ export const ProductCart: React.FC<Product> = ({ _id, details, title, descriptio
   const isAboveMediumScreens = useMediaQuery("(min-width: 1366px)");
   const dispatch = useAppDispatch();
   const basketItem = useSelector(selectBasketItemById(_id));
-// console.log(basketItem)
- 
 
+ 
    const addedQuantity = basketItem ? basketItem.quantity  : 0;
 
 
@@ -36,29 +35,27 @@ export const ProductCart: React.FC<Product> = ({ _id, details, title, descriptio
     setIsHovered(false);
   };
 
-  const handleAddToBasket = () => {
-    const product = { _id: _id, quantity: 1 };
-    dispatch(addBasketItemThunk(product));
-  };
+  // const handleAddToBasket = () => {
+  //   const product = { _id: _id, quantity: 1 };
+  //   dispatch(addBasketItemThunk(product));
+  // };
 
+  const handleAddToBasket = () => {
+    const userId = localStorage.getItem("userId"); 
+    if (userId) { 
+      const product = { _id: _id, quantity: 1, userId: userId }; 
+      dispatch(addBasketItemThunk(product));
+    } 
+  };
 
 
   const productColor = ProductColor[title as keyof typeof ProductColor] || 'gray';
 
   const backgroundColor = BackgroundColor[title as keyof typeof ProductColor] || 'gray';
 
-  // const item = {
-  //   visible: { opacity: 1, x: 0 },
-  //   hidden: { opacity: 0, x: 60 },
-  // }
-
   return (
     <IsHoveredContext.Provider value={isHovered}>
-    <li className="  xs:w-[280px] sm:w-[329px] text-center "
-    // variants={item}
-    // viewport={{once: true, amount: 0.5}}
-    // transition={{duration: 1.5,}}
-    >
+    <li className="  xs:w-[280px] sm:w-[329px] text-center " >
       <div className="relative w-[174px] h-[174px] m-auto">
 
         <div className={`relative m-auto     `}>
@@ -66,8 +63,6 @@ export const ProductCart: React.FC<Product> = ({ _id, details, title, descriptio
             <div className={` absolute  top-[10px] left-[10px] m-auto w-[154px] h-[154px] rounded-full ${isHovered ? `bg-gradient-to-r ${productColor} hovered` : `not-hovered`}  `} >
             </div>
           </div>
-
-          {/* <img src={`http://localhost:8000/${img}`} alt="bottle of Oil" className={`  inline-block m-auto  ${isHovered ? ' absolute -top-1 left-0  origin-center  rotate ' : 'not-rotate'}`} /> */}
           <img src={`https://rolio-backend-api.onrender.com/${img}`} alt="bottle of Oil" className={`  inline-block m-auto  ${isHovered ? ' absolute -top-1 left-0  origin-center  rotate ' : 'not-rotate'}`} />
         </div>
 

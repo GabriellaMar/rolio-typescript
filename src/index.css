@@ -22,29 +22,28 @@ link {
   text-decoration: none;
   background-color: #f7faecd2;
   background-color: #f6f9f5
-  
 }
 
 .hover-gradient:hover {
   border: none;
   color: #ffffff;
-  transition: 250ms ease-in-out; 
+  transition: 250ms ease-in-out;
 }
 
-/* .hover-color:hover{
-  transition: 550ms ease-in-out; 
-} */
-.not-hovered{
+
+.not-hovered {
   opacity: 0;
-  transition: 250ms ease-in-out; 
+  transition: 250ms ease-in-out;
 }
-.hovered{
+
+.hovered {
   opacity: 1;
-  transition: 250ms ease-in-out; 
+  transition: 250ms ease-in-out;
 }
+
 .rotate {
   transform: rotate(12deg) scale(1.1);
-  transition: 250ms ease-in-out; 
+  transition: 250ms ease-in-out;
 }
 
 .scaled-img {
@@ -52,39 +51,41 @@ link {
   width: 253px;
   height: 300px;
   transform: rotate(12deg)scale(1.6)translate(-50%, -50%);
-  /* transition: 250ms ease-in-out;  */
+
 }
-.not-scaled-img{
+
+.not-scaled-img {
   transform: rotate(12deg)scale(1.2)translate(-50%, -30%)
 }
 
 .not-rotate {
-  transform: rotate(0deg)  scale(1);
+  transform: rotate(0deg) scale(1);
   transition: 250ms ease-in-out;
 
 }
 
-.scaled-logo{
+.scaled-logo {
   width: 130px;
   height: 130px;
   transform: scale(1);
   transition: 250ms ease-in-out;
 }
 
-.not-scaled-logo{
+.not-scaled-logo {
   width: 100px;
   height: 100px;
   transition: 250ms ease-in-out;
 }
 
-.hover-icon:hover{
+.hover-icon:hover {
   transform: scale(1.05);
   transition: 250ms ease-in-out;
 }
+
 .clear-hover:hover {
   transform: scale(1.1);
-  color: #97241e ;
-  transition: 250ms ease-in-out; 
+  color: #97241e;
+  transition: 250ms ease-in-out;
 }
 
 
@@ -112,7 +113,7 @@ link {
 .doingImg-desktop {
   position: absolute;
   top: -40px;
- left: 85%;
+  left: 85%;
   transform: translateX(-50%);
 }
 
@@ -121,7 +122,8 @@ link {
   text-align: center;
   max-width: 320px;
 }
-.about-doing-tablet{
+
+.about-doing-tablet {
   padding: 16px 20px;
   text-align: start;
   max-width: 624px;
@@ -131,14 +133,15 @@ link {
 }
 
 .aboutUs-tablet {
-  
+
   padding: 16px 20px;
   text-align: start;
   max-width: 624px;
   margin-top: -15%;
   margin-left: 5%;
- 
+
 }
+
 .aboutUs-desktop {
   display: flex;
   flex-direction: column;
@@ -149,7 +152,7 @@ link {
   height: 357px;
   margin-top: 0;
   margin-right: -25%;
- 
+
 }
 
 .about-doing-desktop {
@@ -162,18 +165,16 @@ link {
   height: 357px;
   margin-top: -55%;
   margin-left: -45%;
- 
+
 }
 
 .square-tablet {
- width: 209px;
+  width: 209px;
   height: 357px;
   background-color: #BFD087;
   margin-left: -3%;
-/* position: absolute;
-left: 30%;
-top: 0; */
 }
+
 .doing-square-tablet {
   width: 209px;
   height: 357px;
@@ -190,40 +191,41 @@ top: 0; */
 
 .square-desktop {
   width: 153px;
-   height: 357px;
-   background-color: #BFD087;
-   margin-left: -20%;
- }
-.square-contact-mobile{
+  height: 357px;
+  background-color: #BFD087;
+  margin-left: -20%;
+}
+
+.square-contact-mobile {
   max-width: 320px;
   height: 200px;
   background-color: #BFD087;
 }
 
-.square-contact-tablet{
+.square-contact-tablet {
   width: 209px;
   height: 357px;
   margin: 0 auto;
-   margin-left: -40%; 
+  margin-left: -40%;
   background-color: #BFD087;
 }
 
-.square-contact-desktop{
+.square-contact-desktop {
   width: 153px;
   height: 357px;
   margin-left: -45%;
   background-color: #BFD087;
 }
 
-.contactImg-mobile{
+.contactImg-mobile {
   position: absolute;
   top: -40px;
-   left: 50%; 
-   max-width: 529px;
+  left: 50%;
+  max-width: 529px;
   transform: translateX(-50%);
 }
 
-.contactImg-desktop{
+.contactImg-desktop {
   position: absolute;
   width: 100%;
   top: -40px;
@@ -231,42 +233,42 @@ top: 0; */
   transform: translateX(-50%);
 }
 
-.contact-info-mobile{
- 
-     padding: 20px; 
-     width: 320px;
-    
- 
+.contact-info-mobile {
+
+  padding: 20px;
+  width: 320px;
+
+
 }
 
-.contact-info-tablet{
+.contact-info-tablet {
   display: flex;
   flex-direction: column;
   justify-content: center;
-align-items: center;
-     padding: 20px; 
-    /* text-align: center; */
-     margin-top: -25%; 
+  align-items: center;
+  padding: 20px;
+
+  margin-top: -25%;
   margin-left: -3%;
-    width: 393px;
-    height: 400px;
- 
+  width: 393px;
+  height: 400px;
+
 }
 
-.contact-info-desktop{
+.contact-info-desktop {
   display: flex;
   flex-direction: column;
   justify-content: center;
-align-items: center;
-     padding: 40px; 
-     margin-top: 0;
+  align-items: center;
+  padding: 40px;
+  margin-top: 0;
   margin-right: -25%;
-    width: 377px;
-    height: 424px;
- 
+  width: 377px;
+  height: 424px;
+
 }
 
-.backdrop-class{
+.backdrop-class {
   position: fixed;
   top: 0;
   left: 0;
@@ -276,7 +278,7 @@ align-items: center;
   justify-content: center;
   align-items: center;
   backdrop-filter: blur(2px);
-   z-index: 12; 
+  z-index: 12;
 
 }
 
@@ -286,50 +288,49 @@ align-items: center;
   margin-left: auto;
 }
 
-.carousel-button-group{
+.carousel-button-group {
   position: absolute;
 }
-.btn-square{
+
+.btn-square {
   border-radius: 40% 60% 40% 70% / 50% 36% 72% 35%;
 }
 
-.carousel-dots  .react-multi-carousel-dot {
+.carousel-dots .react-multi-carousel-dot {
   margin-left: 16px;
-background-color: #fff;
+  background-color: #fff;
 
 }
 
-.carousel-dots  .react-multi-carousel-dot--active  button{
+.carousel-dots .react-multi-carousel-dot--active button {
 
   background-color: #688800;
-  
-  }
+
+}
 
 .review-dots .react-multi-carousel-dot {
   margin-left: 16px;
 
-background-color: #f7faecd2 ;
+  background-color: #f7faecd2;
 
-@media (max-width: 768px) {
-  margin-left: 10px;
+  @media (max-width: 768px) {
+    margin-left: 10px;
+  }
 }
-}
 
 
-.review-dots  .react-multi-carousel-dot--active  button{
+.review-dots .react-multi-carousel-dot--active button {
 
   background-color: #688800;
 }
-  
+
 
 .review-list .react-multi-carousel-list {
   justify-content: center;
 }
 
-.scroll-style{
+.scroll-style {
   overflow-x: auto;
   white-space: nowrap;
   max-width: 100%;
 }
-
-

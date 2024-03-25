@@ -36,8 +36,9 @@ export const fetchBasketItemsThunk = createAsyncThunk<BasketItem[], void, { reje
     'basket/fetchBasketItems',
     async (_, thunkApi) => {
         try {
-    
-            const { data } = await instance.get<BasketItem[]>('/basket');
+            const userId = localStorage.getItem("userId");
+console.log(userId)
+            const { data } = await instance.get<BasketItem[]>(`/basket?userId=${userId}`);
             return data
         } catch (error) {
             const errorMessage: string = (error as Error).message ;
@@ -47,25 +48,33 @@ export const fetchBasketItemsThunk = createAsyncThunk<BasketItem[], void, { reje
     );
 
 
-
-export const addBasketItemThunk = createAsyncThunk<BasketItem, { _id: string, quantity: number }, { rejectValue: ErrorPayload }>(
-    'basket/addBasketItem',
-    async (product, thunkApi) => { 
-        try {
-            const { data } = await instance.post<BasketItem>('/basket', product);
-            return data as BasketItem;
-        } catch (error) {
-            const errorMessage: string = (error as Error).message;
-            return thunkApi.rejectWithValue({ message: errorMessage });
+    export const addBasketItemThunk = createAsyncThunk<BasketItem, { _id: string, quantity: number }, { rejectValue: ErrorPayload }>(
+        'basket/addBasketItem',
+        async ({ _id, quantity }, thunkApi) => {
+            try {
+                const userId = localStorage.getItem("userId");
+          
+                if (!userId) {
+                    return thunkApi.rejectWithValue({ message: "userId is not available in localStorage" });
+                }
+                const { data } = await instance.post<BasketItem>('/basket', { _id, quantity }, { params: { userId } });
+            
+                return data as BasketItem;
+            } catch (error) {
+                const errorMessage: string = (error as Error).message;
+                return thunkApi.rejectWithValue({ message: errorMessage });
+            }
         }
-    }
-);
+    );
+
 
 export const removeBasketItemThunk = createAsyncThunk<BasketItem, string, { rejectValue: ErrorPayload }>(
     'basket/removeBasketItem',
     async (_id, thunkApi) => { 
         try {
-            const { data } = await instance.delete(`/basket/${_id}`);
+            const userId = localStorage.getItem("userId");
+          
+            const { data } = await instance.delete(`/basket/${_id}`, { params: { userId } });
             return data;
         } catch (error) {
             const errorMessage: string = (error as Error).message;
@@ -79,7 +88,8 @@ export const updateBasketItemThunk = createAsyncThunk(
     'basket/updateBasketItem',
     async ({ id, action }: UpdateBasketItemData, thunkApi) => {
         try {
-            const { data } = await instance.patch(`/basket/${action}/${id}`);
+            const userId = localStorage.getItem("userId");
+            const { data } = await instance.patch(`/basket/${action}/${id}`, null, { params: { userId } });
             return data;
         } catch (error) {
             const errorMessage = (error as Error).message;
@@ -92,7 +102,8 @@ export const updateBasketItemThunk = createAsyncThunk(
     'basket/clearBasket',
     async (_, thunkApi) => {
       try {
-        await instance.delete(`/basket`); 
+        const userId = localStorage.getItem("userId");
+        await instance.delete(`/basket`, { params: { userId } }); 
       } catch (error) {
         const errorMessage: string = (error as Error).message;
         return thunkApi.rejectWithValue({ message: errorMessage });

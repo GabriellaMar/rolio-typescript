@@ -1,6 +1,7 @@
 import {  Status } from "../product/types";
 
 export type BasketItem = {
+  userId?:string,
       _id: string;
       title: string;
       img: string;

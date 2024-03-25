@@ -9,10 +9,6 @@ interface CarouselButtonGroupProps extends ButtonGroupProps {
     className?: string;
   }
 
-//  type ArrowsProps = {
-//     next: ()=> void;
-//     previous: ()=> void;
-//  }
 
 export const SliderArrows: React.FC <CarouselButtonGroupProps> = ({ next, previous }) => {
 

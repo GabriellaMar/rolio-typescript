@@ -1,4 +1,4 @@
-// import React from 'react'
+
 import { SelectedPage } from '@/shared/types';
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 
@@ -6,7 +6,6 @@ type LinkProps = {
     page: string,
     selectedPage: SelectedPage,
     setSelectedPage: (value: SelectedPage) => void;
-   
 }
 
 export const Link: React.FC <LinkProps> = ({ page, selectedPage, setSelectedPage}) => {

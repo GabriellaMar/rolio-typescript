@@ -20,8 +20,6 @@ type NavBarProps = {
     selectedPage: SelectedPage,
     setSelectedPage: (value: SelectedPage) => void;
     isTopOfPage: boolean,
-
-
 }
 
 export const NavBar: React.FC<NavBarProps> = ({ isTopOfPage, selectedPage, setSelectedPage }) => {

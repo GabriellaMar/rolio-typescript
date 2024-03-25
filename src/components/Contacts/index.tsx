@@ -7,7 +7,6 @@ import telegram from '@/assets/telegram.png';
 import { motion } from "framer-motion";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import { Buttons } from "../Buttons";
-// import { Modal } from "../Modal";
 import { useContext } from "react";
 import { ModalContext } from "../ModalContext";
 import { ContactModal } from "./ContactsModal";
@@ -27,7 +26,6 @@ export const Contacts = () => {
         initial='hidden'
         whileInView='visible'
         viewport={{ once: true, amount: 0.5 }}
-        // transition={{duration: 2,}}
         variants={{
           hidden: { opacity: 0, y: 30 },
           visible: { opacity: 1, y: 0 },

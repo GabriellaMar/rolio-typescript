@@ -8,13 +8,10 @@ const modalRoot = document.querySelector('#modal-root') as HTMLElement;
 type ModalProps = {
   closeModal: () => void;
   children: React.ReactNode;
-
-
 }
 
 export const Modal: React.FC<ModalProps> = ({ children, closeModal }) => {
-  // const flexBetween = 'flex  justify-between items-center';
-
+ 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {

@@ -6,8 +6,6 @@ type HeaderProps = {
     isTopOfPage: boolean,
     selectedPage: SelectedPage,
     setSelectedPage: (value: SelectedPage) => void;
-
-   
 }
 
 

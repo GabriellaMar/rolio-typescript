@@ -47,6 +47,7 @@ const BasketPage: React.FC = () => {
                             if (item.quantity > 0) {
                                 return (
                                     <Card
+                                
                                         key={item._id}
                                         _id={item._id}
                                         quantity={item.quantity}

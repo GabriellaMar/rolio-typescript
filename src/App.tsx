@@ -7,6 +7,7 @@ import { selectProductData } from "./redux/product/selectors";
 import { useAppDispatch } from "./hooks/useAppDispatch";
 import { SelectedPage } from "./shared/types";
 import { ErrorPage } from "./pages/ErrorPage";
+import { v4 as uuidv4 } from "uuid"; 
 
 
 const MainPage = lazy(() => import('./pages/MainPage/index'));
@@ -19,6 +20,13 @@ const App: React.FC = () => {
   const dispatch = useAppDispatch();
   const { items } = useSelector(selectProductData);
 
+  useEffect(() => {
+    let userId = localStorage.getItem("userId");
+    if (!userId) {
+      userId = uuidv4();
+      localStorage.setItem("userId", userId);
+    }
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
